@@ -44,7 +44,6 @@ const to = (index) => {
   margin: auto;
   height: 100vh;
   display: grid;
-  overflow: scroll;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 100px;
   column-gap: 120px;
@@ -56,13 +55,12 @@ const to = (index) => {
   max-width: 140px;
   min-width: 120px;
   position: relative;
-  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
   margin-top: 50px;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1),
-    0 16px 24px 0 rgba(0, 0, 0, 0.1), 0 24px 32px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0.4px rgba(0, 0, 0, 0.499),
+    0px 0px 1.1px rgba(0, 0, 0, 0.602), 0px 0px 2.7px rgba(0, 0, 0, 0.608),
+    0px 0px 9px rgba(0, 0, 0, 0.4);
 }
 .block:after {
   content: "";
@@ -71,9 +69,25 @@ const to = (index) => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000000;
-  opacity: 0.36;
   filter: blur(4px);
   z-index: -1;
+}
+@media screen and (max-width: 1200px) {
+  .AppList {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 0;
+    margin-top: 48px;
+    height: 92vh;
+    width: 94vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .AppList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 72px;
+    column-gap: 0;
+    margin-top: 48px;
+    width: 88vw;
+  }
 }
 </style>

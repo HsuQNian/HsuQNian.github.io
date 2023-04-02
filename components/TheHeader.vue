@@ -1,4 +1,3 @@
-
 <template>
   <div class="header">
     <nuxt-link to="/">主页</nuxt-link>
@@ -18,8 +17,6 @@
   border-radius: 12px;
   width: 99vw;
   height: 64px;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -27,8 +24,8 @@
   box-sizing: border-box;
 }
 .header a {
-  margin: 0 20px;
-  color: #fff;
+  margin: 0 28px;
+  color: var(--Virtual);
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;

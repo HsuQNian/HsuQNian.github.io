@@ -1,11 +1,9 @@
 :root {
-  --theme: rgb(246, 230, 220);
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 200;
   color-scheme: light dark;
-  color: var(--theme);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -19,6 +17,7 @@
   --Virtual: #bbb;
   --Real: #120e10;
   --Inverse: #6ca984;
+  
 }
 
 * {

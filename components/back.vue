@@ -1,8 +1,11 @@
 <script setup>
 import { useRouter } from "vue-router";
 const router = useRouter();
+const app = defineProps({
+  router: String,
+});
 const backHome = () => {
-  router.push("/");
+  router.push(app.router);
 };
 </script>
 <template>
@@ -11,8 +14,8 @@ const backHome = () => {
 <style scoped>
 .backHome {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 72px;
+  left: 54px;
   width: 40px;
   height: 40px;
   background-size: cover;
@@ -25,19 +28,19 @@ const backHome = () => {
   filter: blur(0);
 }
 .backHome:hover::before {
-  border-left: 2px solid var(--theme);
-  border-bottom: 2px solid var(--theme);
-  transform: rotate(45deg);
+  border-left: 2px solid var(--Real);
+  border-bottom: 2px solid var(--Real);
+  transform: rotate(45deg) translateX(-36%) translateY(-36%);
 }
 .backHome::before {
   position: fixed;
   content: "";
   width: 20px;
   height: 20px;
-  transform: rotate(45deg) translateY(-4px);
-  border-left: 12px solid var(--theme);
-  border-bottom: 12px solid var(--theme);
-  top: 16px;
+  transform: rotate(45deg) translateX(-20%) translateY(-48%);
+  border-left: 12px solid var(--Real);
+  border-bottom: 12px solid var(--Real);
+  top: 50%;
   left: 12px;
   transition: all 0.24s ease-in-out;
 }

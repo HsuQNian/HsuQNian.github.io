@@ -5,20 +5,30 @@ let project = [];
 Object.keys(modules).map((key) => {
   project.push(key.split("/")[1]);
 });
-const projectImg = computed(() => {
-  return (param) => `../assets/resources/${param}/${param}.png`;
-});
+
 const to = (index) => {
   router.push({ path: index });
 };
-
 </script>
 <template>
-  <div id="home"></div>
+  <div id="home">
+    <div
+      style="
+        background-image: linear-gradient(45deg, var(--theme) 30%, #33c4df 84%);
+        -webkit-background-clip: text;
+      "
+    >
+      <h1 style="font-size: 8rem; color: transparent">HsuQNian</h1>
+    </div>
+  </div>
 </template>
 <style scoped>
 #home {
+  width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .AppList {
@@ -90,25 +100,5 @@ const to = (index) => {
 }
 .information div {
   cursor: pointer;
-}
-
-
-@media screen and (max-width: 1200px) {
-  .AppList {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 0;
-    margin-top: 48px;
-    height: 92vh;
-    width: 94vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  .AppList {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 72px;
-    column-gap: 0;
-    margin-top: 48px;
-    width: 88vw;
-  }
 }
 </style>

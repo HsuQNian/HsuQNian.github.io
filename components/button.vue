@@ -1,29 +1,20 @@
-<script></script>
+<script setup>
+const download = ref(null);
+const app = defineProps({
+  url: {
+    type: String,
+    required: true,
+  },
+  text: {
+    type: String,
+    required: true,
+  },
+});
+</script>
 <template>
   <button class="download-button">
-    <div class="docs">
-      <svg
-        class="css-i6dzq1"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        fill="none"
-        stroke-width="2"
-        stroke="currentColor"
-        height="20"
-        width="20"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-        ></path>
-        <polyline points="14 2 14 8 20 8"></polyline>
-        <line y2="13" x2="8" y1="13" x1="16"></line>
-        <line y2="17" x2="8" y1="17" x1="16"></line>
-        <polyline points="10 9 9 9 8 9"></polyline>
-      </svg>
-      Docs
-    </div>
-    <div class="download">
+    <div class="docs">{{ app.text }}</div>
+    <div class="download" @click="download.click()">
       <svg
         class="css-i6dzq1"
         stroke-linejoin="round"
@@ -40,30 +31,32 @@
         <line y2="3" x2="12" y1="15" x1="12"></line>
       </svg>
     </div>
+    <a ref="download" :href="app.url"></a>
   </button>
 </template>
 <style scoped>
 .download-button {
+  width: 120px;
   position: relative;
   border-width: 0;
-  color: white;
+  color: var(--Deep);
   font-size: 15px;
   font-weight: 600;
   border-radius: 4px;
   z-index: 1;
+  padding: 0;
 }
 
 .download-button .docs {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
   min-height: 40px;
   padding: 0 10px;
   border-radius: 4px;
   z-index: 1;
-  background-color: #242a35;
-  border: solid 1px #e8e8e82d;
+  background-color: var(--Real);
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .download {
@@ -77,9 +70,9 @@
   z-index: -1;
   border-radius: 4px;
   transform: translateY(0%);
-  background-color: #01e056;
-  border: solid 1px #01e0572d;
+  background-color: var(--theme);
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
 }
 
 .download-button:hover .download {

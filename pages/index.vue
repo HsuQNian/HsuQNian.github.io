@@ -18,7 +18,7 @@ const to = (index) => {
         -webkit-background-clip: text;
       "
     >
-      <h1 style="font-size: 8rem; color: transparent">HsuQNian</h1>
+      <h1>HsuQNian</h1>
     </div>
   </div>
 </template>
@@ -100,5 +100,21 @@ const to = (index) => {
 }
 .information div {
   cursor: pointer;
+}
+
+h1 {
+  font-size: 8rem;
+  color: transparent;
+  transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
+}
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 6rem !important;
+  }
+}
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 4rem !important;
+  }
 }
 </style>

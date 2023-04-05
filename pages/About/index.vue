@@ -5,7 +5,7 @@ const contact = (param) => {
 </script>
 <template>
   <div id="About">
-    <div class="introduction" style="flex: 1">
+    <div class="introduction">
       一名大四在校（摆烂）软件工程专业生<br /><br />
       通过移动融媒体赛项免试升本，从此热爱上了前端开发（升本前是设计出身<br /><br />
       使用vscode进行开发<br /><br />
@@ -21,7 +21,7 @@ const contact = (param) => {
       懂一点嵌入式开发，使用过 Arduino、ESP32 等开发板 <br /><br />
       此网站基于Nuxt3搭建，使用GitHub pages，通过vercel进行部署 <br /><br />
     </div>
-    <div class="main" style="flex: 1">
+    <div class="main">
       <div class="picture"></div>
       <h1>徐乔年</h1>
       <div class="information">
@@ -91,6 +91,7 @@ const contact = (param) => {
   justify-content: center;
 }
 .introduction {
+  flex: 1;
   padding: 0 80px;
   display: flex;
   justify-content: center;
@@ -98,6 +99,7 @@ const contact = (param) => {
   font-size: 16px;
 }
 .main {
+  flex: 1;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -172,7 +174,7 @@ const contact = (param) => {
     padding: 40px;
   }
   .main {
-    margin-top: 40px;
+    margin-top: 84px;
   }
 }
 </style>

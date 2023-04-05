@@ -13,7 +13,25 @@ const to = (index) => {
 };
 </script>
 <template>
-  <div style="display: flex; width: 100vw; margin-top: 40px">
+  <div
+    style="
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+      flex-direction: column;
+    "
+  >
+    <div
+      style="
+        height: 100px;
+        line-height: 200px;
+        color: var(--Real);
+        font-size: 16px;
+      "
+    >
+      通过不断学习，实现灵光一现
+    </div>
     <div class="AppList">
       <div
         v-for="index in project"
@@ -42,7 +60,7 @@ const to = (index) => {
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   align-items: start;
   margin: auto;
-  height: 100vh;
+  height: 92vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 100px;
@@ -76,8 +94,6 @@ const to = (index) => {
   .AppList {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 0;
-    margin-top: 48px;
-    height: 92vh;
     width: 94vw;
   }
 }
@@ -86,7 +102,6 @@ const to = (index) => {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 72px;
     column-gap: 0;
-    margin-top: 48px;
     width: 88vw;
   }
 }

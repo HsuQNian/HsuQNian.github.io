@@ -17,7 +17,6 @@
   --Virtual: #bbb;
   --Real: #120e10;
   --Inverse: #6ca984;
-  
 }
 
 * {
@@ -50,11 +49,14 @@ a:focus {
   text-decoration: none;
   color: var(--theme);
 }
-
+.Loading-enter-active,
+.Loading-leave-active,
 .page-enter-active,
 .page-leave-active {
   transition: all 0.36s;
 }
+.Loading-enter-from,
+.Loading-leave-to,
 .page-enter-from,
 .page-leave-to {
   opacity: 0;

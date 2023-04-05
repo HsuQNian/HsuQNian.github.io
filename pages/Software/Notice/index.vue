@@ -7,7 +7,6 @@ let version = ref("");
 let WinUrl = ref("");
 let LinuxUrl = ref("");
 let describe = ref("");
-let assetLink = ref(global.assetLink);
 // let description = ref("");
 fetch(`${global.assetLink}${AppName}/${AppName}.json`)
   // fetch(`../../../public/assets/resources/Notice/Notice.json`)
@@ -21,10 +20,24 @@ fetch(`${global.assetLink}${AppName}/${AppName}.json`)
     describe.value = json.describe;
     // description.value = json.description;
   });
+const loadPicture = computed(() => async (pictureUrl) => {
+  let returnBoolean;
+  await fetch(pictureUrl)
+    .then((res) => res.blob())
+    .then((data) => {
+      returnBoolean = data.size > 0 ? true : false;
+    });
+  return returnBoolean;
+});
+const height = ref(0);
+const scroll = () => {
+  height.value = event.target.scrollTop + 72;
+};
 </script>
 <template>
-  <div class="Notice">
-    <Back :router="'/software'" />
+  <div class="Notice" @scroll="scroll(event)">
+    {{ height }}
+    <Back :router="'/software'" :height="height" />
     <div class="introduce" style="flex: 1">
       <h1 style="font-size: 4rem; margin: 1.2rem">{{ AppName }}</h1>
       <p>当前版本 : {{ version }}</p>
@@ -40,7 +53,12 @@ fetch(`${global.assetLink}${AppName}/${AppName}.json`)
     </div>
     <div class="describe">
       <div v-for="(item, index) in describe" :key="index">
-        <img :src="`${assetLink}Notice/picture${index + 1}.png`" />
+        <img
+          v-show="
+            loadPicture(`${global.assetLink}Notice/picture${index + 1}.png`)
+          "
+          :src="`${global.assetLink}Notice/picture${index + 1}.png`"
+        />
         <div v-html="item"></div>
       </div>
     </div>

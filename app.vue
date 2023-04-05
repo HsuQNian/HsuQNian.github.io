@@ -1,5 +1,6 @@
 <script setup>
 const route = useRoute();
+const onReady = ref(false);
 useHead({
   titleTemplate: () => {
     return `${
@@ -11,11 +12,21 @@ useHead({
     }`;
   },
 });
+onMounted(() => {
+  document.readyState == "complete"
+    ? (onReady.value = true)
+    : (onReady.value = false);
+});
 </script>
 <template>
-  <TheHeader />
-  <NuxtPage />
-  <TheFooter />
+  <transition name="Loading" mode="out-in">
+    <Loading v-if="!onReady" />
+    <div v-else>
+      <TheHeader />
+      <NuxtPage />
+      <TheFooter />
+    </div>
+  </transition>
 </template>
 <style scoped>
 .back-enter,

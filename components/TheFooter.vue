@@ -1,5 +1,5 @@
 <template>
-  <div id="Footer">2023 &nbsp; &copy; &nbsp;HsuQNian</div>
+  <div id="Footer">&copy; &nbsp;2023 &nbsp;HsuQNian</div>
 </template>
 <style scoped>
 #Footer {

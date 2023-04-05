@@ -3,10 +3,14 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const app = defineProps({
   router: String,
+  height: Number,
 });
 const backHome = () => {
   router.push(app.router);
 };
+const height = computed(() => {
+  return app.height + "px";
+});
 </script>
 <template>
   <div class="backHome" @click="backHome"></div>
@@ -14,13 +18,13 @@ const backHome = () => {
 <style scoped>
 .backHome {
   position: fixed;
-  top: 72px;
-  left: 54px;
+  top: v-bind(height);
+  left: 88px;
   width: 40px;
   height: 40px;
   background-size: cover;
   filter: blur(4px);
-  transition: all 0.3s ease-in-out;
+  transition: left 0.24s ease, top 0s;
   z-index: 1000;
 }
 .backHome:hover {
@@ -43,5 +47,15 @@ const backHome = () => {
   top: 50%;
   left: 12px;
   transition: all 0.24s ease-in-out;
+}
+@media screen and (max-width: 1200px) {
+  .backHome {
+    left: 64px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .backHome {
+    left: 36px;
+  }
 }
 </style>

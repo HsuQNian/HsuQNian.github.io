@@ -1,3 +1,8 @@
 <script setup></script>
-<template></template>
+<template>
+  <div>
+    <h1>Blog</h1>
+    <slot />
+  </div>
+</template>
 <style scoped></style>

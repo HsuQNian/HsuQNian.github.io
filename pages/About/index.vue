@@ -6,7 +6,7 @@ const contact = (param) => {
 <template>
   <div id="About">
     <div class="introduction">
-      一名大四在校（摆烂）软件工程专业生<br /><br />
+      一名大四软件工程专业在校（摆烂）生<br /><br />
       通过移动融媒体赛项免试升本，从此热爱上了前端开发（升本前是设计出身<br /><br />
       使用vscode进行开发<br /><br />
       喜欢把灵光一现的想法变成现实<br /><br />
@@ -24,6 +24,7 @@ const contact = (param) => {
     <div class="main">
       <div class="picture"></div>
       <h1>徐乔年</h1>
+      <span>大学在校摆烂生</span>
       <div class="information">
         <div>
           <svg
@@ -89,6 +90,7 @@ const contact = (param) => {
   width: 100vw;
   align-items: center;
   justify-content: center;
+  transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1);
 }
 .introduction {
   flex: 1;
@@ -99,6 +101,7 @@ const contact = (param) => {
   font-size: 16px;
 }
 .main {
+  color: var(--theme);
   flex: 1;
   scroll-snap-align: start;
   display: flex;
@@ -163,8 +166,6 @@ const contact = (param) => {
 }
 .information div {
   cursor: pointer;
-}
-@media screen and (max-width: 1200px) {
 }
 @media screen and (max-width: 800px) {
   #About {

@@ -17,6 +17,7 @@ onMounted(() => {
     ? (onReady.value = true)
     : (onReady.value = false);
 });
+
 </script>
 <template>
   <transition name="Loading" mode="out-in">

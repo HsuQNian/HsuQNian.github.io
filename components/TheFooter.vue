@@ -1,5 +1,7 @@
 <template>
-  <div id="Footer">&copy; &nbsp;2023 &nbsp;HsuQNian</div>
+  <div id="Footer">
+    &copy; &nbsp;2023 by&nbsp;HsuQNian. &nbsp;All Rights Reserved.
+  </div>
 </template>
 <style scoped>
 #Footer {

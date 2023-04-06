@@ -9,7 +9,7 @@ const projectImg = computed(() => {
   return (param) => `../assets/resources/${param}/${param}.png`;
 });
 const to = (index) => {
-  router.push({ path: `software/${index}` });
+  router.push({ path: `project/${index}` });
 };
 </script>
 <template>

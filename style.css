@@ -32,7 +32,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 #app {
@@ -53,7 +52,7 @@ a:focus {
 .Loading-leave-active,
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.36s;
+  transition: all 0.2s;
 }
 .Loading-enter-from,
 .Loading-leave-to,
@@ -61,4 +60,9 @@ a:focus {
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
 }

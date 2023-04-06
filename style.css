@@ -52,7 +52,7 @@ a:focus {
 .Loading-leave-active,
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.2s;
+  transition: all 0.28s;
 }
 .Loading-enter-from,
 .Loading-leave-to,

@@ -61,8 +61,3 @@ a:focus {
   opacity: 0;
   filter: blur(1rem);
 }
-pre {
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
-}

@@ -8,10 +8,19 @@ const { data } = await useAsyncData(
 <template>
   <div id="contentBox">
     <div id="content">
-      <h1 style="text-align: center; font-size: 2.4rem; font-weight: 600">
+      <h1
+        style="
+          text-align: center;
+          font-size: 2.4rem;
+          font-weight: 600;
+          margin-bottom: 0;
+        "
+      >
         {{ data.title }}
       </h1>
-      <h5 style="text-align: center; font-size: 1rem">{{ data.time }}</h5>
+      <h5 style="text-align: center; font-size: 1rem; margin: 0">
+        {{ data.time }}
+      </h5>
       <ContentRenderer
         :value="data"
         class="markdown-body"
@@ -23,7 +32,9 @@ const { data } = await useAsyncData(
           min-height: 50vh;
         "
       >
-        <template #empty />
+        <template #empty>
+          <div id="contentBox"></div>
+        </template>
       </ContentRenderer>
       <Comment :width="'980px'" />
     </div>
@@ -45,13 +56,8 @@ const { data } = await useAsyncData(
   user-select: text;
 }
 #content {
-  /* width: 86vw; */
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-  word-break: keep-all;
+  word-break: break-all;
   white-space: pre-wrap;
-  flex-direction: column;
   line-height: 44px;
   transition: all 0.3s ease-in-out;
 }

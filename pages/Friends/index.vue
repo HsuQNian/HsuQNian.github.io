@@ -7,6 +7,7 @@ const { data } = await useAsyncData(
 <template>
   <div id="contentBox">
     <div style="padding-top: 80px; text-align: center">
+      如果你想要加入友链，请在下方留言
     </div>
     <div id="friends">
       <FriendCard
@@ -18,7 +19,7 @@ const { data } = await useAsyncData(
         :avatar="friends.avatar"
       />
     </div>
-    <Comment :width="'100%'"/>
+    <Comment :width="'100%'" />
   </div>
 </template>
 <style scoped>

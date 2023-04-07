@@ -5,9 +5,6 @@
 </template>
 <style scoped>
 #Footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 50px;
   color: var(--Virtual);

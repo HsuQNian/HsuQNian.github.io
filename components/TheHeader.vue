@@ -3,9 +3,8 @@
     <nuxt-link to="/">主页</nuxt-link>
     <nuxt-link to="/blog">博客</nuxt-link>
     <nuxt-link to="/project">项目</nuxt-link>
-    <nuxt-link to="/friend">友链</nuxt-link>
+    <nuxt-link to="/friends">友链</nuxt-link>
     <nuxt-link to="/about">关于</nuxt-link>
-    <!-- <input type="checkbox" id="theme" /> -->
   </div>
 </template>
 

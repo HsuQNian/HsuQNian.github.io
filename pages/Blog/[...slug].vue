@@ -11,34 +11,44 @@ const { data } = await useAsyncData(
       <h1 style="text-align: center; font-size: 2.4rem; font-weight: 600">
         {{ data.title }}
       </h1>
-      <span style="text-align: center; font-size: 1.4rem">{{ data.time }}</span>
+      <h5 style="text-align: center; font-size: 1rem">{{ data.time }}</h5>
       <ContentRenderer
         :value="data"
-        style="flex: 1; display: flex; flex-direction: column; width: 100%"
+        class="markdown-body"
+        style="
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          min-height: 50vh;
+        "
       >
-        <template #empty>
-          <p>还没写内容呢</p>
-        </template>
+        <template #empty />
       </ContentRenderer>
-      <Comment />
+      <Comment :width="'980px'" />
     </div>
   </div>
 </template>
 <style scoped>
+@import url("../../public/github-markdown.css");
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
 #contentBox {
+  height: 100vh;
   padding-top: 80px;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   user-select: text;
-  color: var(--Virtual);
 }
 #content {
-  height: 100vh;
-  width: 86vw;
-  display: flex;
+  /* width: 86vw; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
   word-break: keep-all;
   white-space: pre-wrap;
   flex-direction: column;

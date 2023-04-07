@@ -5,7 +5,11 @@
 </template>
 <style scoped>
 #Footer {
-  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /* width: 100%; */
   height: 50px;
   color: var(--Virtual);
   display: flex;

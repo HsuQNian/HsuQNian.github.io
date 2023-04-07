@@ -33,7 +33,7 @@ const to = (index) => {
 
 .AppList {
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
-  align-items: start;
+  align-items: flex-start;
   margin: auto;
   height: 100vh;
   display: grid;

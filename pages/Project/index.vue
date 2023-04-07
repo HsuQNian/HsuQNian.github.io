@@ -58,7 +58,7 @@ const to = (index) => {
 <style scoped>
 .AppList {
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
-  align-items: start;
+  align-items: flex-start;
   margin: auto;
   height: 92vh;
   display: grid;
@@ -80,16 +80,7 @@ const to = (index) => {
     0px 0px 1.1px rgba(0, 0, 0, 0.602), 0px 0px 2.7px rgba(0, 0, 0, 0.608),
     0px 0px 9px rgba(0, 0, 0, 0.4);
 }
-.block:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(4px);
-  z-index: -1;
-}
+
 @media screen and (max-width: 1200px) {
   .AppList {
     grid-template-columns: repeat(3, 1fr);

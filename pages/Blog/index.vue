@@ -1,5 +1,5 @@
 <script setup>
-const blogPosts = await queryContent("/").find();
+const blogPosts = await queryContent("/blog").find();
 </script>
 <template>
   <div id="BlogBox">
@@ -32,8 +32,8 @@ const blogPosts = await queryContent("/").find();
   height: 80%;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 #title {
   letter-spacing: 4px;

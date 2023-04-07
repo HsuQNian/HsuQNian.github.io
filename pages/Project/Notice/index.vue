@@ -37,7 +37,6 @@ const scroll = () => {
 <template>
   <div class="Notice" @scroll="scroll(event)">
     {{ height }}
-    <Back :router="'/project'" :height="height" />
     <div class="introduce" style="flex: 1">
       <h1 style="font-size: 4rem; margin: 1.2rem">{{ AppName }}</h1>
       <p>当前版本 : {{ version }}</p>

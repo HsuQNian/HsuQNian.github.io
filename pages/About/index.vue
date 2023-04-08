@@ -1,6 +1,6 @@
 <script setup>
 const contact = (param) => {
-  window.open("https://github.com/XuYeean");
+  window.open("https://github.com/HsuQNian");
 };
 </script>
 <template>

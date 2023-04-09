@@ -8,8 +8,9 @@ useHead({
   script: [
     {
       type: "text/javascript",
-      src: "../../global/tex-mml-chtml.js",
+      src: "https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js",
       id: "MathJax-script",
+      async: true,
     },
   ],
 });

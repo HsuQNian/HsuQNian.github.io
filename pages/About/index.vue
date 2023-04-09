@@ -6,19 +6,22 @@ const contact = (param) => {
 <template>
   <div id="About">
     <div class="introduction">
-      一名大四软件工程专业在校（摆烂）生<br /><br />
-      通过移动融媒体赛项免试升本，从此热爱上了前端开发（升本前是设计出身<br /><br />
-      使用vscode进行开发<br /><br />
-      喜欢把灵光一现的想法变成现实<br /><br />
-      熟练使用原生JavaScript 并使用 ES6 <br /><br />
-      熟练使用 Vue 全家桶进行搭建项目 <br /><br />
-      熟悉使用 Node.js 进行后端开发 <br /><br />
-      熟悉使用 Apifox、Postman 等工具 <br /><br />
-      熟悉使用 MySQL、MongoDB 数据库 <br /><br />
+      一名大四软件工程专业在校（摆烂）生<br /><br class="br" />
+      通过移动融媒体赛项免试升本，从此热爱上了前端开发（升本前是设计出身<br /><br
+        class="br"
+      />
+      使用vscode进行开发<br /><br class="br" />
+      喜欢把灵光一现的想法变成现实<br /><br class="br" />
+      熟练使用原生JavaScript 并使用 ES6 <br /><br class="br" />
+      熟练使用 Vue 全家桶进行搭建项目 <br /><br class="br" />
+      熟悉使用 Node.js 进行后端开发 <br /><br class="br" />
+      熟悉使用 Apifox、Postman 等工具 <br /><br class="br" />
+      熟悉使用 MySQL、MongoDB 数据库 <br /><br class="br" />
       较熟悉使用photoshop、illustrator、Premiere、After
       Effects等软件（升本后都是在搞开发了
-      <br /><br />
-      懂一点嵌入式开发，使用过 Arduino、ESP32 等开发板 <br /><br />
+      <br /><br class="br" />
+      懂一点嵌入式开发，使用过 Arduino、ESP32 等开发板 <br /><br class="br" />
+      目前在玩猎杀对决（菜逼<br /><br class="br" />
       此网站基于Nuxt3搭建，使用GitHub pages，通过vercel进行部署 <br /><br />
     </div>
     <div class="main">
@@ -99,6 +102,7 @@ const contact = (param) => {
   justify-content: center;
   letter-spacing: 1px;
   font-size: 16px;
+  transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1);
 }
 .main {
   color: var(--theme);
@@ -172,10 +176,19 @@ const contact = (param) => {
     flex-direction: column-reverse;
   }
   .introduction {
+    word-break: keep-all;
     padding: 40px;
+    line-height: 2;
   }
   .main {
     margin-top: 84px;
+  }
+  .picture {
+    width: 60px;
+    height: 60px;
+  }
+  .br {
+    display: none;
   }
 }
 </style>

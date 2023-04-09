@@ -20,6 +20,9 @@ fetch(`${global.assetLink}${AppName}/${AppName}.json`)
     describe.value = json.describe;
     // description.value = json.description;
   });
+/**
+ * @param {string} pictureUrl 
+ */
 const loadPicture = computed(() => async (pictureUrl) => {
   let returnBoolean;
   await fetch(pictureUrl)

@@ -4,6 +4,15 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/blog/${route.params.slug[0]}`).findOne()
 );
+useHead({
+  script: [
+    {
+      type: "text/javascript",
+      src: "../../global/tex-mml-chtml.js",
+      id: "MathJax-script",
+    },
+  ],
+});
 </script>
 <template>
   <div id="contentBox">

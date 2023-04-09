@@ -8,8 +8,8 @@ Object.keys(modules).map((key) => {
 const projectImg = computed(() => {
   return (param) => `../assets/resources/${param}/${param}.png`;
 });
-const to = (index) => {
-  router.push({ path: `project/${index}` });
+const to = (way) => {
+  router.push({ path: `project/${way}` });
 };
 </script>
 <template>

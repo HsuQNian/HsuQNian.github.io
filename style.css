@@ -12,6 +12,7 @@
   user-select: none;
   -webkit-user-select: none;
   --Deep: #ecedf2;
+  --Deep: hsl(240, 24%, 94%);
   --Shallow: #f5f3f3;
   --theme: #db5a6b;
   --Virtual: #bbb;
@@ -32,6 +33,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--Deep);
 }
 
 #app {

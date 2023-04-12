@@ -67,7 +67,7 @@ const to = (way) => {
   column-gap: 120px;
 }
 .block {
-  border-radius: 24px;
+  border-radius: 8px;
   max-height: 280px;
   min-height: 240px;
   max-width: 140px;

@@ -35,10 +35,9 @@ useHead({
         :value="data"
         class="markdown-body"
         style="
-          flex: 1;
           display: flex;
           flex-direction: column;
-          width: 100%;
+          border-radius: 40px;
           min-height: 50vh;
         "
       >
@@ -54,10 +53,12 @@ useHead({
 @import url("../../public/github-markdown.css");
 .markdown-body {
   box-sizing: border-box;
-  min-width: 200px;
+  min-width: 160px;
   max-width: 980px;
   margin: 0 auto;
-  padding: 45px;
+  padding:0 30px;
+  border: 20px solid var(--Deep);
+  background: var(--Deep);
 }
 #contentBox {
   height: 100vh;

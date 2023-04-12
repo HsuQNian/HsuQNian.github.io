@@ -184,8 +184,8 @@ const contact = (param) => {
     margin-top: 84px;
   }
   .picture {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
   }
   .br {
     display: none;

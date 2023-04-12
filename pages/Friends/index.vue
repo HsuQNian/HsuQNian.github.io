@@ -30,6 +30,7 @@ const { data } = await useAsyncData(
   color: var(--Virtual);
 }
 #friends {
+  margin-top: 20px;
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   align-items: flex-start;
   display: grid;

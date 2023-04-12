@@ -13,11 +13,8 @@ useHead({
   },
 });
 onMounted(() => {
-  document.readyState == "complete"
-    ? (onReady.value = true)
-    : (onReady.value = false);
+  document.readyState == "complete" ? (onReady.value = true) : "";
 });
-
 </script>
 <template>
   <transition name="Loading" mode="out-in">

@@ -5,15 +5,17 @@ const app = defineProps({
   name: String,
   avatar: String,
 });
+const noAvatar = ref(app.avatar == "" ? true : false);
 </script>
 <template>
   <a :href="app.link" target="_blank">
-    <img id="avatar" :src="avatar" />
+    <img v-if="!noAvatar" id="avatar" :src="avatar" />
+    <div v-else id="avatar" class="noAvatar"></div>
     <h2>
       {{ app.name }}
     </h2>
     <p>
-      {{ app.descr }}
+      {{ app.descr ? app.descr : "&nbsp;" }}
     </p>
   </a>
 </template>
@@ -46,5 +48,8 @@ a:is(:hover, :focus-within) {
   width: 64px;
   height: 64px;
   border-radius: 12px;
+}
+.noAvatar {
+  border: 1px solid var(--Virtual);
 }
 </style>

@@ -45,9 +45,7 @@
   height: 100%;
 }
 
-.loader svg rect,
-.loader svg polygon,
-.loader svg circle {
+.loader svg polygon {
   fill: none;
   stroke: var(--Real);
   stroke-width: 10px;
@@ -62,19 +60,6 @@
     infinite;
 }
 
-.loader svg rect {
-  stroke-dasharray: 192 64 192 64;
-  stroke-dashoffset: 0;
-  animation: RealRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-}
-
-.loader svg circle {
-  stroke-dasharray: 150 50 150 50;
-  stroke-dashoffset: 75;
-  animation: RealCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
-    infinite;
-}
-
 .loader.triangle {
   width: 48px;
 }
@@ -82,8 +67,8 @@
 .loader.triangle:before {
   left: 21px;
   transform: translate(-10px, -18px);
-  animation: themeTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
-    infinite;
+  animation: themeTriangle var(--duration)
+    cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 }
 
 @keyframes RealTriangle {
@@ -111,60 +96,6 @@
 
   100% {
     transform: translate(-10px, -18px);
-  }
-}
-
-@keyframes RealRect {
-  25% {
-    stroke-dashoffset: 64;
-  }
-
-  50% {
-    stroke-dashoffset: 128;
-  }
-
-  75% {
-    stroke-dashoffset: 192;
-  }
-
-  100% {
-    stroke-dashoffset: 256;
-  }
-}
-
-@keyframes themeRect {
-  25% {
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(18px, -18px);
-  }
-
-  75% {
-    transform: translate(0, -36px);
-  }
-
-  100% {
-    transform: translate(-18px, -18px);
-  }
-}
-
-@keyframes RealCircle {
-  25% {
-    stroke-dashoffset: 125;
-  }
-
-  50% {
-    stroke-dashoffset: 175;
-  }
-
-  75% {
-    stroke-dashoffset: 225;
-  }
-
-  100% {
-    stroke-dashoffset: 275;
   }
 }
 

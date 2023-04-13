@@ -60,6 +60,7 @@ const app = defineProps({
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .download {
+  max-height: 36px;
   position: absolute;
   inset: 0;
   display: flex;
@@ -76,7 +77,7 @@ const app = defineProps({
 }
 
 .download-button:hover .download {
-  transform: translateY(100%);
+  transform: translateY(42px);
 }
 
 .download svg polyline,
@@ -90,7 +91,7 @@ const app = defineProps({
   }
 
   50% {
-    transform: translateY(-15%);
+    transform: translateY(-16%);
   }
 
   100% {

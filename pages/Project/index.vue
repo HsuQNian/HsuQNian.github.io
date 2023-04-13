@@ -1,6 +1,6 @@
 <script setup>
 const router = useRouter();
-const modules = import.meta.globEager("./**/*.vue");
+const modules = import.meta.globEager("./*/index.vue");
 let project = [];
 Object.keys(modules).map((key) => {
   project.push(key.split("/")[1]);
@@ -65,13 +65,14 @@ const to = (way) => {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 100px;
   column-gap: 120px;
+  justify-items: center;
 }
 .block {
   border-radius: 8px;
   max-height: 280px;
   min-height: 240px;
   max-width: 140px;
-  min-width: 120px;
+  line-height: 1.2;
   position: relative;
   backdrop-filter: blur(8px);
   margin-top: 50px;
@@ -93,7 +94,7 @@ const to = (way) => {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 72px;
     column-gap: 0;
-    width: 88vw;
+    width: 100vw;
   }
 }
 </style>

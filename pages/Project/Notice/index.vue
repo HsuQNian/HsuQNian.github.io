@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import { global } from "../../../global/index.js";
+const router = useRouter();
 let AppName = "Notice";
 let url = ref("");
 let version = ref("");
 let WinUrl = ref("");
-let LinuxUrl = ref("");
+// let LinuxUrl = ref("");
 let describe = ref("");
 // let description = ref("");
 fetch(`${global.assetLink}${AppName}/${AppName}.json`)
@@ -15,7 +16,7 @@ fetch(`${global.assetLink}${AppName}/${AppName}.json`)
     const json = JSON.parse(data);
     url.value = `${global.downloadLink}${AppName}v${json.version}/${AppName}`;
     WinUrl.value = `${url.value}-${json.version}.exe`;
-    LinuxUrl.value = `${url.value}-${json.version}.dmg`;
+    // LinuxUrl.value = `${url.value}-${json.version}.dmg`;
     version.value = json.version;
     describe.value = json.describe;
     // description.value = json.description;
@@ -38,16 +39,33 @@ const scroll = () => {
   <div class="Notice" @scroll="scroll(event)">
     {{ height }}
     <div class="introduce" style="flex: 1">
-      <h1 style="font-size: 4rem; margin: 1.2rem">{{ AppName }}</h1>
-      <p>当前版本 : {{ version }}</p>
-      <p style="margin-top: 20px">下载</p>
+      <h1 style="font-size: 4rem; margin: 1.2rem">
+        {{ AppName }}
+      </h1>
+      <p>
+        当前版本 :
+        <span
+          style="
+            text-decoration: underline;
+            color: var(--theme);
+
+            cursor: pointer;
+          "
+          @click="
+            router.push({
+              path: '/project/Notice/help',
+            })
+          "
+          >{{ version }}</span
+        >
+      </p>
       <div id="link" style="margin-top: 20px">
         <div class="Windows">
           <Button :text="'Windows'" :url="WinUrl" />
         </div>
-        <div class="Linux">
+        <!-- <div class="Linux">
           <Button :text="'Linux'" :url="LinuxUrl" />
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="describe">
@@ -57,7 +75,7 @@ const scroll = () => {
             loadPicture(`${global.assetLink}Notice/picture${index + 1}.png`)
           "
           :src="`${global.assetLink}Notice/picture${index + 1}.png`"
-          style="box-shadow: 0 0 2px rgba(0, 0, 0, 1); border-radius: 9px"
+          style="box-shadow: 0 0 2px rgba(0, 0, 0, 1); border-radius: 8px"
         />
         <div v-html="item"></div>
       </div>
@@ -96,7 +114,7 @@ p {
 #link {
   display: flex;
   align-items: flex-start;
-  width: 40%;
+  width: 24%;
   border-radius: 12px;
   margin-top: 10px;
 }
@@ -130,11 +148,17 @@ p {
   align-items: center;
 }
 @media screen and (max-width: 1342px) {
+  #link {
+    width: 40%;
+  }
   .describe > div > img {
     width: 40%;
   }
 }
 @media screen and (max-width: 650px) {
+  #link {
+    width: 80%;
+  }
   .describe > div > img {
     width: 80%;
   }

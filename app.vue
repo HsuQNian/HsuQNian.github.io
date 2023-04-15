@@ -8,7 +8,8 @@ useHead({
         ? "HsuQNian | Home"
         : `HsuQNian | ${route.path.slice(1)[0].toUpperCase()}${route.path
             .slice(2)
-            .replaceAll("/", " | ")}`
+            .replaceAll("/", " | ")
+            .replace("-", " ")}`
     }`;
   },
 });

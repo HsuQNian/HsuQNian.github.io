@@ -1,4 +1,5 @@
 <script setup>
+import { global } from "../../global/index.js";
 const router = useRouter();
 const modules = import.meta.globEager("./*/index.vue");
 let project = [];
@@ -6,11 +7,22 @@ Object.keys(modules).map((key) => {
   project.push(key.split("/")[1]);
 });
 const projectImg = computed(() => {
-  return (param) => `../assets/resources/${param}/${param}.png`;
+  return (param) => `../assets/project/${param}/${param}.png`;
 });
 const to = (way) => {
   router.push({ path: `project/${way}` });
 };
+const loadPicture = computed(() => async (pictureUrl) => {
+  let returnBoolean;
+  await fetch(pictureUrl)
+    .then((res) => res.blob())
+    .then((data) => {
+      console.log(data);
+      returnBoolean = data.size > 0 && data.type == "image/png" ? true : false;
+    });
+    console.log(returnBoolean);
+  return returnBoolean;
+});
 </script>
 <template>
   <div
@@ -47,10 +59,13 @@ const to = (way) => {
         "
       >
         <img
+          v-if="loadPicture(`${global.assetLink}${index}/${index}.png`)"
           :src="projectImg(index)"
           style="width: 100px; border-radius: 20px; margin-bottom: 40px"
         />
-        <div style="font-size: 2.4rem; font-weight: 100">{{ index }}</div>
+        <div style="font-size: 2rem; font-weight: 100; text-align: center">
+          {{ index.replace("-", "\n") }}
+        </div>
       </div>
     </div>
   </div>

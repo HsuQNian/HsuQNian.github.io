@@ -1,5 +1,4 @@
 <script setup>
-import { global } from "../../global/index.js";
 const router = useRouter();
 const modules = import.meta.globEager("./*/index.vue");
 let project = [];
@@ -12,21 +11,6 @@ const projectImg = computed(() => {
 const to = (way) => {
   router.push({ path: `project/${way}` });
 };
-const loadPicture = computed(() => async (pictureUrl) => {
-  let returnBoolean;
-  await fetch(pictureUrl)
-    .then((res) => res.blob())
-    .then((data) => {
-      returnBoolean = data.size > 0 && data.type == "image/png" ? true : false;
-    }).catch((err) => {
-      returnBoolean = false;
-      console.log(returnBoolean);
-    });
-  return returnBoolean;
-});
-watch(()=>loadPicture,()=>{
-  console.log(loadPicture.value)
-})
 </script>
 <template>
   <div
@@ -63,7 +47,6 @@ watch(()=>loadPicture,()=>{
         "
       >
         <img
-          v-show="loadPicture(`${global.assetLink}${index}/${index}.png`)"
           :src="projectImg(index)"
           style="width: 100px; border-radius: 20px; margin-bottom: 40px"
         />

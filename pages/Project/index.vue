@@ -17,12 +17,16 @@ const loadPicture = computed(() => async (pictureUrl) => {
   await fetch(pictureUrl)
     .then((res) => res.blob())
     .then((data) => {
-      console.log(data);
       returnBoolean = data.size > 0 && data.type == "image/png" ? true : false;
+    }).catch((err) => {
+      returnBoolean = false;
+      console.log(returnBoolean);
     });
-    console.log(returnBoolean);
   return returnBoolean;
 });
+watch(()=>loadPicture,()=>{
+  console.log(loadPicture.value)
+})
 </script>
 <template>
   <div
@@ -59,7 +63,7 @@ const loadPicture = computed(() => async (pictureUrl) => {
         "
       >
         <img
-          v-if="loadPicture(`${global.assetLink}${index}/${index}.png`)"
+          v-show="loadPicture(`${global.assetLink}${index}/${index}.png`)"
           :src="projectImg(index)"
           style="width: 100px; border-radius: 20px; margin-bottom: 40px"
         />

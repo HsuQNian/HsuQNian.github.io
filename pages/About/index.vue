@@ -65,7 +65,10 @@ const contact = (param) => {
             ></path>
           </svg>
         </div>
-        <div @click="contact('https://space.bilibili.com/403984442')">
+        <div
+          @click="contact('https://space.bilibili.com/403984442')"
+          class="bilibili"
+        >
           <svg
             t="1681412830217"
             class="icon"
@@ -178,12 +181,12 @@ const contact = (param) => {
 }
 .information {
   display: flex;
-  width: 160px;
+  width: 240px;
   justify-content: space-between;
   margin-top: 24px;
   position: relative;
 }
-.information div:not(.github)::after {
+.information div:not(.github, .bilibili)::after {
   content: "";
   position: absolute;
   width: 200px;

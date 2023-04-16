@@ -24,14 +24,14 @@ const { data } = await useAsyncData(
   </div>
 </template>
 <style scoped>
-#FriendCard {
-  margin: 10px;
-}
 #contentBox {
   height: 100vh;
   width: 100vw;
   user-select: text;
   color: var(--Virtual);
+}
+#FriendCard {
+  margin: 10px;
 }
 #friends {
   margin-top: 28px;

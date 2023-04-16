@@ -28,9 +28,9 @@ useHead({
       >
         {{ data.title }}
       </h1>
-      <h5 style="text-align: center; font-size: 1rem; margin: 0">
+      <p style="text-align: center; font-size: 1rem; margin-bottom: -20px">
         {{ data.time }}
-      </h5>
+      </p>
       <ContentRenderer
         :value="data"
         class="markdown-body"
@@ -56,7 +56,7 @@ useHead({
   min-width: 160px;
   max-width: 980px;
   margin: 0 auto;
-  padding:0 30px;
+  padding: 0 30px;
   border: 20px solid var(--Deep);
   background: var(--Deep);
 }

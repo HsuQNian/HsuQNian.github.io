@@ -11,6 +11,7 @@ const { data } = await useAsyncData(
     </div>
     <div id="friends">
       <FriendCard
+        id="FriendCard"
         v-for="friends in data.friends"
         :key="friends.title"
         :link="friends.link"
@@ -23,6 +24,9 @@ const { data } = await useAsyncData(
   </div>
 </template>
 <style scoped>
+#FriendCard {
+  margin: 10px;
+}
 #contentBox {
   height: 100vh;
   width: 100vw;
@@ -30,7 +34,7 @@ const { data } = await useAsyncData(
   color: var(--Virtual);
 }
 #friends {
-  margin-top: 20px;
+  margin-top: 28px;
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   align-items: flex-start;
   display: grid;
@@ -52,6 +56,10 @@ const { data } = await useAsyncData(
 @media screen and (max-width: 670px) {
   #friends {
     grid-template-columns: repeat(1, 1fr);
+    min-height: 42vh;
+  }
+  #FriendCard {
+    margin: 0;
   }
 }
 </style>

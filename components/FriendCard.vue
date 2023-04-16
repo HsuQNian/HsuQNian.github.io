@@ -11,12 +11,13 @@ const noAvatar = ref(app.avatar == "" ? true : false);
   <a :href="app.link" target="_blank">
     <img v-if="!noAvatar" id="avatar" :src="avatar" />
     <div v-else id="avatar" class="noAvatar"></div>
-    <h2>
+    <h2 style="margin: 0.4rem 0">
       {{ app.name }}
     </h2>
-    <p>
+    <p style="margin: 0.4rem 0">
       {{ app.descr ? app.descr : "&nbsp;" }}
     </p>
+    <div id="arrow"></div>
   </a>
 </template>
 <style scoped>
@@ -29,12 +30,13 @@ a {
     0px 0px 1.1px rgba(0, 0, 0, 0.602), 0px 0px 2.7px rgba(0, 0, 0, 0.608),
     0px 0px 9px rgba(0, 0, 0, 0.4);
   line-height: 1.2;
-  padding: 1rem 1.3rem;
-  border-radius: 0.35rem;
+  padding: 1rem 1rem;
+  border-radius: 0.36rem;
   opacity: 0.8;
   color: var(--Virtual);
   transition: all 0.24s ease-in-out;
   margin: 20px;
+  overflow: hidden;
 }
 h2 {
   margin: 0;
@@ -44,12 +46,51 @@ h2 {
 a:is(:hover, :focus-within) {
   color: var(--theme);
 }
+a:hover #arrow {
+  transform: rotate(45deg) translateY(-50%);
+}
+a:hover #arrow::before {
+  border-right: 2px solid var(--theme);
+  border-top: 2px solid var(--theme);
+  animation: float 2.4s 0.36s ease-in-out infinite alternate;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-44%) translateX(44%);
+  }
+}
 #avatar {
   width: 64px;
   height: 64px;
+  background: var(--Deep);
   border-radius: 12px;
 }
 .noAvatar {
   border: 1px solid var(--Virtual);
+}
+#arrow {
+  position: absolute;
+  top: 50%;
+  right: 24%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-260%) translateX(-800%) rotate(45deg);
+  z-index: -1;
+  transition: all 0.36s ease-in-out;
+  border-radius: 0.1rem;
+}
+#arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.1rem;
+  border-right: 2px solid transparent;
+  border-top: 2px solid transparent;
+  transition: all 0.36s ease-in-out;
+  border-right: 2px solid var(--theme);
+  border-top: 2px solid var(--theme);
 }
 </style>

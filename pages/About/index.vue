@@ -187,7 +187,7 @@ const contact = (param) => {
   position: relative;
 }
 .information div:not(.github, .bilibili)::after {
-  content: "";
+  content: ""; 
   position: absolute;
   width: 200px;
   height: 200px;

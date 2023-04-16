@@ -52,7 +52,7 @@ a:hover #arrow {
 a:hover #arrow::before {
   border-right: 2px solid var(--theme);
   border-top: 2px solid var(--theme);
-  animation: float 2.4s 0.36s ease-in-out infinite alternate;
+  animation: float 2.4s 0.48s ease-in-out infinite alternate;
 }
 @keyframes float {
   50% {
@@ -71,12 +71,13 @@ a:hover #arrow::before {
 #arrow {
   position: absolute;
   top: 50%;
-  right: 24%;
+  right: 16%;
   width: 18px;
   height: 18px;
-  transform: translateY(-260%) translateX(-800%) rotate(45deg);
+  transform: translateY(-260%) translateX(-880%) rotate(-135deg);
+  /* transform: rotate(45deg) translateY(-50%); */
   z-index: -1;
-  transition: all 0.36s ease-in-out;
+  transition: all 0.48s ease-in-out;
   border-radius: 0.1rem;
 }
 #arrow::before {

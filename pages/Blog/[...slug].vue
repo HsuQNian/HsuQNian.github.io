@@ -18,28 +18,16 @@ useHead({
 <template>
   <div id="contentBox">
     <div id="content">
-      <h1
-        style="
-          text-align: center;
-          font-size: 2.4rem;
-          font-weight: 600;
-          margin-bottom: 0;
-        "
-      >
+      <h2 style="text-align: center; font-weight: 600; margin-bottom: 0">
         {{ data.title }}
-      </h1>
-      <p style="text-align: center; font-size: 1rem; margin-bottom: -20px">
+      </h2>
+      <p style="text-align: center; margin-bottom: -4px">
         {{ data.time }}
       </p>
       <ContentRenderer
         :value="data"
         class="markdown-body"
-        style="
-          display: flex;
-          flex-direction: column;
-          border-radius: 40px;
-          min-height: 50vh;
-        "
+        style="display: flex; flex-direction: column; min-height: 50vh"
       >
         <template #empty>
           <div id="contentBox"></div>
@@ -49,8 +37,8 @@ useHead({
     </div>
   </div>
 </template>
+
 <style scoped>
-@import url("../../public/github-markdown.css");
 .markdown-body {
   box-sizing: border-box;
   min-width: 160px;
@@ -69,11 +57,14 @@ useHead({
 #content {
   word-break: break-all;
   white-space: pre-wrap;
-  line-height: 44px;
+  /* line-height: 44px; */
   transition: all 0.3s ease-in-out;
 }
 #content ::selection {
   background: var(--Virtual);
   opacity: 0.8;
 }
+</style>
+<style>
+@import url("@/public/github-markdown.css");
 </style>

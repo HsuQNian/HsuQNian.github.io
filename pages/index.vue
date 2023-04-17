@@ -12,14 +12,9 @@ const to = (index) => {
 </script>
 <template>
   <div id="home">
-    <div
-      style="
-        background-image: linear-gradient(45deg, var(--theme) 30%, #33c4df 84%);
-        -webkit-background-clip: text;
-      "
-    >
-      <h1>HsuQNian</h1>
-    </div>
+    <!-- <div style="-webkit-background-clip: text"> -->
+    <h1>HsuQNian</h1>
+    <!-- </div> -->
   </div>
 </template>
 <style scoped>
@@ -29,6 +24,8 @@ const to = (index) => {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-image: linear-gradient(45deg, var(--theme) 30%, #33c4df 84%);
+  -webkit-background-clip: text; */
 }
 
 .AppList {
@@ -104,7 +101,8 @@ const to = (index) => {
 
 h1 {
   font-size: 8rem;
-  color: transparent;
+  /* color: transparent; */
+  color: var(--Virtual);
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
 }
 @media screen and (max-width: 1200px) {

@@ -7,7 +7,7 @@ const contact = (param) => {
   <div id="About">
     <div class="introduction">
       一名大四软件工程专业在校（摆烂）生<br /><br class="br" />
-      通过移动融媒体赛项免试升本，从此热爱上了前端开发（升本前是设计出身<br /><br
+      通过移动融媒体赛项免试升本，过程中热爱上了前端开发（升本前是设计出身<br /><br
         class="br"
       />
       使用vscode进行开发<br /><br class="br" />
@@ -187,7 +187,7 @@ const contact = (param) => {
   position: relative;
 }
 .information div:not(.github, .bilibili)::after {
-  content: ""; 
+  content: "";
   position: absolute;
   width: 200px;
   height: 200px;

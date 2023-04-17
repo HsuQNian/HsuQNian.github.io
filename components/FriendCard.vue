@@ -47,7 +47,7 @@ a:is(:hover, :focus-within) {
   color: var(--theme);
 }
 a:hover #arrow {
-  transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg) translateY(-150%) translateX(-200%);
 }
 a:hover #arrow::before {
   border-right: 2px solid var(--theme);
@@ -75,7 +75,6 @@ a:hover #arrow::before {
   width: 18px;
   height: 18px;
   transform: translateY(-260%) translateX(-880%) rotate(-135deg);
-  /* transform: rotate(45deg) translateY(-50%); */
   z-index: -1;
   transition: all 0.48s ease-in-out;
   border-radius: 0.1rem;

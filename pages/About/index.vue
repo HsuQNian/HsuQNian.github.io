@@ -16,7 +16,7 @@ const contact = (param) => {
       熟悉使用 Apifox、Postman 等工具 <br /><br class="br" />
       熟悉使用 MongoDB 数据库 <br /><br class="br" />
       较熟悉使用photoshop、illustrator、Premiere、After
-      Effects等软件（升本后都是在搞开发了
+      Effects等软件（学习开发后设计变菜了
       <br /><br class="br" />
       懂一点嵌入式开发，使用过 Arduino、ESP32 等开发板 <br /><br class="br" />
       此网站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署 <br /><br />

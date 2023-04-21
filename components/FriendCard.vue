@@ -37,7 +37,7 @@ a {
   margin: 20px;
   overflow: hidden;
   opacity: v-bind("link!=null ? 0.8 : 0");
-  user-select: v-bind("link!=null ? text : none");
+  user-select: v-bind("link!=null ? text : 'none'");
 }
 h2 {
   margin: 0;

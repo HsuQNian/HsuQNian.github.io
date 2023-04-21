@@ -21,6 +21,8 @@
 
 * {
   -webkit-user-drag: none;
+  transition: background-color 0.8s ease, background 0.8s ease, border 0.8s ease,
+    background-image 0.8s ease;
 }
 ::-webkit-scrollbar {
   display: none;

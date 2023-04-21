@@ -4,6 +4,7 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/blog/${route.params.slug[0]}`).findOne()
 );
+
 useHead({
   script: [
     {
@@ -11,6 +12,14 @@ useHead({
       src: "https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js",
       id: "MathJax-script",
       async: true,
+    },
+  ],
+  link: [
+    {
+      rel: "stylesheet",
+      href: `https://hsuqnian.top/github-markdown-${localStorage.getItem(
+        "theme"
+      )}.css`,
     },
   ],
 });
@@ -71,7 +80,4 @@ useHead({
   background: var(--Virtual);
   opacity: 0.8;
 }
-</style>
-<style>
-@import url("@/public/github-markdown.css");
 </style>

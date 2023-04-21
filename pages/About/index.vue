@@ -24,7 +24,6 @@ const contact = (param) => {
     <div class="main">
       <div class="picture"></div>
       <h1>徐乔年</h1>
-      <span>大学在校摆烂生</span>
       <div class="information">
         <div>
           <svg
@@ -197,14 +196,14 @@ const contact = (param) => {
   pointer-events: none;
   border: 10px solid #f4f9fb;
   opacity: 0;
-  left: -64%;
+  left: -44%;
   top: -1000%;
   background: url("../QQ.png") no-repeat;
   background-size: cover;
 }
 .information div:nth-child(1):hover::after {
   opacity: 1;
-  left: -64%;
+  left: -44%;
   top: 200%;
 }
 .information div:nth-child(2):after {
@@ -213,12 +212,12 @@ const contact = (param) => {
   background-size: cover;
   pointer-events: none;
   opacity: 0;
-  left: -20%;
+  left: -12%;
   top: -1000%;
 }
 .information div:nth-child(2):hover::after {
   opacity: 1;
-  left: -20%;
+  left: -12%;
   top: 200%;
 }
 .information div {

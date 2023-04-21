@@ -3,29 +3,18 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/friends`).findOne()
 );
-onMounted(() => {
-  if (data.value.friends.length < 4) {
-    for (let index = 0; data.value.friends.length != 4; index++) {
-      data.value.friends.push({
-        title: null,
-        link: null,
-        name: null,
-        descr: null,
-        avatar: null,
-      });
-    }
-  }
-});
 </script>
 <template>
   <div id="contentBox">
-    <div style="padding-top: 80px; text-align: center">
-      如果你想要加入友链，请在下方留言
+    <div style="padding-top: 64px; text-align: center">
+      加入友链请在下方留言(随机顺序不分先后)
     </div>
     <div id="friends">
       <FriendCard
         id="FriendCard"
-        v-for="friends in data.friends"
+        v-for="friends in data.friends.sort(() => {
+          return Math.random().toFixed(1) - 0.5;
+        })"
         :key="friends.title"
         :link="friends.link"
         :name="friends.name"

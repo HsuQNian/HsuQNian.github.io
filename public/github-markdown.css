@@ -457,6 +457,10 @@
   padding: 0 16px;
   margin-bottom: 16px;
 }
+.markdown-body math {
+  width: 100%;
+  display: block;
+}
 .markdown-body table {
   display: block;
   width: 100%;

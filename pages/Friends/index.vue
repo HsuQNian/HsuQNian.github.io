@@ -3,6 +3,19 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/friends`).findOne()
 );
+onMounted(() => {
+  if (data.value.friends.length < 4) {
+    for (let index = 0; data.value.friends.length != 4; index++) {
+      data.value.friends.push({
+        title: null,
+        link: null,
+        name: null,
+        descr: null,
+        avatar: null,
+      });
+    }
+  }
+});
 </script>
 <template>
   <div id="contentBox">
@@ -31,7 +44,7 @@ const { data } = await useAsyncData(
   color: var(--Virtual);
 }
 #FriendCard {
-  margin: 10px;
+  margin: 20px;
 }
 #friends {
   margin-top: 28px;
@@ -41,22 +54,27 @@ const { data } = await useAsyncData(
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   min-height: 50vh;
-  flex-direction: column;
+  margin: auto;
 }
 @media screen and (max-width: 1340px) {
   #friends {
     grid-template-columns: repeat(3, 1fr);
+    width: 94vw;
   }
 }
 @media screen and (max-width: 1020px) {
   #friends {
     grid-template-columns: repeat(2, 1fr);
+    min-height: 40vh;
+    width: 100vw;
+    align-items: center;
   }
 }
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 640px) {
   #friends {
     grid-template-columns: repeat(1, 1fr);
-    min-height: 42vh;
+    min-height: 80vh;
+    align-items: center;
   }
   #FriendCard {
     margin: 0;

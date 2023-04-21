@@ -12,6 +12,7 @@ const contact = (param) => {
       熟练使用原生JavaScript 并使用 ES6 <br /><br class="br" />
       熟练使用 Vue 全家桶进行搭建项目 <br /><br class="br" />
       熟悉使用 Node.js 进行后端开发 <br /><br class="br" />
+      熟悉使用 Electron.js进行桌面应用开发（指坑踩多了） <br /><br class="br" />
       熟悉使用 Apifox、Postman 等工具 <br /><br class="br" />
       熟悉使用 MongoDB 数据库 <br /><br class="br" />
       较熟悉使用photoshop、illustrator、Premiere、After

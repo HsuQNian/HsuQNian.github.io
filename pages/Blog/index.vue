@@ -1,6 +1,5 @@
 <script setup>
 const blogPosts = (await queryContent("/blog").find()).reverse();
-console.log(blogPosts);
 </script>
 <template>
   <div id="BlogBox">

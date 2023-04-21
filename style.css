@@ -47,7 +47,6 @@ a:visited,
 a:link,
 a:focus {
   text-decoration: none;
-  color: var(--theme);
 }
 .Loading-enter-active,
 .Loading-leave-active,

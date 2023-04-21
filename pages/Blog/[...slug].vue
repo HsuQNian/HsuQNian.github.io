@@ -57,10 +57,17 @@ useHead({
 #content {
   word-break: break-all;
   white-space: pre-wrap;
-  /* line-height: 44px; */
   transition: all 0.3s ease-in-out;
 }
-#content ::selection {
+#content:not(.markdown-body) {
+  color: var(--Virtual);
+}
+:not(.markdown-body)::selection {
+  background: var(--Virtual);
+  color: var(--theme);
+  opacity: 0.8;
+}
+.markdown-body ::selection {
   background: var(--Virtual);
   opacity: 0.8;
 }

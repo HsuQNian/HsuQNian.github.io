@@ -12,7 +12,7 @@ const blogPosts = (await queryContent("/blog").find()).reverse();
       >
         <div id="title">
           <div>{{ title }}</div>
-          <div>{{ time.split("T")[0] }}</div>
+          <div style="font-size: 1rem">{{ time.split("T")[0] }}</div>
         </div>
       </NuxtLink>
     </div>

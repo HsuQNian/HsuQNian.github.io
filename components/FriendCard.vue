@@ -22,8 +22,7 @@ const app = defineProps({
 <style scoped>
 a {
   width: 240px;
-  max-height: 140px;
-  min-height: 120px;
+  height: 140px;
   position: relative;
   box-shadow: 0px 0px 0.4px rgba(0, 0, 0, 0.499),
     0px 0px 1.1px rgba(0, 0, 0, 0.602), 0px 0px 2.7px rgba(0, 0, 0, 0.608),

@@ -12,9 +12,9 @@ const { data } = await useAsyncData(
     <div id="friends">
       <FriendCard
         id="FriendCard"
-        v-for="friends in data.friends.sort(() => {
-          return Math.random().toFixed(1) - 0.5;
-        })"
+        v-for="friends in data.friends.sort(
+          () => Math.random().toFixed(1) - 0.5
+        )"
         :key="friends.title"
         :link="friends.link"
         :name="friends.name"
@@ -32,9 +32,6 @@ const { data } = await useAsyncData(
   user-select: text;
   color: var(--Virtual);
 }
-#FriendCard {
-  margin: 20px;
-}
 #friends {
   margin-top: 28px;
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
@@ -44,10 +41,27 @@ const { data } = await useAsyncData(
   justify-items: center;
   min-height: 50vh;
   margin: auto;
+  width: 72vw;
+}
+@media screen and (max-width: 1780px) {
+  #friends {
+    width: 88vw;
+  }
+}
+@media screen and (max-width: 1454px) {
+  #friends {
+    /* grid-template-columns: repeat(3, 1fr); */
+    width: 100vw;
+  }
 }
 @media screen and (max-width: 1340px) {
   #friends {
     grid-template-columns: repeat(3, 1fr);
+    width: 74vw;
+  }
+}
+@media screen and (max-width: 1310px) {
+  #friends {
     width: 94vw;
   }
 }
@@ -55,8 +69,13 @@ const { data } = await useAsyncData(
   #friends {
     grid-template-columns: repeat(2, 1fr);
     min-height: 60vh;
-    width: 100vw;
+    width: 72vw;
     align-items: center;
+  }
+}
+@media screen and (max-width: 900px) {
+  #friends {
+    width: 100vw;
   }
 }
 @media screen and (max-width: 640px) {

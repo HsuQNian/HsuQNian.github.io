@@ -1,6 +1,7 @@
 <script setup>
 const router = useRouter();
 const modules = import.meta.globEager("./*/index.vue");
+const Imgs = import.meta.globEager("../../**/*.png");
 let project = [];
 Object.keys(modules).map((key) => {
   project.push(key.split("/")[1]);
@@ -34,7 +35,7 @@ const to = (way) => {
     </div>
     <div class="AppList">
       <div
-        v-for="index in project"
+        v-for="index in project.sort(() => Math.random().toFixed(1) - 0.5)"
         :key="index"
         @click="to(`${index}`)"
         class="block"
@@ -47,8 +48,9 @@ const to = (way) => {
         "
       >
         <img
+          v-if="JSON.stringify(Imgs).includes(index)"
           :src="projectImg(index)"
-          style="width: 100px; border-radius: 20px; margin-bottom: 40px"
+          style="width: 100px; border-radius: 20px"
         />
         <div style="font-size: 2rem; font-weight: 100; text-align: center">
           {{ index.replace("-", "\n") }}
@@ -71,9 +73,8 @@ const to = (way) => {
 }
 .block {
   border-radius: 8px;
-  max-height: 280px;
-  min-height: 240px;
-  max-width: 140px;
+  height: 220px;
+  width: 100px;
   line-height: 1.2;
   position: relative;
   backdrop-filter: blur(8px);

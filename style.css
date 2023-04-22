@@ -48,16 +48,23 @@ a:link,
 a:focus {
   text-decoration: none;
 }
+.blogPosts--enter-active,
+.blogPosts--leave-active,
 .Loading-enter-active,
 .Loading-leave-active,
 .page-enter-active,
 .page-leave-active {
   transition: all 0.28s;
 }
+.blogPosts-enter-from,
+.blogPosts-leave-to,
 .Loading-enter-from,
 .Loading-leave-to,
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+.blogPosts-leave-active {
+  position: absolute;
 }

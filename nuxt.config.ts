@@ -5,12 +5,5 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
-  modules: ["@nuxt/content"],
-  content: {
-    highlight: {
-      theme: {
-        default: "min-light",
-      },
-    },
-  },
+  modules: ["@nuxt/content"]
 });

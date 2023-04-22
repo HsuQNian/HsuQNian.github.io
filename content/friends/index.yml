@@ -5,8 +5,8 @@ friends:
     descr: 记录学习历程和生活感悟
   - name: ikun-blog
     link: http://101.42.20.119:8080/
-    avatar: ""
-    descr: ""
+    avatar: http://101.42.20.119:8080/images/aboutMe/lzl.png
+    descr: 唱跳rap篮球
   - name: 醉里
     link: https://202271.xyz
     avatar: https://202271.xyz/images/uploads/android-chrome-192x192.png

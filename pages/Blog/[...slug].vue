@@ -30,7 +30,7 @@ useHead({
         style="display: flex; flex-direction: column; min-height: 50vh"
       >
         <template #empty>
-          <div id="contentBox"></div>
+          <div id="contentBox" />
         </template>
       </ContentRenderer>
       <Comment :width="'980px'" />
@@ -55,7 +55,6 @@ useHead({
   user-select: text;
 }
 #content {
-  word-break: break-all;
   white-space: pre-wrap;
   transition: all 0.3s ease-in-out;
 }

@@ -54,7 +54,7 @@ const { data } = await useAsyncData(
 @media screen and (max-width: 1020px) {
   #friends {
     grid-template-columns: repeat(2, 1fr);
-    min-height: 40vh;
+    min-height: 60vh;
     width: 100vw;
     align-items: center;
   }
@@ -64,9 +64,6 @@ const { data } = await useAsyncData(
     grid-template-columns: repeat(1, 1fr);
     min-height: 80vh;
     align-items: center;
-  }
-  #FriendCard {
-    margin: 0;
   }
 }
 </style>

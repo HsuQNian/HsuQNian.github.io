@@ -192,6 +192,9 @@ store.Music.ontimeupdate = () => {
   border-left: 0px;
   width: 12px;
 }
+.Music-controller :nth-child(2){
+  transition: all .4s ease;
+}
 .Music-controller :nth-child(2)::before,
 .Music-controller :nth-child(2)::after {
   content: "";
@@ -203,7 +206,6 @@ store.Music.ontimeupdate = () => {
   top: 50%;
   transform: translateY(-50%);
   left: 0;
-  transition: all 0.12s ease;
   border-radius: v-bind("store.MusicPlaying?'4px':'0px'");
 }
 .Music-controller :nth-child(2)::after {

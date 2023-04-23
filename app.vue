@@ -21,6 +21,7 @@ onMounted(() => {
   <transition name="Loading" mode="out-in">
     <Loading v-if="!onReady" />
     <div v-else>
+      <Music />
       <TheHeader />
       <NuxtPage />
       <TheFooter />

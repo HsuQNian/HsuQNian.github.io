@@ -1,3 +1,7 @@
+<script setup>
+import { Store } from "../store/index.js";
+const store = Store();
+</script>
 <template>
   <div class="header">
     <nuxt-link to="/">主页</nuxt-link>
@@ -5,6 +9,26 @@
     <nuxt-link to="/project">项目</nuxt-link>
     <nuxt-link to="/friends">友链</nuxt-link>
     <nuxt-link to="/about">关于</nuxt-link>
+    <div id="Music" @click="store.MusicDisplay = !store.MusicDisplay">
+      <div
+        id="disc"
+        :style="{
+          AnimationPlayState: store.MusicPlaying ? 'running' : 'paused',
+        }"
+      >
+        <div v-for="index in 6" />
+      </div>
+      <div
+        id="Crank"
+        :style="{
+          transform: store.MusicPlaying
+            ? 'translateX(-50%) rotate(-30deg)'
+            : 'translateX(-50%) rotate(-60deg)',
+        }"
+      >
+        <div v-for="index in 3" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,5 +60,131 @@
 }
 a.router-link-exact-active {
   color: var(--theme);
+}
+#Music {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: auto;
+  position: relative;
+  background: var(--Real);
+}
+#disc {
+  animation: rotate 8s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+#disc > div {
+  position: absolute;
+  border-radius: 50%;
+  border: 0.1px solid var(--Virtual);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+#disc div:nth-child(1) {
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%) rotate(30deg);
+  border-bottom: none;
+}
+#disc div:nth-child(2) {
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%) rotate(210deg);
+  border-bottom: none;
+}
+#disc div:nth-child(3) {
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%) rotate(30deg);
+  border-right: none;
+}
+#disc div:nth-child(4) {
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  border-right: none;
+}
+#disc div:nth-child(5) {
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border-top: none;
+}
+#disc div:nth-child(6) {
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background: var(--Virtual);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#Crank {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform-origin: top;
+  transform: translateX(-50%) rotate(-60deg);
+  width: 6px;
+  height: 20px;
+  transition: all 0.24s;
+}
+#Crank div {
+  position: absolute;
+}
+#Crank div:nth-child(1) {
+  top: -3px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: var(--Virtual);
+  box-shadow: 0 0 0 0.2px var(--Real);
+}
+#Crank div:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--Real);
+}
+#Crank div:nth-child(2) {
+  top: 0;
+  left: 50%;
+  transform-origin: top;
+  transform: translateX(-50%) rotate(12deg);
+  height: 14px;
+  width: 2px;
+  background: var(--Virtual);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 0 0 0.2px var(--Real);
+  z-index: -1;
+}
+#Crank div:nth-child(3) {
+  bottom: 0;
+  right: 2px;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(-24deg);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  height: 8px;
+  width: 1px;
+  background: var(--Virtual);
+  box-shadow: 0 0 0 0.2px var(--Real);
+  z-index: -2;
 }
 </style>

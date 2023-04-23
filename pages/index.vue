@@ -1,14 +1,10 @@
 <script setup>
-const router = useRouter();
 const modules = import.meta.globEager("./**/*.vue");
 let project = [];
 Object.keys(modules).map((key) => {
   project.push(key.split("/")[1]);
 });
 
-const to = (index) => {
-  router.push({ path: index });
-};
 </script>
 <template>
   <div id="home">

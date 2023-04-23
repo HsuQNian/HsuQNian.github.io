@@ -9,9 +9,6 @@ Object.keys(modules).map((key) => {
 const projectImg = computed(() => {
   return (param) => `../assets/project/${param}/${param}.png`;
 });
-const to = (way) => {
-  router.push({ path: `project/${way}` });
-};
 </script>
 <template>
   <div
@@ -37,7 +34,7 @@ const to = (way) => {
       <div
         v-for="index in project.sort(() => Math.random().toFixed(1) - 0.5)"
         :key="index"
-        @click="to(`${index}`)"
+        @click="router.push({ path: `project/${index}` })"
         class="block"
         style="
           display: flex;

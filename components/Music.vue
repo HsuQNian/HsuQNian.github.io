@@ -54,11 +54,11 @@ store.Music.ontimeupdate = () => {
     :style="{
       transform: store.MusicDisplay
         ? 'translate(-50%, 0) '
-        : 'translate(-50%, -240%) ',
+        : 'translate(-50%, -200%) ',
     }"
   >
     <div class="Music-Title" style="flex: 2">
-      <h2 style="text-align: center; font-size: 1.4rem">
+      <h2 style="text-align: center; font-size: 1.4rem; line-height: 40px">
         <div>
           {{
             store.MusicList[store.MusicListIndex]
@@ -103,7 +103,7 @@ store.Music.ontimeupdate = () => {
         align-items: center;
         justify-content: space-around;
         width: 40%;
-        flex: 1;
+        flex: 0.5;
       "
     >
       <button
@@ -153,7 +153,7 @@ store.Music.ontimeupdate = () => {
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
-  height: 240px;
+  height: 520px;
   width: 400px;
   background: #bbb6;
   backdrop-filter: blur(0.4rem);
@@ -180,9 +180,9 @@ store.Music.ontimeupdate = () => {
 
 .Music-controller :nth-child(1),
 .Music-controller :nth-child(3) {
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 12px solid #fff;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 16px solid #fff;
   border-left: none;
   width: 12px;
 }

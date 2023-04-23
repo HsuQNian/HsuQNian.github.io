@@ -123,6 +123,12 @@ store.Music.ontimeupdate = () => {
         "
       />
       <button
+        :style="{
+          clipPath: store.MusicPlaying
+            ? 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'
+            : 'polygon(100% 50%, 0 0, 0 100%)',
+          background: store.MusicPlaying ? 'transparent' : '#fff',
+        }"
         @click="
           () => {
             store.Music.paused ? store.Music.play() : store.Music.pause();
@@ -183,7 +189,7 @@ store.Music.ontimeupdate = () => {
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   border-right: 16px solid #fff;
-  border-left: none;
+  border-left: 0px;
   width: 12px;
 }
 .Music-controller :nth-child(2)::before,
@@ -191,23 +197,17 @@ store.Music.ontimeupdate = () => {
   content: "";
   display: block;
   position: absolute;
-  height: v-bind("store.MusicPlaying?'28px':'0px'");
-  width: v-bind("store.MusicPlaying?'6px':'0px'");
-  background: v-bind("store.MusicPlaying?'#fff':'transparent'");
+  width: 6px;
+  height: 28px;
+  background: #fff;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
-  border-top: v-bind("store.MusicPlaying?'0px':'12px'") solid transparent;
-  border-bottom: v-bind("store.MusicPlaying?'0px':'12px'") solid transparent;
   transition: all 0.12s ease;
   border-radius: v-bind("store.MusicPlaying?'4px':'0px'");
 }
-.Music-controller :nth-child(2)::before {
-  border-left: v-bind("store.MusicPlaying?'0px':'18px'") solid #fff;
-}
 .Music-controller :nth-child(2)::after {
   left: 12px;
-  border-left: v-bind("store.MusicPlaying?'0px':'transparent'") solid #fff;
 }
 .Music-controller :nth-child(3) {
   transform: rotate(180deg);
@@ -230,6 +230,7 @@ button {
   background: none;
   border: none;
   height: 24px;
+  width: 18px;
   position: relative;
 }
 </style>

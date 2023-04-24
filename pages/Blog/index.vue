@@ -17,7 +17,6 @@ onMounted(() => {
       tags.push(post.label);
     else if (tags.indexOf(post.label) > -1) return;
     else {
-      console.log(post.label);
       post.label.forEach((tag) => {
         if (!tags.includes(tag) && tags.indexOf(tag) == -1) tags.push(tag);
       });

@@ -21,11 +21,11 @@ store.Music.onpause = () => {
 };
 store.Music.onended = () => {
   store.MusicPlaying = false;
+  store.Music.currentTime = 0;
   store.MusicListIndex =
     store.MusicListIndex != store.MusicList.length - 1
       ? ++store.MusicListIndex
       : 0;
-  store.Music.currentTime = 0;
   store.Music.src = store.MusicList[store.MusicListIndex].replace(
     "../public/",
     "./"
@@ -96,7 +96,6 @@ store.Music.ontimeupdate = () => {
                 store.MusicListIndex != 0
                   ? --store.MusicListIndex
                   : store.MusicList.length - 1;
-              store.log = store.MusicListIndex;
               store.Music.src = store.MusicList[store.MusicListIndex].replace(
                 '../public/',
                 './'
@@ -121,12 +120,12 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
+              store.Music.currentTime = 0;
+              currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
                   : 0;
-              store.Music.currentTime = 0;
-              currentTime = '00:00';
               store.Music.src = store.MusicList[store.MusicListIndex].replace(
                 '../public/',
                 './'

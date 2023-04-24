@@ -11,7 +11,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.4.0"
+    "@types/node": "^18",
+    "nuxt": "^3.4.2"
   },
   "dependencies": {
     "@giscus/vue": "^2.2.8",

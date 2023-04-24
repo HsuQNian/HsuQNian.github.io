@@ -32,6 +32,9 @@ useHead({
         <template #empty>
           <div id="contentBox" />
         </template>
+        <template #not-found>
+          <div id="contentBox" />
+        </template>
       </ContentRenderer>
       <Comment v-if="data.comment" :width="'980px'" />
     </div>

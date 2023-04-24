@@ -12,6 +12,13 @@ useHead({
             .replace("-", " ")}`
     }`;
   },
+  link: [
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/favicon.ico",
+    },
+  ],
 });
 onMounted(() => {
   document.readyState == "complete" ? (onReady.value = true) : "";

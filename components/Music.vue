@@ -25,6 +25,7 @@ store.Music.onended = () => {
     store.MusicListIndex != store.MusicList.length - 1
       ? ++store.MusicListIndex
       : 0;
+  store.Music.currentTime = 0;
   store.Music.src = store.MusicList[store.MusicListIndex].replace(
     "../public/",
     "./"
@@ -41,7 +42,6 @@ store.Music.ondurationchange = () => {
   });
 };
 store.Music.ontimeupdate = () => {
-  console.log(store.Music.currentTime);
   currentTime.value = new Date(
     Math.trunc(store.Music.currentTime) * 1000
   ).toLocaleString("chinese", {
@@ -90,6 +90,7 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
+              store.Music.currentTime = 0;
               currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != 0
@@ -120,11 +121,12 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
-              currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
                   : 0;
+              store.Music.currentTime = 0;
+              currentTime = '00:00';
               store.Music.src = store.MusicList[store.MusicListIndex].replace(
                 '../public/',
                 './'
@@ -160,7 +162,7 @@ store.Music.ontimeupdate = () => {
           }"
         />
       </div>
-      <div>{{ currentTime == 0 ? "00:00" : currentTime }}</div>
+      <div>{{ currentTime }}</div>
       <div>&nbsp;/&nbsp;</div>
       <div>{{ duration }}</div>
     </div>
@@ -179,6 +181,7 @@ store.Music.ontimeupdate = () => {
       @click="
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
+            store.Music.currentTime = 0;
             currentTime = '00:00';
             store.Music.src = index.replace('../public/', './');
             store.MusicListIndex = store.MusicList.indexOf(index);

@@ -1,6 +1,6 @@
 <script setup>
 import { Store } from "../store/index.js";
-const currentTime = ref(0);
+const currentTime = ref("00:00");
 const duration = ref("00:00");
 const store = Store();
 const MusicList = Object.keys(import.meta.globEager("../**/*.mp3")).sort(
@@ -89,7 +89,7 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
-              currentTime = 0;
+              currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != 0
                   ? --store.MusicListIndex
@@ -119,7 +119,7 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
-              currentTime = 0;
+              currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
@@ -178,7 +178,7 @@ store.Music.ontimeupdate = () => {
       @click="
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
-            currentTime = 0;
+            currentTime = '00:00';
             store.Music.src = index.replace('../public/', './');
             store.MusicListIndex = store.MusicList.indexOf(index);
             store.Music.play();
@@ -193,6 +193,7 @@ store.Music.ontimeupdate = () => {
           border-radius: 20px;
           position: relative;
           left: -4px;
+          transition: all 0.56s ease;
         "
         :style="{
           background:

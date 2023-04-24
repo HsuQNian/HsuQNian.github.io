@@ -41,6 +41,7 @@ store.Music.ondurationchange = () => {
   });
 };
 store.Music.ontimeupdate = () => {
+  console.log(store.Music.currentTime);
   currentTime.value = new Date(
     Math.trunc(store.Music.currentTime) * 1000
   ).toLocaleString("chinese", {
@@ -208,7 +209,7 @@ store.Music.ontimeupdate = () => {
 </template>
 <style scoped>
 #Music {
-  top: 6%;
+  top: 64px;
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
@@ -309,7 +310,7 @@ button {
 }
 #MusicList {
   position: fixed;
-  top: 24%;
+  top: 246px;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;

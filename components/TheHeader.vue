@@ -204,6 +204,7 @@ a.router-link-exact-active {
     position: fixed;
     right: 20px;
     bottom: 20px;
+    top: auto;
   }
 }
 </style>

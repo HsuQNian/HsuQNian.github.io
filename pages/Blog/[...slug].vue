@@ -33,7 +33,7 @@ useHead({
           <div id="contentBox" />
         </template>
       </ContentRenderer>
-      <Comment :width="'980px'" />
+      <Comment v-if="data.comment" :width="'980px'" />
     </div>
   </div>
 </template>

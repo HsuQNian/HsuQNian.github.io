@@ -7,7 +7,7 @@ const MusicList = Object.keys(import.meta.globEager("../**/*.mp3")).sort(
   () => Math.random() - 0.5
 );
 const schedule = () => {
-  store.Music.currentTime = store.Music.duration * (event.offsetX / 240);
+  store.Music.currentTime = store.Music.duration * (event.offsetX / 300);
 };
 store.MusicList = MusicList;
 store.Music = new Audio(MusicList[0].replace("../public/", "./"));
@@ -54,30 +54,94 @@ store.Music.ontimeupdate = () => {
     id="Music"
     :style="{
       transform: store.MusicDisplay
-        ? 'translate(-50%, 0) '
+        ? 'translate(-50%, 10%) '
         : 'translate(-50%, -200%) ',
     }"
   >
-    <div class="Music-Title" style="flex: 2">
-      <h2 style="text-align: center; font-size: 1.4rem; line-height: 40px">
-        <div>
-          {{
-            store.MusicList[store.MusicListIndex]
-              .match(/(?<=\.\.\/public\/).*(?=.mp3)/g)[0]
-              .split("-")[0]
-          }}
-        </div>
-        <div>
-          {{
-            store.MusicList[store.MusicListIndex]
-              .match(/(?<=\.\.\/public\/).*(?=.mp3)/g)[0]
-              .split("-")[1]
-          }}
-        </div>
-      </h2>
+    <div class="Music-Title" style="flex: 1; margin-top: 6px">
+      <div
+        style="
+          font-size: 0.8rem;
+          line-height: 40px;
+          padding: 0 10px;
+          width: 40%;
+          height: 40px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        "
+      >
+        {{
+          store.MusicList[store.MusicListIndex].match(
+            /(?<=\.\.\/public\/).*(?=.mp3)/g
+          )[0]
+        }}
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          flex: 1;
+          width: 60%;
+        "
+      >
+        <button
+          @click="
+            () => {
+              store.MusicListIndex =
+                store.MusicListIndex != 0
+                  ? --store.MusicListIndex
+                  : store.MusicList.length - 1;
+              store.log = store.MusicListIndex;
+              store.Music.src = store.MusicList[store.MusicListIndex].replace(
+                '../public/',
+                './'
+              );
+              store.Music.play();
+            }
+          "
+        />
+        <button
+          :style="{
+            clipPath: store.MusicPlaying
+              ? 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'
+              : 'polygon(100% 50%, 0 0, 0 100%)',
+            background: store.MusicPlaying ? 'transparent' : '#fff',
+          }"
+          @click="
+            () => {
+              store.Music.paused ? store.Music.play() : store.Music.pause();
+            }
+          "
+        />
+        <button
+          @click="
+            () => {
+              store.MusicListIndex =
+                store.MusicListIndex != store.MusicList.length - 1
+                  ? ++store.MusicListIndex
+                  : 0;
+              store.Music.src = store.MusicList[store.MusicListIndex].replace(
+                '../public/',
+                './'
+              );
+              store.Music.play();
+            }
+          "
+        />
+        <button
+          @click="
+            () => {
+              store.MusicListShow = !store.MusicListShow;
+            }
+          "
+        >
+          <div />
+        </button>
+      </div>
     </div>
-    <div style="flex: 0; font-size: 0.8rem">
-      <div>{{ currentTime == 0 ? "00:00" : currentTime }}</div>
+    <div style="flex: 1; font-size: 0.6rem">
       <div id="schedule" @click="schedule">
         <div
           style="
@@ -93,91 +157,76 @@ store.Music.ontimeupdate = () => {
           }"
         />
       </div>
-      <div>
-        {{ duration }}
-      </div>
+      <div>{{ currentTime == 0 ? "00:00" : currentTime }}</div>
+      <div>&nbsp;/&nbsp;</div>
+      <div>{{ duration }}</div>
     </div>
+  </div>
+  <div
+    id="MusicList"
+    :style="{
+      transform: store.MusicListShow
+        ? 'translate(-50%,-50%)'
+        : 'translate(-50%,-280%) ',
+      opacity: store.MusicListShow ? 1 : 0,
+    }"
+  >
     <div
-      class="Music-controller"
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 40%;
-        flex: 0.5;
+      v-for="index in store.MusicList"
+      @click="
+        () => {
+          if (store.MusicListIndex != store.MusicList.indexOf(index)) {
+            store.Music.src = index.replace('../public/', './');
+            store.MusicListIndex = store.MusicList.indexOf(index);
+            store.Music.play();
+          }
+        }
       "
     >
-      <button
-        @click="
-          () => {
-            store.MusicListIndex =
-              store.MusicListIndex != 0
-                ? --store.MusicListIndex
-                : store.MusicList.length - 1;
-            store.log = store.MusicListIndex;
-            store.Music.src = store.MusicList[store.MusicListIndex].replace(
-              '../public/',
-              './'
-            );
-            store.Music.play();
-          }
+      <div
+        style="
+          width: 4px;
+          height: 16px;
+          border-radius: 20px;
+          position: relative;
+          left: -4px;
         "
-      />
-      <button
         :style="{
-          clipPath: store.MusicPlaying
-            ? 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'
-            : 'polygon(100% 50%, 0 0, 0 100%)',
-          background: store.MusicPlaying ? 'transparent' : '#fff',
+          background:
+            store.MusicListIndex == store.MusicList.indexOf(index)
+              ? 'var(--theme)'
+              : 'transparent',
         }"
-        @click="
-          () => {
-            store.Music.paused ? store.Music.play() : store.Music.pause();
-          }
-        "
       />
-      <button
-        @click="
-          () => {
-            store.MusicListIndex =
-              store.MusicListIndex != store.MusicList.length - 1
-                ? ++store.MusicListIndex
-                : 0;
-            store.Music.src = store.MusicList[store.MusicListIndex].replace(
-              '../public/',
-              './'
-            );
-            store.Music.play();
-          }
-        "
-      />
+      {{ index.match(/(?<=\.\.\/public\/).*(?=.mp3)/g)[0] }}
     </div>
   </div>
 </template>
 <style scoped>
 #Music {
-  top: 24%;
+  top: 6%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
-  height: 520px;
+  height: 80px;
   width: 400px;
-  background: #bbb6;
+  background: #bbb4;
   backdrop-filter: blur(0.4rem);
   border-radius: 0.4rem;
-  transition: all 0.56s ease;
-  z-index: 100;
+  transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
+  z-index: 101;
   color: var(--theme);
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-#Music > div {
+#Music > div:not(#MusicList) {
   display: flex;
+  width: 100%;
   align-items: center;
 }
 #schedule {
-  width: 240px;
+  width: 300px;
   height: 4px;
   background: #fff;
   border-radius: 2px;
@@ -185,19 +234,19 @@ store.Music.ontimeupdate = () => {
   margin: 0 0.4rem;
 }
 
-.Music-controller :nth-child(1),
-.Music-controller :nth-child(3) {
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
+button:nth-child(1),
+button:nth-child(3) {
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
   border-right: 16px solid #fff;
   border-left: 0px;
-  width: 12px;
+  padding: 0;
 }
-.Music-controller :nth-child(2) {
+button:nth-child(2) {
   transition: all 0.4s ease;
 }
-.Music-controller :nth-child(2)::before,
-.Music-controller :nth-child(2)::after {
+button:nth-child(2)::before,
+button:nth-child(2)::after {
   content: "";
   display: block;
   position: absolute;
@@ -209,19 +258,37 @@ store.Music.ontimeupdate = () => {
   left: 0;
   border-radius: v-bind("store.MusicPlaying?'4px':'0px'");
 }
-.Music-controller :nth-child(2)::after {
-  left: 12px;
+button:nth-child(2)::after {
+  left: 10px;
 }
-.Music-controller :nth-child(3) {
+button:nth-child(3) {
   transform: rotate(180deg);
   position: relative;
 }
-.Music-controller :nth-child(1)::before,
-.Music-controller :nth-child(3)::before {
+button:nth-child(4) {
+  transform: rotate(90deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+button:nth-child(4) > div {
+  height: 14px;
+  width: 2px;
+  background: #fff;
+}
+button:nth-child(4)::after {
+  position: absolute;
+  left: 0 !important;
+}
+button:nth-child(1)::before,
+button:nth-child(3)::before,
+button:nth-child(4)::before,
+button:nth-child(4)::after {
   content: "";
   display: block;
   position: absolute;
-  height: 28px;
+  height: 16px;
   width: 2px;
   background: #fff;
   top: 50%;
@@ -232,8 +299,34 @@ store.Music.ontimeupdate = () => {
 button {
   background: none;
   border: none;
-  height: 24px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
   position: relative;
+}
+#MusicList {
+  position: fixed;
+  top: 24%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  width: 400px;
+  font-size: 0.8rem;
+  background: #bbb4;
+  backdrop-filter: blur(0.4rem);
+  border-radius: 0.4rem;
+  opacity: 1;
+  padding: 10px 0;
+  transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
+  z-index: 100;
+}
+#MusicList > div {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  /* line-height: 1rem; */
+}
+#MusicList > div:hover {
+  background: #fff8;
+  color: var(--theme);
 }
 </style>

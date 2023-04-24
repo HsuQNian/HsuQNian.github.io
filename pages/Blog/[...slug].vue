@@ -22,7 +22,7 @@ useHead({
         {{ data.title }}
       </h2>
       <p style="text-align: center; margin-bottom: -4px">
-        {{ data.time }}
+        {{ data.date }}
       </p>
       <ContentRenderer
         :value="data"

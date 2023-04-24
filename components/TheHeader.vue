@@ -10,7 +10,15 @@ const store = Store();
     <nuxt-link to="/friends">友链</nuxt-link>
     <nuxt-link to="/about">关于</nuxt-link>
   </div>
-  <div id="Music" @click="store.MusicDisplay = !store.MusicDisplay">
+  <div
+    id="Music"
+    @click="
+      () => {
+        store.MusicDisplay = !store.MusicDisplay;
+        if (store.MusicListShow) store.MusicListShow = false;
+      }
+    "
+  >
     <div
       id="disc"
       :style="{
@@ -41,7 +49,7 @@ const store = Store();
   border-radius: 12px;
   width: 99vw;
   height: 64px;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -71,7 +79,7 @@ a.router-link-exact-active {
   position: fixed;
   right: 20px;
   top: calc(1% + 16px);
-  z-index: 101;
+  z-index: 1001;
 }
 #disc {
   animation: rotate 8s linear infinite;

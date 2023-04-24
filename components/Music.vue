@@ -11,6 +11,7 @@ const schedule = () => {
 };
 store.MusicList = MusicList;
 store.Music = new Audio(MusicList[0].replace("../public/", "./"));
+store.Music.preload = "none";
 store.Music.load();
 store.Music.onplay = () => {
   store.MusicPlaying = true;

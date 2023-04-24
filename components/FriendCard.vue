@@ -13,7 +13,7 @@ const app = defineProps({
     <h2 style="margin: 0.4rem 0">
       {{ app.name }}
     </h2>
-    <p style="margin: 0.4rem 0">
+    <p style="margin: 0.4rem 0; font-size: 0.9rem">
       {{ app.descr ? app.descr : "&nbsp;" }}
     </p>
     <div id="arrow"></div>

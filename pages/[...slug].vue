@@ -16,6 +16,20 @@
           <h1>这里没有你想要的</h1>
         </div>
       </template>
+      <template #empty>
+        <div
+          style="
+            background-image: linear-gradient(
+              45deg,
+              var(--theme) 30%,
+              #33c4df 84%
+            );
+            -webkit-background-clip: text;
+          "
+        >
+          <h1>这里没有你想要的</h1>
+        </div>
+      </template>
     </ContentDoc>
   </div>
 </template>

@@ -9,9 +9,4 @@ export const Store = defineStore("Main", {
     MusicPlaying: false,
     log: "",
   }),
-  getters: {
-    duration() {
-      return this.Music.duration;
-    },
-  },
 });

@@ -1,7 +1,7 @@
 <script setup>
 import { Store } from "../store/index.js";
 const currentTime = ref(0);
-const duration = ref(0);
+const duration = ref("00:00");
 const store = Store();
 const MusicList = Object.keys(import.meta.globEager("../**/*.mp3")).sort(
   () => Math.random() - 0.5
@@ -11,7 +11,7 @@ const schedule = () => {
 };
 store.MusicList = MusicList;
 store.Music = new Audio(MusicList[0].replace("../public/", "./"));
-console.log(store.Music);
+store.Music.load();
 store.Music.onplay = () => {
   store.MusicPlaying = true;
 };
@@ -192,8 +192,8 @@ store.Music.ontimeupdate = () => {
   border-left: 0px;
   width: 12px;
 }
-.Music-controller :nth-child(2){
-  transition: all .4s ease;
+.Music-controller :nth-child(2) {
+  transition: all 0.4s ease;
 }
 .Music-controller :nth-child(2)::before,
 .Music-controller :nth-child(2)::after {

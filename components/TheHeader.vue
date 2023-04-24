@@ -9,25 +9,25 @@ const store = Store();
     <nuxt-link to="/project">项目</nuxt-link>
     <nuxt-link to="/friends">友链</nuxt-link>
     <nuxt-link to="/about">关于</nuxt-link>
-    <div id="Music" @click="store.MusicDisplay = !store.MusicDisplay">
-      <div
-        id="disc"
-        :style="{
-          AnimationPlayState: store.MusicPlaying ? 'running' : 'paused',
-        }"
-      >
-        <div v-for="index in 6" />
-      </div>
-      <div
-        id="Crank"
-        :style="{
-          transform: store.MusicPlaying
-            ? 'translateX(-50%) rotate(-30deg)'
-            : 'translateX(-50%) rotate(-60deg)',
-        }"
-      >
-        <div v-for="index in 3" />
-      </div>
+  </div>
+  <div id="Music" @click="store.MusicDisplay = !store.MusicDisplay">
+    <div
+      id="disc"
+      :style="{
+        AnimationPlayState: store.MusicPlaying ? 'running' : 'paused',
+      }"
+    >
+      <div v-for="index in 6" />
+    </div>
+    <div
+      id="Crank"
+      :style="{
+        transform: store.MusicPlaying
+          ? 'translateX(-50%) rotate(-30deg)'
+          : 'translateX(-50%) rotate(-60deg)',
+      }"
+    >
+      <div v-for="index in 3" />
     </div>
   </div>
 </template>
@@ -68,6 +68,10 @@ a.router-link-exact-active {
   margin-left: auto;
   position: relative;
   background: var(--Real);
+  position: fixed;
+  right: 20px;
+  top: calc(1% + 16px);
+  z-index: 101;
 }
 #disc {
   animation: rotate 8s linear infinite;
@@ -186,5 +190,12 @@ a.router-link-exact-active {
   background: var(--Virtual);
   box-shadow: 0 0 0 0.2px var(--Real);
   z-index: -2;
+}
+@media screen and (max-width: 640px) {
+  #Music {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
 }
 </style>

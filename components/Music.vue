@@ -90,8 +90,6 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
-              store.Music.currentTime = 0;
-              currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != 0
                   ? --store.MusicListIndex
@@ -120,8 +118,6 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
-              store.Music.currentTime = 0;
-              currentTime = '00:00';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
@@ -180,8 +176,6 @@ store.Music.ontimeupdate = () => {
       @click="
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
-            store.Music.currentTime = 0;
-            currentTime = '00:00';
             store.Music.src = index.replace('../public/', './');
             store.MusicListIndex = store.MusicList.indexOf(index);
             store.Music.play();

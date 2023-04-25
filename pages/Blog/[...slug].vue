@@ -4,16 +4,16 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/blog/${route.params.slug[0]}`).findOne()
 );
-useHead({
-  script: [
-    {
-      type: "text/javascript",
-      src: "https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js",
-      id: "MathJax-script",
-      async: true,
-    },
-  ],
-});
+// useHead({
+//   script: [
+//     {
+//       type: "text/javascript",
+//       src: "https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js",
+//       id: "MathJax-script",
+//       async: true,
+//     },
+//   ],
+// });
 </script>
 <template>
   <div id="contentBox">

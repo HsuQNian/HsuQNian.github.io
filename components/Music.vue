@@ -3,6 +3,7 @@ import { Store } from "../store/index.js";
 const currentTime = ref("00:00");
 const duration = ref("00:00");
 const store = Store();
+const Progress = ref(null);
 const MusicList = Object.keys(import.meta.globEager("../**/*.mp3")).sort(
   () => Math.random() - 0.5
 );
@@ -21,7 +22,7 @@ store.Music.onpause = () => {
 };
 store.Music.onended = () => {
   store.MusicPlaying = false;
-  store.Music.currentTime = 0;
+  Progress.style.width = '0%';
   store.MusicListIndex =
     store.MusicListIndex != store.MusicList.length - 1
       ? ++store.MusicListIndex
@@ -90,6 +91,7 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
+              Progress.style.width = '0%';
               store.MusicListIndex =
                 store.MusicListIndex != 0
                   ? --store.MusicListIndex
@@ -118,6 +120,7 @@ store.Music.ontimeupdate = () => {
         <button
           @click="
             () => {
+              Progress.style.width = '0%';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
@@ -144,6 +147,7 @@ store.Music.ontimeupdate = () => {
     <div style="flex: 1; font-size: 0.6rem">
       <div id="schedule" @click="schedule">
         <div
+          ref="Progress"
           style="
             position: absolute;
             top: 0;
@@ -176,6 +180,7 @@ store.Music.ontimeupdate = () => {
       @click="
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
+            Progress.style.width = '0%';
             store.Music.src = index.replace('../public/', './');
             store.MusicListIndex = store.MusicList.indexOf(index);
             store.Music.play();

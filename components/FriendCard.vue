@@ -8,7 +8,7 @@ const app = defineProps({
 </script>
 <template>
   <a :href="app.link" target="_blank">
-    <img v-if="!!app.avatar" id="avatar" :src="avatar" />
+    <img v-if="!!app.avatar" id="avatar" :src="avatar" loading="lazy"/>
     <div v-else id="avatar" class="noAvatar"></div>
     <h2 style="margin: 0.4rem 0">
       {{ app.name }}

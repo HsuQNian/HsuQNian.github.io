@@ -309,6 +309,7 @@ button {
   height: 16px;
   width: 16px;
   position: relative;
+  outline: none;
 }
 #MusicList {
   position: fixed;

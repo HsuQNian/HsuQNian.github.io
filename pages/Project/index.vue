@@ -48,7 +48,6 @@ const projectImg = computed(() => {
           v-if="JSON.stringify(Imgs).includes(index)"
           :src="projectImg(index)"
           style="width: 100px; border-radius: 20px"
-          loading="lazy"
         />
         <div style="font-size: 2rem; font-weight: 100; text-align: center">
           {{ index.replace("-", "\n") }}

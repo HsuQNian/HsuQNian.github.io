@@ -76,7 +76,6 @@ const scroll = () => {
           "
           :src="`${global.assetLink}Notice/picture${index + 1}.png`"
           style="box-shadow: 0 0 2px rgba(0, 0, 0, 1); border-radius: 8px"
-          loading="lazy"
         />
         <div v-html="item"></div>
       </div>

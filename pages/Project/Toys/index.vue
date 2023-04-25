@@ -1,9 +1,9 @@
 <script setup></script>
 <template>
-  <div id="Funny">好玩的</div>
+  <div id="Toys">做点好玩的</div>
 </template>
 <style scoped>
-#Funny {
+#Toys {
   height: 100vh;
   width: 100vw;
   display: flex;

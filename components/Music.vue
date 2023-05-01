@@ -13,7 +13,6 @@ const schedule = () => {
 store.MusicList = MusicList;
 store.Music = new Audio(MusicList[0].replace("../public/", "./"));
 store.Music.preload = "none";
-store.Music.load();
 store.Music.onplay = () => {
   store.MusicPlaying = true;
 };
@@ -22,7 +21,7 @@ store.Music.onpause = () => {
 };
 store.Music.onended = () => {
   store.MusicPlaying = false;
-  Progress.style.width = '0%';
+  Progress.style.width = "0%";
   store.MusicListIndex =
     store.MusicListIndex != store.MusicList.length - 1
       ? ++store.MusicListIndex
@@ -50,6 +49,9 @@ store.Music.ontimeupdate = () => {
     second: "2-digit",
   });
 };
+onMounted(() => {
+  document.readyState == "complete" ? store.Music.load() : "";
+});
 </script>
 <template>
   <div

@@ -4,7 +4,6 @@ let project = [];
 Object.keys(modules).map((key) => {
   project.push(key.split("/")[1]);
 });
-
 </script>
 <template>
   <div id="home">

@@ -11,14 +11,12 @@ const contact = (param) => {
       喜欢把灵光一现的想法变成现实<br /><br class="br" />
       熟练使用原生JavaScript 并使用 ES6 <br /><br class="br" />
       熟练使用 Vue 全家桶进行搭建项目 <br /><br class="br" />
-      熟悉使用 Electron.js进行桌面应用开发 <br /><br class="br" />
-      熟悉使用 Apifox工具 <br /><br class="br" />
-      较熟悉使用 MongoDB 数据库 <br /><br class="br" />
+      熟练使用 Electron.js进行桌面应用开发 <br /><br class="br" />
       较熟悉使用photoshop、illustrator、Premiere、After
       Effects等软件（学习开发后设计变菜了
       <br /><br class="br" />
       懂一点嵌入式开发，使用过 Arduino、ESP32 等开发板 <br /><br class="br" />
-      此网站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署 <br /><br />
+      此网站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署。（无服务器）
     </div>
     <div class="main">
       <div class="picture"></div>

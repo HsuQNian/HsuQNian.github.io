@@ -113,8 +113,17 @@ a {
   font-size: 1.2rem;
   color: var(--Virtual);
   transition: all 0.32s ease-in-out;
+  position: relative;
 }
 a:hover {
   color: var(--Real);
+}
+a::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background: var(--Virtual);
+  width: 100%;
+  bottom: -1rem;
 }
 </style>

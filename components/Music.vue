@@ -320,8 +320,8 @@ button {
   flex-direction: column;
   width: 400px;
   font-size: 0.8rem;
-  background: #bbb4;
-  backdrop-filter: blur(0.4rem);
+  background: #bbb2;
+  backdrop-filter: blur(2rem);
   border-radius: 0.4rem;
   opacity: 1;
   padding: 10px 0;
@@ -332,7 +332,7 @@ button {
   padding: 0 10px;
   display: flex;
   align-items: center;
-  /* line-height: 1rem; */
+  transition: all 0.36s ease;
 }
 #MusicList > div:hover {
   background: #fff8;

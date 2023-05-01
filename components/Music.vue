@@ -218,8 +218,8 @@ onMounted(() => {
   position: fixed;
   height: 80px;
   width: 400px;
-  background: #bbb4;
-  backdrop-filter: blur(0.4rem);
+  background: #bbb2;
+  backdrop-filter: blur(2rem);
   border-radius: 0.4rem;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   z-index: 101;

@@ -4,6 +4,7 @@ const currentTime = ref("00:00");
 const duration = ref("00:00");
 const store = Store();
 const Progress = ref(null);
+
 const MusicList = Object.keys(import.meta.globEager("../**/*.mp3")).sort(
   () => Math.random() - 0.5
 );
@@ -12,6 +13,7 @@ const schedule = () => {
 };
 store.MusicList = MusicList;
 store.Music = new Audio(MusicList[0].replace("../public/", "./"));
+store.Music.load();
 store.Music.preload = "none";
 store.Music.onplay = () => {
   store.MusicPlaying = true;
@@ -49,9 +51,7 @@ store.Music.ontimeupdate = () => {
     second: "2-digit",
   });
 };
-onMounted(() => {
-  document.readyState == "complete" ? store.Music.load() : "";
-});
+
 </script>
 <template>
   <div
@@ -206,7 +206,7 @@ onMounted(() => {
               : 'transparent',
         }"
       />
-      {{ index.match(/(?<=\.\.\/public\/).*(?=.mp3)/g)[0] }}
+      {{ index.match(/(?<=\.\.\/public\/Music\/).*(?=.mp3)/g)[0] }}
     </div>
   </div>
 </template>

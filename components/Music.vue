@@ -23,7 +23,7 @@ store.Music.onpause = () => {
 };
 store.Music.onended = () => {
   store.MusicPlaying = false;
-  Progress.style.width = "0%";
+  Progress.value.style.width = "0%";
   store.MusicListIndex =
     store.MusicListIndex != store.MusicList.length - 1
       ? ++store.MusicListIndex
@@ -51,7 +51,6 @@ store.Music.ontimeupdate = () => {
     second: "2-digit",
   });
 };
-
 </script>
 <template>
   <div
@@ -170,9 +169,10 @@ store.Music.ontimeupdate = () => {
   </div>
   <div
     id="MusicList"
+    style="overflow-y: scroll; height: 114px"
     :style="{
       transform: store.MusicListShow
-        ? 'translate(-50%,-50%)'
+        ? 'translate(-50%,-74%)'
         : 'translate(-50%,-280%) ',
       opacity: store.MusicListShow ? 1 : 0,
     }"
@@ -324,12 +324,19 @@ button {
   backdrop-filter: blur(2rem);
   border-radius: 0.4rem;
   opacity: 1;
-  padding: 10px 0;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   z-index: 100;
 }
+#MusicList::-webkit-scrollbar {
+  display: block;
+  width: 2px;
+  height: 4px;
+}
+#MusicList::-webkit-scrollbar-thumb {
+  background: var(--theme);
+}
 #MusicList > div {
-  padding: 0 10px;
+  padding: 2px 8px;
   display: flex;
   align-items: center;
   transition: all 0.36s ease;

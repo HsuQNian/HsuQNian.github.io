@@ -30,14 +30,13 @@ const loadPicture = computed(() => async (pictureUrl) => {
     });
   return returnBoolean;
 });
-const height = ref(0);
-const scroll = () => {
-  height.value = event.target.scrollTop + 72;
-};
+// const height = ref(0);
+// const scroll = () => {
+//   height.value = event.target.scrollTop + 72;
+// };
 </script>
 <template>
-  <div class="Notice" @scroll="scroll(event)">
-    {{ height }}
+  <div class="Notice">
     <div class="introduce" style="flex: 1">
       <h1 style="font-size: 4rem; margin: 1.2rem">
         {{ AppName }}

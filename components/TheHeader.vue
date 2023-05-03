@@ -25,7 +25,16 @@ const store = Store();
         AnimationPlayState: store.MusicPlaying ? 'running' : 'paused',
       }"
     >
-      <div v-for="index in 6" />
+      <div
+        v-for="index in 8"
+        :style="{
+          width: `${30 - index * 4}px`,
+          height: `${30 - index * 4}px`,
+          transform: `translate(-50%, -50%) rotate(${
+            index % 2 == 0 ? index : -index * 20
+          }deg)`,
+        }"
+      />
     </div>
     <div
       id="Crank"
@@ -91,46 +100,16 @@ a.router-link-exact-active {
 #disc > div {
   position: absolute;
   border-radius: 50%;
-  border: 0.1px solid var(--Virtual);
+  border: 0.1px solid #888;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0deg);
-}
-#disc div:nth-child(1) {
-  width: 28px;
-  height: 28px;
-  transform: translate(-50%, -50%) rotate(30deg);
   border-bottom: none;
 }
-#disc div:nth-child(2) {
-  width: 24px;
-  height: 24px;
-  transform: translate(-50%, -50%) rotate(210deg);
-  border-bottom: none;
-}
-#disc div:nth-child(3) {
-  width: 20px;
-  height: 20px;
-  transform: translate(-50%, -50%) rotate(30deg);
-  border-right: none;
-}
-#disc div:nth-child(4) {
-  width: 16px;
-  height: 16px;
-  transform: translate(-50%, -50%);
-  border-right: none;
-}
-#disc div:nth-child(5) {
-  width: 12px;
-  height: 12px;
-  transform: translate(-50%, -50%);
-  border-top: none;
-}
-#disc div:nth-child(6) {
-  width: 8px;
-  height: 8px;
-  transform: translate(-50%, -50%);
-  background: var(--Virtual);
+#disc div:last-child {
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--Deep);
 }
 
 @keyframes rotate {

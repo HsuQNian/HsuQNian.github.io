@@ -13,7 +13,7 @@
             -webkit-background-clip: text;
           "
         >
-          <h1>这里没有你想要的</h1>
+          <h1>404</h1>
         </div>
       </template>
       <template #empty>
@@ -27,7 +27,7 @@
             -webkit-background-clip: text;
           "
         >
-          <h1>这里没有你想要的</h1>
+          <h1>404</h1>
         </div>
       </template>
     </ContentDoc>
@@ -43,18 +43,18 @@
   align-items: center;
 }
 h1 {
-  font-size: 8rem !important;
+  font-size: 16rem !important;
   color: transparent;
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
 }
 @media screen and (max-width: 1200px) {
   h1 {
-    font-size: 4rem !important;
+    font-size: 12rem !important;
   }
 }
 @media screen and (max-width: 800px) {
   h1 {
-    font-size: 2rem !important;
+    font-size: 6rem !important;
   }
 }
 </style>

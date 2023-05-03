@@ -76,7 +76,7 @@ store.Music.ontimeupdate = () => {
       >
         {{
           store.MusicList[store.MusicListIndex].match(
-            /(?<=\.\.\/public\/).*(?=.mp3)/g
+            /(?<=\.\.\/public\/Music\/).*(?=.mp3)/g
           )[0]
         }}
       </div>

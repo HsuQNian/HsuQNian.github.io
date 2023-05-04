@@ -340,6 +340,9 @@ button {
   display: flex;
   align-items: center;
   transition: all 0.36s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #MusicList > div:hover {
   background: #fff8;

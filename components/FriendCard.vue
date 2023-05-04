@@ -8,12 +8,14 @@ const app = defineProps({
 </script>
 <template>
   <a :href="app.link" target="_blank">
-    <img v-if="!!app.avatar" id="avatar" :src="avatar"/>
-    <div v-else id="avatar" class="noAvatar"></div>
-    <h2 style="margin: 0.4rem 0">
-      {{ app.name }}
-    </h2>
-    <p style="margin: 0.4rem 0; font-size: 0.9rem">
+    <div style="display: flex; flex-direction: row; align-items: center">
+      <img v-if="!!app.avatar" id="avatar" :src="avatar" />
+      <div v-else id="avatar" class="noAvatar"></div>
+      <h5 style="margin: 0 0.8rem">
+        {{ app.name }}
+      </h5>
+    </div>
+    <p style="margin: 1rem 0; font-size: 1rem">
       {{ app.descr ? app.descr : "&nbsp;" }}
     </p>
     <div id="arrow"></div>
@@ -22,7 +24,7 @@ const app = defineProps({
 <style scoped>
 a {
   width: 240px;
-  height: 140px;
+  height: 100px;
   position: relative;
   box-shadow: 0px 0px 0.4px rgba(0, 0, 0, 0.499),
     0px 0px 1.1px rgba(0, 0, 0, 0.602), 0px 0px 2.7px rgba(0, 0, 0, 0.608),
@@ -35,7 +37,6 @@ a {
   margin: 20px;
   overflow: hidden;
   opacity: v-bind("link!=null ? 0.8 : 0");
-  user-select: v-bind("link!=null ? text : 'none'");
 }
 h2 {
   margin: 0;
@@ -46,7 +47,7 @@ a:is(:hover, :focus-within) {
   color: var(--theme);
 }
 a:hover #arrow {
-  transform: rotate(45deg) translateY(-150%) translateX(-200%);
+  transform: rotate(45deg) translateY(-40%) translateX(-200%);
 }
 a:hover #arrow::before {
   border-right: 2px solid var(--theme);
@@ -59,8 +60,8 @@ a:hover #arrow::before {
   }
 }
 #avatar {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   background: var(--Deep);
   border-radius: 12px;
 }
@@ -73,18 +74,19 @@ a:hover #arrow::before {
   right: 16%;
   width: 18px;
   height: 18px;
-  transform: translateY(-260%) translateX(-880%) rotate(-135deg);
+  transform: translateY(-180%) translateX(-960%) rotate(-135deg);
   z-index: -1;
   transition: all 0.48s ease-in-out;
   border-radius: 0.1rem;
+  transform-origin: center center;
 }
 #arrow::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 12px;
+  height: 12px;
   border-radius: 0.1rem;
   border-right: 2px solid transparent;
   border-top: 2px solid transparent;

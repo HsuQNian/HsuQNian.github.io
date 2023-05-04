@@ -21,7 +21,7 @@ const { data } = await useAsyncData(
       <h2 style="text-align: center; font-weight: 600; margin-bottom: 0">
         {{ data.title }}
       </h2>
-      <p style="text-align: center; margin-bottom: -4px">
+      <p style="text-align: center; margin-bottom: -12px; font-size: 0.8rem">
         {{ data.date }}
       </p>
       <ContentRenderer

@@ -39,33 +39,33 @@ const { data } = await useAsyncData(
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  min-height: 50vh;
+  min-height: 40vh;
   margin: auto;
-  width: 72vw;
+  width: 70vw;
 }
 @media screen and (max-width: 1780px) {
   #friends {
     width: 88vw;
   }
 }
-@media screen and (max-width: 1454px) {
-  #friends {
-    /* grid-template-columns: repeat(3, 1fr); */
-    width: 100vw;
-  }
-}
-@media screen and (max-width: 1340px) {
+@media screen and (max-width: 1440px) {
   #friends {
     grid-template-columns: repeat(3, 1fr);
     width: 74vw;
   }
 }
-@media screen and (max-width: 1310px) {
+
+@media screen and (max-width: 1270px) {
   #friends {
     width: 94vw;
   }
 }
 @media screen and (max-width: 1020px) {
+  #friends {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 970px) {
   #friends {
     grid-template-columns: repeat(2, 1fr);
     min-height: 60vh;
@@ -73,16 +73,16 @@ const { data } = await useAsyncData(
     align-items: center;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 880px) and (min-width: 700px) {
   #friends {
-    width: 100vw;
+    width: 94vw;
   }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 700px) {
   #friends {
     grid-template-columns: repeat(1, 1fr);
-    min-height: 80vh;
     align-items: center;
+    width: 100vw;
   }
 }
 </style>

@@ -39,7 +39,7 @@ onMounted(() => {
         >
           <div id="title">
             <div>{{ title }}</div>
-            <div style="font-size: 0.8rem; letter-spacing: 2px">
+            <div style="font-size: 0.76rem; letter-spacing: 2px">
               <span>{{ date.split("T")[0] }}</span>
               <span
                 v-if="typeof label != 'string'"
@@ -98,7 +98,7 @@ onMounted(() => {
   margin-left: 20px;
 }
 #title {
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   height: 40px;
 }
 .label:first {
@@ -106,7 +106,7 @@ onMounted(() => {
 }
 
 .label + .label::before {
-  content: "、";
+  content: "·";
 }
 a {
   margin: 1rem;
@@ -124,6 +124,6 @@ a::before {
   height: 1px;
   background: var(--Virtual);
   width: 100%;
-  bottom: -1rem;
+  bottom: -.8rem;
 }
 </style>

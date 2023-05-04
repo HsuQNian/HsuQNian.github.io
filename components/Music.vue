@@ -3,8 +3,8 @@ import { Store } from "../store/index.js";
 const currentTime = ref("00:00");
 const duration = ref("00:00");
 const store = Store();
+const circulate = ref(false);
 const Progress = ref(null);
-
 const MusicList = Object.keys(import.meta.globEager("../**/*.mp3")).sort(
   () => Math.random() - 0.5
 );
@@ -23,15 +23,17 @@ store.Music.onpause = () => {
 };
 store.Music.onended = () => {
   store.MusicPlaying = false;
-  Progress.value.style.width = "0%";
-  store.MusicListIndex =
-    store.MusicListIndex != store.MusicList.length - 1
-      ? ++store.MusicListIndex
-      : 0;
-  store.Music.src = store.MusicList[store.MusicListIndex].replace(
-    "../public/",
-    "./"
-  );
+  if (!circulate.value) {
+    Progress.value.style.width = "0%";
+    store.MusicListIndex =
+      store.MusicListIndex != store.MusicList.length - 1
+        ? ++store.MusicListIndex
+        : 0;
+    store.Music.src = store.MusicList[store.MusicListIndex].replace(
+      "../public/",
+      "./"
+    );
+  }
   store.Music.play();
   store.MusicPlaying = true;
 };
@@ -84,7 +86,7 @@ store.Music.ontimeupdate = () => {
         style="
           display: flex;
           align-items: center;
-          justify-content: space-around;
+          justify-content: space-evenly;
           flex: 1;
           width: 60%;
         "
@@ -134,13 +136,10 @@ store.Music.ontimeupdate = () => {
             }
           "
         />
-        <button
-          @click="
-            () => {
-              store.MusicListShow = !store.MusicListShow;
-            }
-          "
-        >
+        <button @click="circulate = !circulate">
+          <div>1</div>
+        </button>
+        <button @click="store.MusicListShow = !store.MusicListShow">
           <div />
         </button>
       </div>
@@ -206,7 +205,11 @@ store.Music.ontimeupdate = () => {
               : 'transparent',
         }"
       />
-      {{ index.match(/(?<=\.\.\/public\/Music\/).*(?=.mp3)/g)[0] }}
+      <div
+        style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"
+      >
+        {{ index.match(/(?<=\.\.\/public\/Music\/).*(?=.mp3)/g)[0] }}
+      </div>
     </div>
   </div>
 </template>
@@ -274,25 +277,70 @@ button:nth-child(3) {
   position: relative;
 }
 button:nth-child(4) {
+  height: 12px;
+  border: 2px solid #fff;
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+button:nth-child(4)::before,
+button:nth-child(4)::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  transform: rotate(45deg);
+}
+button:nth-child(4) > div {
+  font-size: 0.4rem;
+  color: #fff;
+  transition: all 0.4s ease;
+  opacity: v-bind("circulate?'1':'0'");
+  transform: translateX(-40%);
+}
+button:nth-child(4)::before {
+  top: -5.4px;
+  left: -2.4px;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  transform: rotate(45deg) translate(v-bind("circulate?'80%, -80%':'0% 0%'"));
+  transform: v-bind(
+    "circulate?'rotate(45deg) translate(80%, -80%)':'rotate(45deg)'"
+  );
+}
+button:nth-child(4)::after {
+  bottom: -5.4px;
+  right: -2.4px;
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  opacity: v-bind("circulate?'0':'1'");
+}
+button:last-child {
   transform: rotate(90deg);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
-button:nth-child(4) > div {
+button:last-child > div {
   height: 14px;
   width: 2px;
   background: #fff;
 }
-button:nth-child(4)::after {
+button:last-child::after {
   position: absolute;
   left: 0 !important;
 }
 button:nth-child(1)::before,
 button:nth-child(3)::before,
-button:nth-child(4)::before,
-button:nth-child(4)::after {
+button:last-child::before,
+button:last-child::after {
   content: "";
   display: block;
   position: absolute;
@@ -340,9 +388,6 @@ button {
   display: flex;
   align-items: center;
   transition: all 0.36s ease;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 #MusicList > div:hover {
   background: #fff8;

@@ -26,10 +26,10 @@ const store = Store();
       }"
     >
       <div
-        v-for="index in 8"
+        v-for="index in 10"
         :style="{
-          width: `${30 - index * 4}px`,
-          height: `${30 - index * 4}px`,
+          width: `${30 - index * 2}px`,
+          height: `${30 - index * 2}px`,
           transform: `translate(-50%, -50%) rotate(${
             index % 2 == 0 ? index : -index * 20
           }deg)`,

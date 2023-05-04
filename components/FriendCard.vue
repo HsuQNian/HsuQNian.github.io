@@ -11,7 +11,7 @@ const app = defineProps({
     <div style="display: flex; flex-direction: row; align-items: center">
       <img v-if="!!app.avatar" id="avatar" :src="avatar" />
       <div v-else id="avatar" class="noAvatar"></div>
-      <h5 style="margin: 0 0.8rem">
+      <h5 style="margin: 0 0.8rem; letter-spacing: 1px">
         {{ app.name }}
       </h5>
     </div>

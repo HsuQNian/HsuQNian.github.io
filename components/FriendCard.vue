@@ -15,7 +15,7 @@ const app = defineProps({
         {{ app.name }}
       </h5>
     </div>
-    <p style="margin: 1rem 0; font-size: 1rem">
+    <p style="font-size: 1rem; margin-top: .4rem">
       {{ app.descr ? app.descr : "&nbsp;" }}
     </p>
     <div id="arrow"></div>

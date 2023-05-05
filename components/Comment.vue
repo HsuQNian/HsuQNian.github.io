@@ -20,7 +20,7 @@ const app = defineProps({
       lang="zh-CN"
       crossorigin="anonymous"
       async
-    ></giscus-widget>
+    />
   </div>
 </template>
 <style scoped>

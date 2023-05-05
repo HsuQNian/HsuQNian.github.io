@@ -10,15 +10,15 @@ const app = defineProps({
   <a :href="app.link" target="_blank">
     <div style="display: flex; flex-direction: row; align-items: center">
       <img v-if="!!app.avatar" id="avatar" :src="avatar" />
-      <div v-else id="avatar" class="noAvatar"></div>
+      <div v-else id="avatar" class="noAvatar" />
       <h5 style="margin: 0 0.8rem; letter-spacing: 1px">
         {{ app.name }}
       </h5>
     </div>
-    <p style="font-size: 1rem; margin-top: .4rem">
+    <div style="height: 72px; display: flex; align-items: center">
       {{ app.descr ? app.descr : "&nbsp;" }}
-    </p>
-    <div id="arrow"></div>
+    </div>
+    <div id="arrow" />
   </a>
 </template>
 <style scoped>
@@ -45,6 +45,9 @@ h2 {
 
 a:is(:hover, :focus-within) {
   color: var(--theme);
+  box-shadow: 0px 0px 0.4px var(--theme),
+    0px 0px 1.1px var(--theme), 0px 0px 2.7px var(--theme),
+    0px 0px 9px var(--theme);
 }
 a:hover #arrow {
   transform: rotate(45deg) translateY(-40%) translateX(-200%);

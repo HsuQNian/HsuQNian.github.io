@@ -1,11 +1,12 @@
 <script setup>
 const blogPosts = ref((await queryContent("/blog").find()).reverse());
 const tags = reactive(["全部"]);
+const blogList = ref([]);
 const selectTag = async (params) => {
   blogPosts.value = (await queryContent("/blog").find()).reverse();
-  if (params == "全部") return;
+  if (params == "全部") blogList.value = blogPosts.value;
   else {
-    blogPosts.value = blogPosts.value.filter((post) => {
+    blogList.value = blogPosts.value.filter((post) => {
       if (typeof post.label == "string") return post.label == params;
       else return post.label.includes(params);
     });
@@ -22,6 +23,7 @@ onMounted(() => {
       });
     }
   });
+  blogList.value = blogPosts.value;
 });
 </script>
 <template>
@@ -32,7 +34,7 @@ onMounted(() => {
     <div id="Blog">
       <transition-group name="blogPosts">
         <NuxtLink
-          v-for="{ _path: slug, title, date, label } in blogPosts"
+          v-for="{ _path: slug, title, date, label } in blogList"
           :key="slug"
           :to="slug"
           :slug="slug"
@@ -108,12 +110,16 @@ onMounted(() => {
 .label + .label::before {
   content: "·";
 }
+
 a {
-  margin: 1rem;
-  font-size: 1.2rem;
+  margin: 1.2rem -1rem;
+  font-size: 1rem;
   color: var(--Virtual);
   transition: all 0.32s ease-in-out;
   position: relative;
+}
+a:nth-child(1) {
+  /* margin-top: 0; */
 }
 a:hover {
   color: var(--Real);
@@ -123,7 +129,7 @@ a::before {
   content: "";
   height: 1px;
   background: var(--Virtual);
-  width: 100%;
-  bottom: -.8rem;
+  width: 94%;
+  bottom: -0.8rem;
 }
 </style>

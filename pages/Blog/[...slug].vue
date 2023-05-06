@@ -69,6 +69,7 @@ onMounted(() => {
   box-sizing: border-box;
   min-width: 160px;
   max-width: 980px;
+  margin: 0 auto;
   padding: 0 30px;
   border: 20px solid var(--Deep);
   background: var(--Deep);

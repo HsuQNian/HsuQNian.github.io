@@ -101,7 +101,7 @@ onMounted(() => {
 }
 #title {
   letter-spacing: 2px;
-  height: 40px;
+  border-bottom: 1px solid var(--Virtual);
 }
 .label:first {
   padding-left: 20px;
@@ -118,18 +118,7 @@ a {
   transition: all 0.32s ease-in-out;
   position: relative;
 }
-a:nth-child(1) {
-  /* margin-top: 0; */
-}
 a:hover {
   color: var(--Real);
-}
-a::before {
-  position: absolute;
-  content: "";
-  height: 1px;
-  background: var(--Virtual);
-  width: 94%;
-  bottom: -0.8rem;
 }
 </style>

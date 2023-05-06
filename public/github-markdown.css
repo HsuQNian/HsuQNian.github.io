@@ -520,18 +520,31 @@
 }
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 16px;
-  overflow: auto;
+  padding: 12px;
+  overflow-x: scroll;
+  overflow-y: hidden;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f6f8fa;
+  background-color: rgba(27, 31, 35, 0.05);
   border-radius: 3px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  /* position: relative; */
+}
+.markdown-body pre::-webkit-scrollbar {
+  display: block;
+  height: 4px;
+}
+.markdown-body pre::-webkit-scrollbar-thumb {
+  background-color: var(--theme);
+  border-radius: 4px;
 }
 .markdown-body pre code {
   display: inline;
   max-width: auto;
   padding: 0;
-  margin: 0;
+  margin: 0 12px;
   overflow: visible;
   line-height: inherit;
   word-wrap: normal;
@@ -574,4 +587,14 @@
 .markdown-body hr {
   border-bottom-color: #eee;
 }
-/*# sourceMappingURL=github-markdown.min.css.map */
+.markdown-body .line-number {
+  text-align: center;
+  padding-right: 12px;
+  min-height: 1rem;
+  line-height: 20px;
+  border-right: 1px solid #7195a8;
+  color: #7195a8;
+}
+.markdown-body .line-number span {
+  display: block;
+}

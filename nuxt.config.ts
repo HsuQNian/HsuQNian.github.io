@@ -5,4 +5,10 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
   modules: ["@nuxt/content", "@pinia/nuxt"],
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      theme: "github-light",
+    },
+  },
 });

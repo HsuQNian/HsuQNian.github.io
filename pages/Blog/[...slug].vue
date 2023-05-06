@@ -4,6 +4,24 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/blog/${route.params.slug[0]}`).findOne()
 );
+const contentRenderer = ref(null);
+
+onMounted(() => {
+  let CodeBlock = contentRenderer.value.$el.querySelectorAll("pre");
+  CodeBlock.forEach((item) => {
+    let lineNumber = parseInt(
+      item.querySelector("code span.line:last-child").getAttribute("line")
+    );
+    const line = document.createElement("span");
+    line.className = "line-number";
+    for (let i = 1; i <= lineNumber; i++) {
+      const span = document.createElement("span");
+      span.innerText = i;
+      line.appendChild(span);
+    }
+    item.appendChild(line);
+  });
+});
 // useHead({
 //   script: [
 //     {
@@ -18,7 +36,14 @@ const { data } = await useAsyncData(
 <template>
   <div id="contentBox">
     <div id="content">
-      <h2 style="text-align: center; font-weight: 600; margin-bottom: 0">
+      <h2
+        style="
+          text-align: center;
+          font-weight: 600;
+          margin-bottom: 0;
+          line-height: 1.6rem;
+        "
+      >
         {{ data.title }}
       </h2>
       <p style="text-align: center; margin-bottom: -12px; font-size: 0.8rem">
@@ -26,6 +51,7 @@ const { data } = await useAsyncData(
       </p>
       <ContentRenderer
         :value="data"
+        ref="contentRenderer"
         class="markdown-body"
         style="display: flex; flex-direction: column; min-height: 50vh"
       >
@@ -43,7 +69,6 @@ const { data } = await useAsyncData(
   box-sizing: border-box;
   min-width: 160px;
   max-width: 980px;
-  margin: 0 auto;
   padding: 0 30px;
   border: 20px solid var(--Deep);
   background: var(--Deep);
@@ -60,6 +85,10 @@ const { data } = await useAsyncData(
 }
 #content:not(.markdown-body) {
   color: var(--Virtual);
+}
+#content:not(.markdown-body) h2 {
+  width: 72vw;
+  margin: auto;
 }
 :not(.markdown-body)::selection {
   background: var(--Virtual);

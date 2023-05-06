@@ -9,7 +9,7 @@ useHead({
         : `HsuQNian | ${route.path.slice(1)[0].toUpperCase()}${route.path
             .slice(2)
             .replaceAll("/", " | ")
-            .replace("-", " ")}`
+            .replaceAll("-", " ")}`
     }`;
   },
   link: [

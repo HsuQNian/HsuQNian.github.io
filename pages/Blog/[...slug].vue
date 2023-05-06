@@ -53,7 +53,6 @@ onMounted(() => {
         :value="data"
         ref="contentRenderer"
         class="markdown-body"
-        style="display: flex; flex-direction: column; min-height: 50vh"
       >
         <template #empty>
           <div id="contentBox" />
@@ -66,13 +65,15 @@ onMounted(() => {
 
 <style scoped>
 .markdown-body {
-  box-sizing: border-box;
   min-width: 160px;
   max-width: 980px;
   margin: 0 auto;
   padding: 0 30px;
   border: 20px solid var(--Deep);
   background: var(--Deep);
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
 }
 #contentBox {
   height: 100vh;

@@ -12,14 +12,14 @@ onMounted(() => {
     let lineNumber = parseInt(
       item.querySelector("code span.line:last-child").getAttribute("line")
     );
-    const line = document.createElement("span");
+    const line = document.createElement("code");
     line.className = "line-number";
     for (let i = 1; i <= lineNumber; i++) {
       const span = document.createElement("span");
       span.innerText = i;
       line.appendChild(span);
     }
-    item.appendChild(line);
+    item.prepend(line);
   });
 });
 // useHead({

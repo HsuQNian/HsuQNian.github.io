@@ -8,6 +8,6 @@ export const Store = defineStore("Main", {
     MusicDisplay: false,
     MusicPlaying: false,
     MusicListShow: false,
-    log: "",
+    Log: "",
   }),
 });

@@ -3,6 +3,7 @@ const { data } = await useAsyncData(
   "page-data",
   async () => await queryContent(`/friends`).findOne()
 );
+const friends = data.value.friends.sort(() => Math.random().toFixed(1) - 0.5);
 </script>
 <template>
   <div id="contentBox">
@@ -12,14 +13,12 @@ const { data } = await useAsyncData(
     <div id="friends">
       <FriendCard
         id="FriendCard"
-        v-for="friends in data.friends.sort(
-          () => Math.random().toFixed(1) - 0.5
-        )"
-        :key="friends.title"
-        :link="friends.link"
-        :name="friends.name"
-        :descr="friends.descr"
-        :avatar="friends.avatar"
+        v-for="index in friends"
+        :key="index.title"
+        :link="index.link"
+        :name="index.name"
+        :descr="index.descr"
+        :avatar="index.avatar"
       />
     </div>
     <Comment :width="'100%'" />

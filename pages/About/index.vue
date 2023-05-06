@@ -147,7 +147,7 @@ const contact = (param) => {
 }
 .introduction {
   flex: 1;
-  padding: 0 80px;
+  padding: 80px;
   display: flex;
   justify-content: center;
   letter-spacing: 1px;
@@ -161,7 +161,7 @@ const contact = (param) => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
+  /* position: relative; */
   align-items: center;
 }
 .picture {
@@ -178,45 +178,39 @@ const contact = (param) => {
   width: 240px;
   justify-content: space-between;
   margin-top: 24px;
-  position: relative;
 }
 .information div:not(.github, .bilibili)::after {
   content: "";
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
   background-color: transparent;
   border-radius: 12px;
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   z-index: 1;
+  opacity: 0;
 }
 .information div:nth-child(1):after {
   pointer-events: none;
   border: 10px solid #f4f9fb;
-  opacity: 0;
-  left: -44%;
-  top: -1000%;
+
   background: url("../QQ.png") no-repeat;
   background-size: cover;
 }
 .information div:nth-child(1):hover::after {
   opacity: 1;
-  left: -44%;
-  top: 200%;
 }
 .information div:nth-child(2):after {
   background: url("../WX.png") no-repeat;
   border: 10px solid #29ad68;
   background-size: cover;
   pointer-events: none;
-  opacity: 0;
-  left: -12%;
-  top: -1000%;
 }
 .information div:nth-child(2):hover::after {
   opacity: 1;
-  left: -12%;
-  top: 200%;
 }
 .information div {
   cursor: pointer;

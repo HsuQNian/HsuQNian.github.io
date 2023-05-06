@@ -60,7 +60,7 @@ store.Music.ontimeupdate = () => {
     :style="{
       transform: store.MusicDisplay
         ? 'translate(-50%, 10%) '
-        : 'translate(-50%, -200%) ',
+        : 'translate(-50%, -240%) ',
     }"
   >
     <div class="Music-Title" style="flex: 1; margin-top: 6px">
@@ -215,7 +215,7 @@ store.Music.ontimeupdate = () => {
 </template>
 <style scoped>
 #Music {
-  top: 64px;
+  top: 88px;
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
@@ -362,7 +362,7 @@ button {
 }
 #MusicList {
   position: fixed;
-  top: 246px;
+  top: 266px;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;

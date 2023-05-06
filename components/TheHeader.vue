@@ -63,14 +63,15 @@ const store = Store();
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
+  transition: all 0.24s;
 }
 .header a {
   margin: 0 28px;
-  color: var(--Virtual);
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
   transition: all 0.24s;
+  color: var(--Virtual);
 }
 .header a:nth-child(1) {
   margin-left: 4%;

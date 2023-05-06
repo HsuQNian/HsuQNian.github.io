@@ -64,7 +64,6 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 #tags {
   width: 80%;
@@ -76,6 +75,7 @@ onMounted(() => {
   margin: 1rem;
   color: var(--Virtual);
   flex-wrap: wrap;
+  margin-top: 88px;
 }
 #tags span {
   font-size: 0.8rem;
@@ -90,7 +90,6 @@ onMounted(() => {
 }
 #Blog {
   width: 80%;
-  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

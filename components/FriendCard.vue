@@ -45,12 +45,11 @@ h2 {
 
 a:is(:hover, :focus-within) {
   color: var(--theme);
-  box-shadow: 0px 0px 0.4px var(--theme),
-    0px 0px 1.1px var(--theme), 0px 0px 2.7px var(--theme),
-    0px 0px 9px var(--theme);
+  box-shadow: 0px 0px 0.4px var(--theme), 0px 0px 1.1px var(--theme),
+    0px 0px 2.7px var(--theme), 0px 0px 9px var(--theme);
 }
 a:hover #arrow {
-  transform: rotate(45deg) translateY(-40%) translateX(-200%);
+  transform: rotate(45deg) translateY(-200%) translateX(-40%);
 }
 a:hover #arrow::before {
   border-right: 2px solid var(--theme);

@@ -484,7 +484,8 @@
 .markdown-body img {
   max-width: 100%;
   box-sizing: content-box;
-  background-color: #fff;
+  background-color: #7195a8;
+  border-radius: 1rem;
 }
 .markdown-body img[align="right"] {
   padding-left: 20px;
@@ -530,7 +531,7 @@
   border-radius: 3px;
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   width: auto;
 }
 .markdown-body pre::-webkit-scrollbar {

@@ -48,8 +48,8 @@ a:link,
 a:focus {
   text-decoration: none;
 }
-.blogPosts--enter-active,
-.blogPosts--leave-active,
+.blogPosts-enter-active,
+.blogPosts-leave-active,
 .Loading-enter-active,
 .Loading-leave-active,
 .page-enter-active,
@@ -65,6 +65,4 @@ a:focus {
   opacity: 0;
   filter: blur(1rem);
 }
-.blogPosts-leave-active {
-  position: absolute;
-}
+

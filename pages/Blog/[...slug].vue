@@ -5,7 +5,6 @@ const { data } = await useAsyncData(
   async () => await queryContent(`/blog/${route.params.slug[0]}`).findOne()
 );
 const contentRenderer = ref(null);
-
 onMounted(() => {
   let CodeBlock = contentRenderer.value.$el.querySelectorAll("pre");
   CodeBlock.forEach((item) => {

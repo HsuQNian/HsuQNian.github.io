@@ -3,12 +3,12 @@ const blogPosts = ref((await queryContent("/blog").find()).reverse());
 const tags = reactive(["全部"]);
 const blogList = ref([]);
 const selectTag = async (params) => {
-  blogPosts.value = (await queryContent("/blog").find()).reverse();
   if (params == "全部") blogList.value = blogPosts.value;
   else {
     blogList.value = blogPosts.value.filter((post) => {
-      if (typeof post.label == "string") return post.label == params;
-      else return post.label.includes(params);
+      return typeof post.label == "string"
+        ? post.label == params
+        : post.label.includes(params);
     });
   }
 };
@@ -120,5 +120,8 @@ a {
 }
 a:hover {
   color: var(--Real);
+}
+.blogPosts-leave-active {
+  position: absolute;
 }
 </style>

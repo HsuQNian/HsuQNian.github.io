@@ -485,7 +485,7 @@
   max-width: 100%;
   box-sizing: content-box;
   background-color: #7195a8;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
 }
 .markdown-body img[align="right"] {
   padding-left: 20px;

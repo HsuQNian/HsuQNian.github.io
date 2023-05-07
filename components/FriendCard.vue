@@ -66,9 +66,10 @@ a:hover #arrow::before {
   height: 48px;
   background: var(--Deep);
   border-radius: 12px;
+  border: 0.1px solid var(--Virtual);
 }
 .noAvatar {
-  border: 1px solid var(--Virtual);
+  border: 0.1px solid var(--Virtual);
 }
 #arrow {
   position: absolute;

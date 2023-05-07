@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
+  plugins: [{ src: "~/plugins/vercel.ts", mode: "client" }],
   modules: ["@nuxt/content", "@pinia/nuxt"],
   content: {
     highlight: {

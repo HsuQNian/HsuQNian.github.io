@@ -25,7 +25,7 @@ const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);
 };
 store.MusicList = MusicList;
-store.Music = new Audio(`./Music/${MusicList[0]}.mp3`);
+store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
 store.Music.load();
 store.Music.preload = "none";
 store.Music.onplay = () => {
@@ -42,7 +42,9 @@ store.Music.onended = () => {
       store.MusicListIndex != store.MusicList.length - 1
         ? ++store.MusicListIndex
         : 0;
-    store.Music.src = `./Music/${store.MusicList[store.MusicListIndex]}.mp3`;
+    store.Music.src = `./Medium/Music/${
+      store.MusicList[store.MusicListIndex]
+    }.mp3`;
   }
   store.Music.play();
   store.MusicPlaying = true;
@@ -86,12 +88,7 @@ store.Music.ontimeupdate = () => {
           text-overflow: ellipsis;
         "
       >
-        {{
-          // store.MusicList[store.MusicListIndex].match(
-          //   /(?<=\.\.\/public\/Music\/).*(?=.mp3)/g
-          // )[0]
-          store.MusicList[store.MusicListIndex]
-        }}
+        {{ store.MusicList[store.MusicListIndex] }}
       </div>
       <div
         style="
@@ -110,7 +107,7 @@ store.Music.ontimeupdate = () => {
                 store.MusicListIndex != 0
                   ? --store.MusicListIndex
                   : store.MusicList.length - 1;
-              store.Music.src = `./Music/${
+              store.Music.src = `./Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
               store.Music.play();
@@ -138,7 +135,7 @@ store.Music.ontimeupdate = () => {
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
                   : 0;
-              store.Music.src = `./Music/${
+              store.Music.src = `./Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
               store.Music.play();
@@ -180,8 +177,8 @@ store.Music.ontimeupdate = () => {
     style="overflow-y: scroll; height: 114px"
     :style="{
       transform: store.MusicListShow
-        ? 'translate(-50%,-74%)'
-        : 'translate(-50%,-280%) ',
+        ? 'translate(-50%,-64%)'
+        : 'translate(-50%,-360%) ',
       opacity: store.MusicListShow ? 1 : 0,
     }"
   >
@@ -191,7 +188,7 @@ store.Music.ontimeupdate = () => {
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
             Progress.style.width = '0%';
-            store.Music.src = `./Music/${index}.mp3`;
+            store.Music.src = `./Medium/Music/${index}.mp3`;
             store.MusicListIndex = store.MusicList.indexOf(index);
             store.Music.play();
           }
@@ -218,7 +215,6 @@ store.Music.ontimeupdate = () => {
         style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"
       >
         {{
-          // index.match(/(?<=\.\.\/public\/Music\/).*(?=.mp3)/g)[0]
           index
         }}
       </div>

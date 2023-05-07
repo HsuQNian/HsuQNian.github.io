@@ -1,7 +1,6 @@
 <script setup>
-const { data } = await useAsyncData(
-  "page-data",
-  async () => await queryContent(`/friends`).findOne()
+const { data } = await useAsyncData("page-data", () =>
+  queryContent(`/friends`).findOne()
 );
 </script>
 <template>

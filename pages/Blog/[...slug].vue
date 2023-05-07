@@ -1,8 +1,7 @@
 <script setup>
 const route = useRoute();
-const { data } = await useAsyncData(
-  "page-data",
-  async () => await queryContent(`/blog/${route.params.slug[0]}`).findOne()
+const { data } = await useAsyncData("page-data", () =>
+  queryContent(`/blog/${route.params.slug[0]}`).findOne()
 );
 const contentRenderer = ref(null);
 onMounted(() => {

@@ -11,7 +11,7 @@ const store = Store();
     <nuxt-link to="/about">关于</nuxt-link>
   </div>
   <div
-    id="Music"
+    id="MusicDisc"
     @click="
       () => {
         store.MusicDisplay = !store.MusicDisplay;
@@ -79,7 +79,7 @@ const store = Store();
 a.router-link-exact-active {
   color: var(--theme);
 }
-#Music {
+#MusicDisc {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -180,7 +180,7 @@ a.router-link-exact-active {
   z-index: -2;
 }
 @media screen and (max-width: 640px) {
-  #Music {
+  #MusicDisc {
     position: fixed;
     right: 20px;
     bottom: 20px;

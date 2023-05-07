@@ -19,15 +19,6 @@ useHead({
       href: "/favicon.ico",
     },
   ],
-  meta: [
-    {
-      width: "description", //标识编号
-      "initial-scale": "1.0",
-      "maxinmum-scale": "1.0",
-      "user-scalable": "no",
-      name: "viewport",
-    },
-  ],
 });
 onMounted(() => {
   document.readyState == "complete" ? (onReady.value = true) : "";
@@ -37,7 +28,7 @@ onMounted(() => {
   <transition name="Loading" mode="out-in">
     <Loading v-if="!onReady" />
     <div v-else>
-      <!-- <Music /> -->
+      <Music />
       <TheHeader />
       <NuxtPage />
       <TheFooter />

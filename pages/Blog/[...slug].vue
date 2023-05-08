@@ -1,8 +1,6 @@
 <script setup>
 const route = useRoute();
-const { data } = await useAsyncData("page-data", () =>
-  queryContent(`/blog/${route.params.slug[0]}`).findOne()
-);
+const data = await queryContent(`/blog/${route.params.slug[0]}`).findOne();
 const contentRenderer = ref(null);
 onMounted(() => {
   let CodeBlock = contentRenderer.value.$el.querySelectorAll("pre");

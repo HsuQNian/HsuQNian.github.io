@@ -1,4 +1,9 @@
 <script setup>
+new PerformanceObserver((entryList) => {
+  for (const entry of entryList.getEntriesByName("first-contentful-paint")) {
+    console.log("FCP candidate:", `${Math.floor(entry.startTime)}ms`, entry);
+  }
+}).observe({ type: "paint", buffered: true });
 const blogPosts = ref((await queryContent("/blog").find()).reverse());
 const tags = reactive(["全部"]);
 const blogList = ref([]);

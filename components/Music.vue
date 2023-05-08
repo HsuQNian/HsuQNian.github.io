@@ -5,15 +5,30 @@ const duration = ref("00:00");
 const store = Store();
 const circulate = ref(false);
 const Progress = ref(null);
-onMounted(() => {
-  console.time("Music");
-  if (process.client) store.Music.load();
-  console.timeEnd("Music");
-});
+const MusicList = [
+  "Kevin Penkin - Erosion",
+  "Kevin Penkin - Moving Out",
+  "Kevin Penkin - Music",
+  "October - Time To Love",
+  "TD - みゆな-缶ビール（退独 remix）",
+  "α·Pav - μ¹",
+  "ふぁがじー - いかないで piano.ver",
+  "阿鲲 - 550W ／ Moss",
+  "阿鲲 - 单程票",
+  "麦吉_Maggie - 朗朗晴天／ハレハレヤ（翻自 v flower）",
+  "麦吉_Maggie - 桜+OK绷（中日双声道）（翻自 FUNKY MONKEY BABYS）",
+  "銘晴Halo - I Really Want to Stay At Your House（完整版·粤语复古）",
+  "善喜 - 戒不掉的想你",
+  "早凉 - 大摆（cover 大喜）",
+].sort(() => Math.random() - 0.5);
+store.MusicList = MusicList;
+console.time("Music");
+store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
+console.timeEnd("Music");
+store.Music.load();
 const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);
 };
-
 store.Music.onplay = () => {
   store.MusicPlaying = true;
 };
@@ -32,6 +47,7 @@ store.Music.onended = () => {
       store.MusicList[store.MusicListIndex]
     }.mp3`;
   }
+  store.Music.load();
   store.Music.play();
   store.MusicPlaying = true;
 };
@@ -96,6 +112,7 @@ store.Music.ontimeupdate = () => {
               store.Music.src = `./Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
+              store.Music.load();
               store.Music.play();
             }
           "
@@ -124,6 +141,7 @@ store.Music.ontimeupdate = () => {
               store.Music.src = `./Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
+              store.Music.load();
               store.Music.play();
             }
           "
@@ -176,6 +194,7 @@ store.Music.ontimeupdate = () => {
             Progress.style.width = '0%';
             store.Music.src = `./Medium/Music/${index}.mp3`;
             store.MusicListIndex = store.MusicList.indexOf(index);
+            store.Music.load();
             store.Music.play();
           }
         }

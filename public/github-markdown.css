@@ -8,6 +8,7 @@
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
+  text-align: justify;
 }
 .markdown-body .pl-c {
   color: #6a737d;
@@ -120,12 +121,13 @@
   text-decoration: none;
   color: var(--theme);
   text-decoration: none;
-  border-radius: 4px;
-  padding: 0 4px;
-  padding-bottom:auto
+  padding: 0 3.6px;
+  border-bottom: 2px solid transparent;
 }
 .markdown-body a:active,
 .markdown-body a:hover {
+  border-bottom: 2px solid var(--theme);
+  border-radius: 4px;
   outline-width: 0;
   background: var(--theme);
   color: var(--Deep);

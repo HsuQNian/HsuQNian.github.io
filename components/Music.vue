@@ -19,14 +19,13 @@ const MusicList = [
   "Kevin Penkin - First Dates",
   "ふぁがじー - いかないで piano.ver",
   "TD - みゆな-缶ビール（退独 remix）",
-  "麦吉_Maggie - 朗朗晴天／ハレハレヤ（翻自 v flower）",
-  "麦吉_Maggie - 桜+OK绷（中日双声道）（翻自 FUNKY MONKEY BABYS）",
-  "銘晴Halo - I Really Want to Stay At Your House（完整版·粤语复古）",
+  "麦吉_Maggie - 朗朗晴天／ハレハレヤ",
+  "麦吉_Maggie - 桜+OK绷（中日双声道）",
+  "銘晴Halo - I Really Want to Stay At Your House",
 ].sort(() => Math.random() - 0.5);
 store.MusicList = MusicList;
 console.time("Music");
 store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
-store.Music.preload = "meta";
 console.timeEnd("Music");
 const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);

@@ -9,7 +9,7 @@ const app = defineProps({
 <template>
   <a :href="app.link" target="_blank">
     <div style="display: flex; flex-direction: row; align-items: center">
-      <img v-if="!!app.avatar" id="avatar" :src="avatar" />
+      <img v-if="!!app.avatar" id="avatar" :src="avatar" loading="lazy" />
       <div v-else id="avatar" class="noAvatar" />
       <h5 style="margin: 0 0.8rem; letter-spacing: 1px">
         {{ app.name }}

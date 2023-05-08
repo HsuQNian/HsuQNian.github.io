@@ -24,8 +24,8 @@ const MusicList = [
 store.MusicList = MusicList;
 console.time("Music");
 store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
+store.Music.preload = "meta";
 console.timeEnd("Music");
-store.Music.load();
 const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);
 };
@@ -47,7 +47,6 @@ store.Music.onended = () => {
       store.MusicList[store.MusicListIndex]
     }.mp3`;
   }
-  store.Music.load();
   store.Music.play();
   store.MusicPlaying = true;
 };
@@ -112,7 +111,6 @@ store.Music.ontimeupdate = () => {
               store.Music.src = `./Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
-              store.Music.load();
               store.Music.play();
             }
           "
@@ -141,7 +139,6 @@ store.Music.ontimeupdate = () => {
               store.Music.src = `./Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
-              store.Music.load();
               store.Music.play();
             }
           "
@@ -194,7 +191,6 @@ store.Music.ontimeupdate = () => {
             Progress.style.width = '0%';
             store.Music.src = `./Medium/Music/${index}.mp3`;
             store.MusicListIndex = store.MusicList.indexOf(index);
-            store.Music.load();
             store.Music.play();
           }
         }

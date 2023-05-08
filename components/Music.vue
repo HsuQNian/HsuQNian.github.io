@@ -11,7 +11,6 @@ const MusicList = [
   "善喜 - 戒不掉的想你",
   "阿鲲 - 550W ／ Moss",
   "TD - みゆな-缶ビール",
-  "麦吉_Maggie - 桜+OK绷",
   "Kevin Penkin - Crash",
   "Kevin Penkin - Music",
   "Kevin Penkin - Erosion",

@@ -10,6 +10,8 @@ const MusicList = [
   "阿鲲 - 单程票",
   "善喜 - 戒不掉的想你",
   "阿鲲 - 550W ／ Moss",
+  "TD - みゆな-缶ビール",
+  "麦吉_Maggie - 桜+OK绷",
   "Kevin Penkin - Crash",
   "Kevin Penkin - Music",
   "Kevin Penkin - Erosion",
@@ -18,9 +20,7 @@ const MusicList = [
   "Kevin Penkin - Moving Out",
   "Kevin Penkin - First Dates",
   "ふぁがじー - いかないで piano.ver",
-  "TD - みゆな-缶ビール（退独 remix）",
   "麦吉_Maggie - 朗朗晴天／ハレハレヤ",
-  "麦吉_Maggie - 桜+OK绷（中日双声道）",
   "銘晴Halo - I Really Want to Stay At Your House",
 ].sort(() => Math.random() - 0.5);
 store.MusicList = MusicList;

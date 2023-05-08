@@ -6,20 +6,22 @@ const store = Store();
 const circulate = ref(false);
 const Progress = ref(null);
 const MusicList = [
-  "Kevin Penkin - Erosion",
-  "Kevin Penkin - Moving Out",
-  "Kevin Penkin - Music",
-  "October - Time To Love",
-  "TD - みゆな-缶ビール（退独 remix）",
   "α·Pav - μ¹",
-  "ふぁがじー - いかないで piano.ver",
-  "阿鲲 - 550W ／ Moss",
   "阿鲲 - 单程票",
+  "善喜 - 戒不掉的想你",
+  "阿鲲 - 550W ／ Moss",
+  "Kevin Penkin - Crash",
+  "Kevin Penkin - Music",
+  "Kevin Penkin - Erosion",
+  "October - Time To Love",
+  "早凉 - 大摆（cover 大喜）",
+  "Kevin Penkin - Moving Out",
+  "Kevin Penkin - First Dates",
+  "ふぁがじー - いかないで piano.ver",
+  "TD - みゆな-缶ビール（退独 remix）",
   "麦吉_Maggie - 朗朗晴天／ハレハレヤ（翻自 v flower）",
   "麦吉_Maggie - 桜+OK绷（中日双声道）（翻自 FUNKY MONKEY BABYS）",
   "銘晴Halo - I Really Want to Stay At Your House（完整版·粤语复古）",
-  "善喜 - 戒不掉的想你",
-  "早凉 - 大摆（cover 大喜）",
 ].sort(() => Math.random() - 0.5);
 store.MusicList = MusicList;
 console.time("Music");

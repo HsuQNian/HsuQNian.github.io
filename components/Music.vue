@@ -26,6 +26,7 @@ const MusicList = [
 store.MusicList = MusicList;
 console.time("Music");
 store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
+store.Music.preload = "auto";
 console.timeEnd("Music");
 const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);

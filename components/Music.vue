@@ -237,6 +237,7 @@ store.Music.ontimeupdate = () => {
   display: flex;
   align-items: center;
   flex-direction: column;
+  box-shadow: 0 0 0.1rem var(--theme);
 }
 #Music > div:not(#MusicList) {
   display: flex;
@@ -381,6 +382,7 @@ button {
   opacity: 1;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   z-index: 100;
+  box-shadow: 0 0 0.1rem var(--theme);
 }
 #MusicList::-webkit-scrollbar {
   display: block;

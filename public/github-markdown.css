@@ -115,13 +115,20 @@
 }
 .markdown-body a {
   background-color: transparent;
+  transition: all 0.4s ease;
+  outline: none;
+  text-decoration: none;
+  color: var(--theme);
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 0 4px;
+  padding-bottom:auto
 }
 .markdown-body a:active,
 .markdown-body a:hover {
   outline-width: 0;
-}
-.markdown-body strong {
-  font-weight: inherit;
+  background: var(--theme);
+  color: var(--Deep);
 }
 .markdown-body strong {
   font-weight: bolder;
@@ -145,10 +152,6 @@
   overflow: visible;
 }
 .markdown-body input {
-  font: inherit;
-  margin: 0;
-}
-.markdown-body input {
   overflow: visible;
 }
 .markdown-body [type="checkbox"] {
@@ -159,16 +162,11 @@
   box-sizing: border-box;
 }
 .markdown-body input {
+  font: inherit;
+  margin: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-}
-.markdown-body a {
-  color: var(--theme);
-  text-decoration: none;
-}
-.markdown-body a:hover {
-  text-decoration: underline;
 }
 .markdown-body strong {
   font-weight: 600;

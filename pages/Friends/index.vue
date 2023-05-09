@@ -82,7 +82,7 @@ const data = await queryContent(`/friends`).findOne();
 }
 @media screen and (max-width: 700px) {
   #friends {
-    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-columns: repeat(1, 1fr); */
     align-items: center;
     width: 100vw;
   }

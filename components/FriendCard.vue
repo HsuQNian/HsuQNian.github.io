@@ -15,7 +15,7 @@ const app = defineProps({
         {{ app.name }}
       </h5>
     </div>
-    <div style="height: 72px; display: flex; align-items: center">
+    <div class="descr" style="display: flex; align-items: center">
       {{ app.descr ? app.descr : "&nbsp;" }}
     </div>
     <div id="arrow" />
@@ -61,6 +61,9 @@ a:hover #arrow::before {
     transform: translateY(-44%) translateX(44%);
   }
 }
+.descr {
+  height: 72px;
+}
 #avatar {
   width: 48px;
   height: 48px;
@@ -96,5 +99,15 @@ a:hover #arrow::before {
   transition: all 0.36s ease-in-out;
   border-right: 2px solid var(--theme);
   border-top: 2px solid var(--theme);
+}
+@media screen and (max-width: 700px) {
+  a {
+    width: 168px;
+    padding: 0.8rem 0.8rem;
+    height: auto;
+  }
+  .descr {
+    height: 88px;
+  }
 }
 </style>

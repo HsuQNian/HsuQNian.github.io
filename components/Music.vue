@@ -7,6 +7,7 @@ const circulate = ref(false);
 const Progress = ref(null);
 const MusicList = [
   "α·Pav - μ¹",
+  "早凉 - 大摆",
   "阿鲲 - 单程票",
   "善喜 - 戒不掉的想你",
   "阿鲲 - 550W ／ Moss",
@@ -15,7 +16,6 @@ const MusicList = [
   "Kevin Penkin - Music",
   "Kevin Penkin - Erosion",
   "October - Time To Love",
-  "早凉 - 大摆（cover 大喜）",
   "Kevin Penkin - Moving Out",
   "Kevin Penkin - First Dates",
   "ふぁがじー - いかないで piano.ver",

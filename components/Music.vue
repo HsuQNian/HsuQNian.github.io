@@ -14,6 +14,7 @@ const MusicList = [
   "TD - みゆな-缶ビール",
   "Kevin Penkin - Crash",
   "Kevin Penkin - Music",
+  "麦吉_Maggie - 桜+OK绷",
   "Kevin Penkin - Erosion",
   "October - Time To Love",
   "Kevin Penkin - Moving Out",

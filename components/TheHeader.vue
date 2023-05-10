@@ -88,7 +88,7 @@ a.router-link-exact-active {
   background: var(--Real);
   position: fixed;
   right: 20px;
-  top: calc(1% + 16px);
+  top: calc(1% + 18px);
   z-index: 1001;
 }
 #disc {

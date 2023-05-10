@@ -48,6 +48,8 @@ a:link,
 a:focus {
   text-decoration: none;
 }
+.Lyric-enter-active,
+.Lyric-leave-active,
 .blogPosts-enter-active,
 .blogPosts-leave-active,
 .Loading-enter-active,
@@ -56,6 +58,8 @@ a:focus {
 .page-leave-active {
   transition: all 0.28s;
 }
+.Lyric-enter-from,
+.Lyric-leave-to,
 .blogPosts-enter-from,
 .blogPosts-leave-to,
 .Loading-enter-from,
@@ -65,4 +69,3 @@ a:focus {
   opacity: 0;
   filter: blur(1rem);
 }
-

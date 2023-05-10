@@ -5,16 +5,17 @@ const duration = ref("00:00");
 const store = Store();
 const circulate = ref(false);
 const Progress = ref(null);
+const Lyric = ref(null);
+const timeLine = ref([]);
+const characters = ref([]);
 const MusicList = [
   "α·Pav - μ¹",
   "早凉 - 大摆",
   "阿鲲 - 单程票",
   "善喜 - 戒不掉的想你",
   "阿鲲 - 550W ／ Moss",
-  "TD - みゆな-缶ビール",
   "Kevin Penkin - Crash",
   "Kevin Penkin - Music",
-  "麦吉_Maggie - 桜+OK绷",
   "Kevin Penkin - Erosion",
   "October - Time To Love",
   "Kevin Penkin - Moving Out",
@@ -23,11 +24,35 @@ const MusicList = [
   "麦吉_Maggie - 朗朗晴天／ハレハレヤ",
   "銘晴Halo - I Really Want to Stay At Your House",
 ].sort(() => Math.random() - 0.5);
+const lyric = (lrc) => {
+  timeLine.value = [];
+  lrc.match(/(?=\[).*?(?<=\])/g).forEach((item, index) => {
+    let timeStr = /(\d{2}):(\d{2})(\.(\d{2,3}))?/.exec(item);
+    let min = parseInt(timeStr[1]);
+    let sec = parseInt(timeStr[2]);
+    let msec = parseInt(timeStr[4]);
+    let time = min * 60 + sec + msec / 1000;
+    timeLine.value.push(time);
+  });
+  characters.value = lrc.replace(/(?=\[).*?(?<=\])/g, "").split("\n");
+  Lyric.value.innerHTML = "";
+  characters.value.forEach((element) => {
+    let p = document.createElement("p");
+    p.innerHTML = element;
+    Lyric.value.appendChild(p);
+  });
+};
 store.MusicList = MusicList;
-console.time("Music");
 store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
+const FirstPlay = watch(
+  () => store.MusicDisplay,
+  async () => {
+    lyric(await (await fetch(`./Medium/lyric/${MusicList[0]}.lrc`)).text());
+    FirstPlay();
+  }
+);
+
 store.Music.preload = "auto";
-console.timeEnd("Music");
 const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);
 };
@@ -37,10 +62,10 @@ store.Music.onplay = () => {
 store.Music.onpause = () => {
   store.MusicPlaying = false;
 };
-store.Music.onended = () => {
+store.Music.onended = async () => {
   store.MusicPlaying = false;
+  Progress.value.style.width = "0%";
   if (!circulate.value) {
-    Progress.value.style.width = "0%";
     store.MusicListIndex =
       store.MusicListIndex != store.MusicList.length - 1
         ? ++store.MusicListIndex
@@ -60,6 +85,7 @@ store.Music.ondurationchange = () => {
     second: "2-digit",
   });
 };
+const lyricIndex = ref(0);
 store.Music.ontimeupdate = () => {
   currentTime.value = new Date(
     Math.trunc(store.Music.currentTime) * 1000
@@ -67,7 +93,30 @@ store.Music.ontimeupdate = () => {
     minute: "2-digit",
     second: "2-digit",
   });
+  console.log(store.Music.currentTime);
+  timeLine.value.forEach((item, index) => {
+    if (
+      store.Music.currentTime >= item &&
+      (!timeLine.value[index + 1] ||
+        store.Music.currentTime < timeLine.value[index + 1])
+    ) {
+      Lyric.value.style.transform = `translateY(-${
+        (index == 0 ? index : index) * 24
+      }px)`;
+      return;
+    }
+  });
 };
+watch(
+  () => store.MusicListIndex,
+  async () => {
+    lyric(
+      await (
+        await fetch(`./Medium/lyric/${MusicList[store.MusicListIndex]}.lrc`)
+      ).text()
+    );
+  }
+);
 </script>
 <template>
   <div
@@ -174,6 +223,15 @@ store.Music.ontimeupdate = () => {
       <div>&nbsp;/&nbsp;</div>
       <div>{{ duration }}</div>
     </div>
+  </div>
+  <div
+    id="LyricWindow"
+    :style="{
+      opacity: store.Music != '' && store.MusicPlaying ? 1 : 0,
+      filter: store.Music != '' && store.MusicPlaying ? 'none' : 'blur(1rem)',
+    }"
+  >
+    <div id="Lyric" ref="Lyric" style="transition: all 0.4s ease-out" />
   </div>
   <div
     id="MusicList"
@@ -370,6 +428,20 @@ button {
   position: relative;
   outline: none;
 }
+#LyricWindow {
+  display: block;
+  position: fixed;
+  transition: all 0.28s;
+  width: 360px;
+  overflow: hidden;
+  font-size: 0.8rem;
+  bottom: 28px;
+  right: 50%;
+  transform: translateX(50%);
+  height: 24px;
+  pointer-events: none;
+}
+
 #MusicList {
   position: fixed;
   top: 266px;
@@ -403,5 +475,13 @@ button {
 #MusicList > div:hover {
   background: #fff8;
   color: var(--theme);
+}
+</style>
+<style>
+#Lyric > p {
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--Virtual);
+  margin: 0;
 }
 </style>

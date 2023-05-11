@@ -1,7 +1,5 @@
 <template>
-  <div id="Footer">
-    &copy; &nbsp;2023 by&nbsp;HsuQNian.&nbsp;All Rights Reserved.
-  </div>
+  <div id="Footer">&copy; 2023&emsp;HsuQNian.&emsp;All Rights Reserved.</div>
 </template>
 <style scoped>
 #Footer {
@@ -14,7 +12,7 @@
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 a {
   color: var(--Virtual);

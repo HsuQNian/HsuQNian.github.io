@@ -94,7 +94,7 @@ onMounted(() => {
   opacity: 0.8;
 }
 .markdown-body ::selection {
-  background: var(--Virtual);
+  background: #bbb;
   opacity: 0.8;
 }
 </style>

@@ -297,7 +297,7 @@ watch(
   display: flex;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0 0 0.1rem var(--theme);
+  box-shadow: 0 0 0.1rem var(--Virtual) inset;
 }
 #Music > div:not(#MusicList) {
   display: flex;

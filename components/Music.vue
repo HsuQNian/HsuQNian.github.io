@@ -85,7 +85,6 @@ store.Music.ondurationchange = () => {
     second: "2-digit",
   });
 };
-const lyricIndex = ref(0);
 store.Music.ontimeupdate = () => {
   currentTime.value = new Date(
     Math.trunc(store.Music.currentTime) * 1000
@@ -93,16 +92,13 @@ store.Music.ontimeupdate = () => {
     minute: "2-digit",
     second: "2-digit",
   });
-  console.log(store.Music.currentTime);
   timeLine.value.forEach((item, index) => {
     if (
       store.Music.currentTime >= item &&
       (!timeLine.value[index + 1] ||
         store.Music.currentTime < timeLine.value[index + 1])
     ) {
-      Lyric.value.style.transform = `translateY(-${
-        (index == 0 ? index : index) * 24
-      }px)`;
+      Lyric.value.style.transform = `translateY(-${index * 24}px)`;
       return;
     }
   });

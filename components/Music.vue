@@ -150,6 +150,7 @@ watch(
         <button
           @click="
             () => {
+              store.Music.pause();
               Progress.style.width = '0%';
               store.MusicListIndex =
                 store.MusicListIndex != 0
@@ -178,6 +179,7 @@ watch(
         <button
           @click="
             () => {
+              store.Music.pause();
               Progress.style.width = '0%';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
@@ -244,6 +246,7 @@ watch(
       @click="
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
+            store.Music.pause();
             Progress.style.width = '0%';
             store.Music.src = `./Medium/Music/${index}.mp3`;
             store.MusicListIndex = store.MusicList.indexOf(index);

@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <div id="help">需要帮助?</div>
+  <div id="help">需要帮助?(后续补充)</div>
 </template>
 <style scoped>
 #help {

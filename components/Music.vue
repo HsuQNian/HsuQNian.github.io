@@ -11,7 +11,6 @@ const characters = ref([]);
 const MusicList = (
   await (await fetch(`${location.origin}/api/MusicList`)).json()
 ).sort(() => Math.random() - 0.5);
-console.log(await (await fetch(`${location.origin}/api/MusicList`)).json());
 const lyric = (lrc) => {
   timeLine.value = [];
   lrc.match(/(?=\[).*?(?<=\])/g).forEach((item, index) => {

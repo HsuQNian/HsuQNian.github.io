@@ -1,0 +1,16 @@
+export default defineEventHandler(() => [
+  "α·Pav - μ¹",
+  "早凉 - 大摆",
+  "阿鲲 - 单程票",
+  "善喜 - 戒不掉的想你",
+  "阿鲲 - 550W ／ Moss",
+  "Kevin Penkin - Crash",
+  "Kevin Penkin - Music",
+  "Kevin Penkin - Erosion",
+  "October - Time To Love",
+  "Kevin Penkin - Moving Out",
+  "Kevin Penkin - First Dates",
+  "ふぁがじー - いかないで piano.ver",
+  "麦吉_Maggie - 朗朗晴天／ハレハレヤ",
+  "銘晴Halo - I Really Want to Stay At Your House",
+]);

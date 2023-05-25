@@ -9,16 +9,14 @@ let WinUrl = ref("");
 // let LinuxUrl = ref("");
 let describe = ref("");
 // let description = ref("");
-fetch(`${global.assetLink}${AppName}/${AppName}.json`)
-  // fetch(`../../../public/assets/project/Notice/Notice.json`)
-  .then((res) => res.text())
+fetch(`${location.origin}/api/project/Notice`)
+  .then((res) => res.json())
   .then((data) => {
-    const json = JSON.parse(data);
-    url.value = `${global.downloadLink}${AppName}v${json.version}/${AppName}`;
-    WinUrl.value = `${url.value}-${json.version}.exe`;
+    url.value = `${global.downloadLink}${AppName}v${data.version}/${AppName}`;
+    WinUrl.value = `${url.value}-${data.version}.exe`;
     // LinuxUrl.value = `${url.value}-${json.version}.dmg`;
-    version.value = json.version;
-    describe.value = json.describe;
+    version.value = data.version;
+    describe.value = data.describe;
     // description.value = json.description;
   });
 const loadPicture = computed(() => async (pictureUrl) => {

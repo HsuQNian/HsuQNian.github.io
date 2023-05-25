@@ -8,22 +8,10 @@ const Progress = ref(null);
 const Lyric = ref(null);
 const timeLine = ref([]);
 const characters = ref([]);
-const MusicList = [
-  "α·Pav - μ¹",
-  "早凉 - 大摆",
-  "阿鲲 - 单程票",
-  "善喜 - 戒不掉的想你",
-  "阿鲲 - 550W ／ Moss",
-  "Kevin Penkin - Crash",
-  "Kevin Penkin - Music",
-  "Kevin Penkin - Erosion",
-  "October - Time To Love",
-  "Kevin Penkin - Moving Out",
-  "Kevin Penkin - First Dates",
-  "ふぁがじー - いかないで piano.ver",
-  "麦吉_Maggie - 朗朗晴天／ハレハレヤ",
-  "銘晴Halo - I Really Want to Stay At Your House",
-].sort(() => Math.random() - 0.5);
+const MusicList = (
+  await (await fetch(`${location.origin}/api/MusicList`)).json()
+).sort(() => Math.random() - 0.5);
+console.log(await (await fetch(`${location.origin}/api/MusicList`)).json());
 const lyric = (lrc) => {
   timeLine.value = [];
   lrc.match(/(?=\[).*?(?<=\])/g).forEach((item, index) => {

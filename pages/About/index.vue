@@ -6,17 +6,16 @@ const contact = (param) => {
 <template>
   <div id="About">
     <div class="introduction">
-      一名大四软件工程专业在校（摆烂）生<br /><br class="br" />
+      一名软件工程专业应届毕业生<br /><br class="br" />
       使用vscode进行开发<br /><br class="br" />
       喜欢实现灵光一现<br /><br class="br" />
       熟练使用原生JavaScript 并使用 ES6 <br /><br class="br" />
       熟练使用 Vue 全家桶进行搭建项目 <br /><br class="br" />
       熟练使用 Electron.js进行桌面应用开发 <br /><br class="br" />
-      较熟悉使用photoshop、illustrator、Premiere、After
-      Effects等设计用软件（学习开发后落下设计方面的学习了
+      较熟悉使用photoshop、XD、illustrator、Premiere、After Effects等设计软件
       <br /><br class="br" />
       懂一点嵌入式开发，使用过 Arduino、ESP32 等开发板 <br /><br class="br" />
-      此网站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署。
+      本站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署。
     </div>
     <div class="main">
       <div class="picture"></div>

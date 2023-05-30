@@ -23,6 +23,9 @@ useHead({
 onMounted(() => {
   document.readyState == "complete" ? (onReady.value = true) : "";
 });
+definePageMeta({
+  middleware: ["router"],
+});
 </script>
 <template>
   <transition name="Loading" mode="out-in">

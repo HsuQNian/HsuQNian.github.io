@@ -8,9 +8,11 @@ const Progress = ref(null);
 const Lyric = ref(null);
 const timeLine = ref([]);
 const characters = ref([]);
-const MusicList = (
-  await (await fetch(`${location.origin}/api/MusicList`)).json()
-).sort(() => Math.random() - 0.5);
+const origin = location.origin;
+console.log(location.origin);
+const MusicList = (await (await fetch(`${origin}/api/MusicList`)).json()).sort(
+  () => Math.random() - 0.5
+);
 const lyric = (lrc) => {
   timeLine.value = [];
   lrc.match(/(?=\[).*?(?<=\])/g).forEach((item, index) => {
@@ -30,11 +32,13 @@ const lyric = (lrc) => {
   });
 };
 store.MusicList = MusicList;
-store.Music = new Audio(`./Medium/Music/${MusicList[0]}.mp3`);
+store.Music = new Audio(`${origin}/Medium/Music/${MusicList[0]}.mp3`);
 const FirstPlay = watch(
   () => store.MusicDisplay,
   async () => {
-    lyric(await (await fetch(`./Medium/lyric/${MusicList[0]}.lrc`)).text());
+    lyric(
+      await (await fetch(`${origin}/Medium/lyric/${MusicList[0]}.lrc`)).text()
+    );
     FirstPlay();
   }
 );
@@ -57,7 +61,7 @@ store.Music.onended = async () => {
       store.MusicListIndex != store.MusicList.length - 1
         ? ++store.MusicListIndex
         : 0;
-    store.Music.src = `./Medium/Music/${
+    store.Music.src = `${origin}/Medium/Music/${
       store.MusicList[store.MusicListIndex]
     }.mp3`;
   }
@@ -95,7 +99,9 @@ watch(
   async () => {
     lyric(
       await (
-        await fetch(`./Medium/lyric/${MusicList[store.MusicListIndex]}.lrc`)
+        await fetch(
+          `${origin}/Medium/lyric/${MusicList[store.MusicListIndex]}.lrc`
+        )
       ).text()
     );
   }
@@ -143,7 +149,7 @@ watch(
                 store.MusicListIndex != 0
                   ? --store.MusicListIndex
                   : store.MusicList.length - 1;
-              store.Music.src = `./Medium/Music/${
+              store.Music.src = `${origin}/Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
               store.Music.play();
@@ -172,7 +178,7 @@ watch(
                 store.MusicListIndex != store.MusicList.length - 1
                   ? ++store.MusicListIndex
                   : 0;
-              store.Music.src = `./Medium/Music/${
+              store.Music.src = `${origin}/Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
               store.Music.play();
@@ -235,7 +241,7 @@ watch(
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
             store.Music.pause();
             Progress.style.width = '0%';
-            store.Music.src = `./Medium/Music/${index}.mp3`;
+            store.Music.src = `${origin}/Medium/Music/${index}.mp3`;
             store.MusicListIndex = store.MusicList.indexOf(index);
             store.Music.play();
           }

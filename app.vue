@@ -23,9 +23,6 @@ useHead({
 onMounted(() => {
   document.readyState == "complete" ? (onReady.value = true) : "";
 });
-definePageMeta({
-  middleware: ["router"],
-});
 </script>
 <template>
   <transition name="Loading" mode="out-in">
@@ -33,27 +30,8 @@ definePageMeta({
     <div v-else>
       <Music />
       <TheHeader />
-      <NuxtPage />
+      <NuxtPage :key="$route.fullPath" />
       <TheFooter />
     </div>
   </transition>
 </template>
-<style scoped>
-audio {
-  display: none;
-  position: absolute;
-  top: 50%;
-}
-.back-enter,
-.back-enter-active {
-  transition: all 0.36s ease 0.36s;
-}
-.back-leave,
-.back-leave-active {
-  transition: all 0.36s ease;
-}
-.back-leave-to,
-.back-enter-from {
-  transform: translateX(-180%);
-}
-</style>

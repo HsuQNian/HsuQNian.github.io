@@ -9,7 +9,6 @@ const Lyric = ref(null);
 const timeLine = ref([]);
 const characters = ref([]);
 const origin = location.origin;
-console.log(location.origin);
 const MusicList = (await (await fetch(`${origin}/api/MusicList`)).json()).sort(
   () => Math.random() - 0.5
 );

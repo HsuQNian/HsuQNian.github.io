@@ -30,7 +30,7 @@ onMounted(() => {
     <div v-else>
       <Music />
       <TheHeader />
-      <NuxtPage :key="$route.fullPath" />
+      <NuxtPage/>
       <TheFooter />
     </div>
   </transition>

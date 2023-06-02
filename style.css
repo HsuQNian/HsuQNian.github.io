@@ -48,17 +48,38 @@ a:link,
 a:focus {
   text-decoration: none;
 }
+/* .Lyric-enter-active,
+.Lyric-leave-active,
+.blogPosts-enter-active,
+.blogPosts-leave-active,
+.Loading-enter-active,
+.Loading-leave-active,
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.28s;
+}
+.Lyric-enter-from,
+.Lyric-leave-to,
+.blogPosts-enter-from,
+.blogPosts-leave-to,
+.Loading-enter-from,
+.Loading-leave-to,
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+} */
 .Lyric-enter-active,
 .blogPosts-enter-active,
 .Loading-enter-active,
 .page-enter-active {
-  animation: execute 0.28s;
+  animation: execute 0.24s forwards;
 }
 .Lyric-leave-active,
 .blogPosts-leave-active,
 .Loading-leave-active,
 .page-leave-active {
-  animation: execute 0.28s reverse;
+  animation: execute 0.24s reverse forwards;
 }
 @keyframes execute {
   from {

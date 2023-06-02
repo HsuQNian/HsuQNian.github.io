@@ -48,7 +48,7 @@ a:link,
 a:focus {
   text-decoration: none;
 }
-/* .Lyric-enter-active,
+.Lyric-enter-active,
 .Lyric-leave-active,
 .blogPosts-enter-active,
 .blogPosts-leave-active,
@@ -68,8 +68,8 @@ a:focus {
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
-} */
-.Lyric-enter-active,
+}
+/* .Lyric-enter-active,
 .blogPosts-enter-active,
 .Loading-enter-active,
 .page-enter-active {
@@ -90,4 +90,4 @@ a:focus {
     opacity: 1;
     filter: blur(0);
   }
-}
+} */

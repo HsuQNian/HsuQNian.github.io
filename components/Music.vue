@@ -60,9 +60,6 @@ store.Music.onplay = () => {
 store.Music.onpause = () => {
   store.MusicPlaying = false;
 };
-store.Music.onprogress = () => {
-  console.log(event);
-};
 store.Music.onplaying = () => {
   store.MusicPlaying = true;
 };

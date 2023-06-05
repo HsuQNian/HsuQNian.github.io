@@ -20,7 +20,6 @@
     "@nuxt/devtools": "^0.3.1",
     "@pinia/nuxt": "^0.4.9",
     "@vercel/analytics": "^1.0.1",
-    "consola": "^3.0.1",
-    "pinia": "^2.0.35"
+    "consola": "^3.0.1"
   }
 }

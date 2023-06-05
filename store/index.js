@@ -5,10 +5,12 @@ export const Store = defineStore("Main", {
     Music: "",
     MusicList: [],
     MusicListIndex: 0,
-    MusicStore: false,
+    MusicSwitch: false,
+    MusicCanPlay: false,
     MusicDisplay: false,
     MusicPlaying: false,
     MusicListShow: false,
+    MusicWantToPlay: false,
     log: "",
   }),
 });

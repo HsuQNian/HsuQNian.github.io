@@ -30,6 +30,14 @@ const lyric = (lrc) => {
     Lyric.value.appendChild(p);
   });
 };
+const delay = (time, ...param) => {
+  setTimeout(() => {
+    eval(param.length > 1 ? `${param[0]}=${param[1]}` : `${param}`);
+    setTimeout(() => {
+      store.Music.play();
+    }, 480);
+  }, time);
+};
 store.MusicList = MusicList;
 store.Music = new Audio(`${origin}/Medium/Music/${MusicList[0]}.mp3`);
 const FirstPlay = watch(
@@ -52,10 +60,26 @@ store.Music.onplay = () => {
 store.Music.onpause = () => {
   store.MusicPlaying = false;
 };
+store.Music.onprogress = () => {
+  console.log(event);
+};
+store.Music.onplaying = () => {
+  store.MusicPlaying = true;
+};
+store.Music.oncanplay = () => {
+  store.MusicCanPlay = true;
+  if (store.MusicWantToPlay) {
+    store.Music.play();
+    store.MusicWantToPlay = false;
+  }
+};
 store.Music.onended = async () => {
+  store.MusicCanPlay = false;
   store.MusicPlaying = false;
   Progress.value.style.width = "0%";
-  if (!circulate.value) {
+  if (circulate.value) store.Music.play();
+  else {
+    store.MusicSwitch = true;
     store.MusicListIndex =
       store.MusicListIndex != store.MusicList.length - 1
         ? ++store.MusicListIndex
@@ -63,9 +87,8 @@ store.Music.onended = async () => {
     store.Music.src = `${origin}/Medium/Music/${
       store.MusicList[store.MusicListIndex]
     }.mp3`;
+    delay(480, "store.MusicSwitch", false);
   }
-  store.Music.play();
-  store.MusicPlaying = true;
 };
 store.Music.ondurationchange = () => {
   duration.value = new Date(
@@ -143,6 +166,9 @@ watch(
           @click="
             () => {
               store.Music.pause();
+              store.MusicSwitch = true;
+              store.MusicCanPlay = false;
+              store.MusicPlaying = false;
               Progress.style.width = '0%';
               store.MusicListIndex =
                 store.MusicListIndex != 0
@@ -151,7 +177,7 @@ watch(
               store.Music.src = `${origin}/Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
-              store.Music.play();
+              delay(480, 'store.MusicSwitch', false);
             }
           "
         />
@@ -172,6 +198,9 @@ watch(
           @click="
             () => {
               store.Music.pause();
+              store.MusicSwitch = true;
+              store.MusicCanPlay = false;
+              store.MusicPlaying = false;
               Progress.style.width = '0%';
               store.MusicListIndex =
                 store.MusicListIndex != store.MusicList.length - 1
@@ -180,12 +209,30 @@ watch(
               store.Music.src = `${origin}/Medium/Music/${
                 store.MusicList[store.MusicListIndex]
               }.mp3`;
-              store.Music.play();
+              delay(480, 'store.MusicSwitch', false);
             }
           "
         />
         <button @click="circulate = !circulate">
-          <div>1</div>
+          <div
+            :style="{
+              transform: circulate
+                ? 'rotate(45deg) translate(80%, -80%)'
+                : 'rotate(45deg)',
+            }"
+          />
+          <div
+            style="
+              font-size: 0.4rem;
+              color: #fff;
+              transition: all 0.4s ease;
+              transform: translateX(-40%);
+            "
+            :style="{ opacity: circulate ? '1' : '0' }"
+          >
+            1
+          </div>
+          <div />
         </button>
         <button @click="store.MusicListShow = !store.MusicListShow">
           <div />
@@ -221,7 +268,11 @@ watch(
       filter: store.Music != '' && store.MusicPlaying ? 'none' : 'blur(1rem)',
     }"
   >
-    <div id="Lyric" ref="Lyric" style="transition: all 0.4s ease-out" />
+    <div
+      id="Lyric"
+      ref="Lyric"
+      style="transition: all 0.4s ease-out; color: var(--Real)"
+    />
   </div>
   <div
     id="MusicList"
@@ -229,7 +280,7 @@ watch(
     :style="{
       transform: store.MusicListShow
         ? 'translate(-50%,-64%)'
-        : 'translate(-50%,-360%) ',
+        : 'translate(-50%,-360%)',
       opacity: store.MusicListShow ? 1 : 0,
     }"
   >
@@ -239,10 +290,13 @@ watch(
         () => {
           if (store.MusicListIndex != store.MusicList.indexOf(index)) {
             store.Music.pause();
+            store.MusicSwitch = true;
+            store.MusicCanPlay = false;
+            store.MusicPlaying = false;
             Progress.style.width = '0%';
             store.Music.src = `${origin}/Medium/Music/${index}.mp3`;
             store.MusicListIndex = store.MusicList.indexOf(index);
-            store.Music.play();
+            delay(480, 'store.MusicSwitch', false);
           }
         }
       "
@@ -275,12 +329,11 @@ watch(
 #Music {
   top: 88px;
   left: 50%;
-  transform: translate(-50%, -50%);
   position: fixed;
   height: 80px;
   width: 400px;
-  background: #bbb2;
-  backdrop-filter: blur(2rem);
+  background: #fff2;
+  backdrop-filter: blur(8px);
   border-radius: 0.4rem;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   z-index: 101;
@@ -301,7 +354,7 @@ watch(
   background: #fff;
   border-radius: 2px;
   position: relative;
-  margin: 0 0.4rem;
+  margin: 0 0.4rem 0 0.6rem;
 }
 
 button:nth-child(1),
@@ -345,40 +398,27 @@ button:nth-child(4) {
   justify-content: center;
   width: 20px;
 }
-button:nth-child(4)::before,
-button:nth-child(4)::after {
-  content: "";
+button:nth-child(4) > div:not(:nth-child(2)) {
   width: 4px;
   height: 4px;
   position: absolute;
   border: 2px solid #fff;
   border-radius: 2px;
   transition: all 0.4s ease;
-  transform: rotate(45deg);
 }
-button:nth-child(4) > div {
-  font-size: 0.4rem;
-  color: #fff;
-  transition: all 0.4s ease;
-  opacity: v-bind("circulate?'1':'0'");
-  transform: translateX(-40%);
-}
-button:nth-child(4)::before {
+button:nth-child(4) > div:nth-child(1) {
   top: -5.4px;
   left: -2.4px;
   border-bottom: 2px solid transparent;
   border-left: 2px solid transparent;
-  transform: rotate(45deg) translate(v-bind("circulate?'80%, -80%':'0% 0%'"));
-  transform: v-bind(
-    "circulate?'rotate(45deg) translate(80%, -80%)':'rotate(45deg)'"
-  );
 }
-button:nth-child(4)::after {
+button:nth-child(4) > div:nth-child(3) {
   bottom: -5.4px;
   right: -2.4px;
   border-top: 2px solid transparent;
   border-right: 2px solid transparent;
   opacity: v-bind("circulate?'0':'1'");
+  transform: rotate(45deg);
 }
 button:last-child {
   transform: rotate(90deg);
@@ -432,7 +472,6 @@ button {
   height: 24px;
   pointer-events: none;
 }
-
 #MusicList {
   position: fixed;
   top: 266px;
@@ -441,8 +480,8 @@ button {
   flex-direction: column;
   width: 400px;
   font-size: 0.8rem;
-  background: #bbb2;
-  backdrop-filter: blur(2rem);
+  background: #fff2;
+  backdrop-filter: blur(8px);
   border-radius: 0.4rem;
   opacity: 1;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
@@ -472,7 +511,7 @@ button {
 #Lyric > p {
   font-size: 0.8rem;
   text-align: center;
-  color: var(--Virtual);
+  color: var(--Real);
   margin: 0;
 }
 </style>

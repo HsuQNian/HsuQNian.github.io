@@ -22,7 +22,8 @@ const store = Store();
     <div
       id="disc"
       :style="{
-        AnimationPlayState: store.MusicPlaying ? 'running' : 'paused',
+        AnimationPlayState:
+          store.MusicPlaying && store.MusicCanPlay ? 'running' : 'paused',
       }"
     >
       <div
@@ -37,11 +38,40 @@ const store = Store();
       />
     </div>
     <div
+      style="opacity: 0"
+      :style="{
+        Animation:
+          store.MusicSwitch && !store.MusicPlaying
+            ? 'songChange .56s  .12s forwards'
+            : '',
+      }"
+    >
+      <div
+        id="disc"
+        :style="{
+          AnimationPlayState:
+            store.MusicPlaying && store.MusicCanPlay ? 'running' : 'paused',
+        }"
+      >
+        <div
+          v-for="index in 10"
+          :style="{
+            width: `${30 - index * 2}px`,
+            height: `${30 - index * 2}px`,
+            transform: `translate(-50%, -50%) rotate(${
+              index % 2 == 0 ? index : -index * 20
+            }deg)`,
+          }"
+        />
+      </div>
+    </div>
+    <div
       id="Crank"
       :style="{
-        transform: store.MusicPlaying
-          ? 'translateX(-50%) rotate(-30deg)'
-          : 'translateX(-50%) rotate(-60deg)',
+        transform:
+          store.MusicPlaying && !store.MusicSwitch
+            ? 'translateX(-50%) rotate(-30deg)'
+            : 'translateX(-50%) rotate(-60deg)',
       }"
     >
       <div v-for="index in 3" />
@@ -82,10 +112,8 @@ a.router-link-exact-active {
 #MusicDisc {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+
   margin-left: auto;
-  position: relative;
-  background: var(--Real);
   position: fixed;
   right: 20px;
   top: calc(1% + 18px);
@@ -93,10 +121,12 @@ a.router-link-exact-active {
 }
 #disc {
   animation: rotate 8s linear infinite;
-  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(0deg);
+  background: var(--Real);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 #disc > div {
   position: absolute;
@@ -104,7 +134,6 @@ a.router-link-exact-active {
   border: 0.1px solid #888;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(0deg);
   border-bottom: none;
 }
 #disc div:last-child {
@@ -121,6 +150,7 @@ a.router-link-exact-active {
     transform: rotate(360deg);
   }
 }
+
 #Crank {
   position: absolute;
   top: -8px;
@@ -129,7 +159,7 @@ a.router-link-exact-active {
   transform: translateX(-50%) rotate(-60deg);
   width: 6px;
   height: 20px;
-  transition: all 0.24s;
+  transition: all 0.84s;
 }
 #Crank div {
   position: absolute;
@@ -185,6 +215,18 @@ a.router-link-exact-active {
     right: 20px;
     bottom: 20px;
     top: auto;
+  }
+}
+</style>
+<style>
+@keyframes songChange {
+  0% {
+    transform: translate(-0%, -100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-60%, -100%);
+    opacity: 0;
   }
 }
 </style>

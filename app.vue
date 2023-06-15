@@ -19,6 +19,12 @@ useHead({
       href: "/favicon.ico",
     },
   ],
+  meta: [
+    {
+      name: "baidu-site-verification",
+      content: "codeva-jJBOVj43Mi",
+    },
+  ],
 });
 onMounted(() => {
   document.readyState == "complete" ? (onReady.value = true) : "";
@@ -28,9 +34,9 @@ onMounted(() => {
   <transition name="Loading" mode="out-in">
     <Loading v-if="!onReady" />
     <div v-else>
-      <Music />
       <TheHeader />
-      <NuxtPage/>
+      <Music />
+      <NuxtPage />
       <TheFooter />
     </div>
   </transition>

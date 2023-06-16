@@ -593,10 +593,10 @@
   margin: 0;
   text-align: center;
   padding-right: 12px;
-  line-height: 20px;
   border-right: 1px solid #7195a8;
   color: #7195a8;
 }
 .markdown-body .line-number span {
   display: block;
+  min-height: 1rem;
 }

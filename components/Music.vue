@@ -333,7 +333,7 @@ watch(
   backdrop-filter: blur(8px);
   border-radius: 0.4rem;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
-  z-index: 101;
+  z-index: 1001;
   color: var(--theme);
   display: flex;
   align-items: center;
@@ -468,6 +468,7 @@ button {
   transform: translateX(50%);
   height: 24px;
   pointer-events: none;
+  z-index: 1001;
 }
 #MusicList {
   position: fixed;

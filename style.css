@@ -48,6 +48,8 @@ a:link,
 a:focus {
   text-decoration: none;
 }
+.miscellaneous-enter-active,
+.miscellaneous-leave-active,
 .Lyric-enter-active,
 .Lyric-leave-active,
 .blogPosts-enter-active,
@@ -58,6 +60,8 @@ a:focus {
 .page-leave-active {
   transition: all 0.28s;
 }
+.miscellaneous-enter-from,
+.miscellaneous-leave-to,
 .Lyric-enter-from,
 .Lyric-leave-to,
 .blogPosts-enter-from,
@@ -69,25 +73,3 @@ a:focus {
   opacity: 0;
   filter: blur(1rem);
 }
-/* .Lyric-enter-active,
-.blogPosts-enter-active,
-.Loading-enter-active,
-.page-enter-active {
-  animation: execute 0.24s forwards;
-}
-.Lyric-leave-active,
-.blogPosts-leave-active,
-.Loading-leave-active,
-.page-leave-active {
-  animation: execute 0.24s reverse forwards;
-}
-@keyframes execute {
-  from {
-    opacity: 0;
-    filter: blur(1rem);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-} */

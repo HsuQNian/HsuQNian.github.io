@@ -1,6 +1,12 @@
 <script setup>
 import { Store } from "../store/index.js";
 const store = Store();
+const router = useRouter();
+const mobileHeader = ref(false);
+router.beforeResolve((to, from, next) => {
+  mobileHeader.value = false;
+  next();
+});
 </script>
 <template>
   <div class="header">
@@ -10,6 +16,17 @@ const store = Store();
     <nuxt-link to="/friends">友链</nuxt-link>
     <nuxt-link to="/about">关于</nuxt-link>
   </div>
+  <div class="toggle-menu" @click="mobileHeader = !mobileHeader" />
+  <transition name="miscellaneous">
+    <div v-if="mobileHeader" class="mobileHeader">
+      <nuxt-link to="/">主页</nuxt-link>
+      <nuxt-link to="/blog">博客</nuxt-link>
+      <nuxt-link to="/project">项目</nuxt-link>
+      <nuxt-link to="/friends">友链</nuxt-link>
+      <nuxt-link to="/about">关于</nuxt-link>
+    </div>
+  </transition>
+
   <div
     id="MusicDisc"
     @click="
@@ -101,10 +118,36 @@ const store = Store();
   font-size: 18px;
   font-weight: 500;
   transition: all 0.24s;
-  color: var(--Virtual);
+  color: var(--Real);
 }
 .header a:nth-child(1) {
   margin-left: 4%;
+}
+.toggle-menu {
+  display: none;
+}
+.mobileHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.mobileHeader a {
+  margin: 8px 0;
+  text-decoration: none;
+  letter-spacing: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.24s;
+  color: var(--Real);
 }
 a.router-link-exact-active {
   color: var(--theme);
@@ -209,12 +252,46 @@ a.router-link-exact-active {
   box-shadow: 0 0 0 0.2px var(--Real);
   z-index: -2;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 540px) {
   #MusicDisc {
     position: fixed;
     right: 20px;
     bottom: 20px;
     top: auto;
+  }
+  .header {
+    display: none;
+  }
+  .mobileHeader {
+    display: flex;
+  }
+  .toggle-menu {
+    display: block;
+    width: 26px;
+    height: 26px;
+    position: fixed;
+    left: 20px;
+    bottom: 24px;
+    z-index: 1001;
+  }
+
+  .toggle-menu::before,
+  .toggle-menu::after {
+    bottom: 0;
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 32px;
+    background: var(--Virtual);
+    border-radius: 2px;
+    transition: all 0.24s;
+    transform: rotate(v-bind("mobileHeader?'45deg':'90deg'"));
+    transform-origin: bottom;
+  }
+  .toggle-menu::after {
+    right: 0;
+    transform: rotate(v-bind("mobileHeader?'-45deg':'90deg'"))
+      translate(v-bind("mobileHeader?'0,0':'-400%, 74%'"));
   }
 }
 </style>

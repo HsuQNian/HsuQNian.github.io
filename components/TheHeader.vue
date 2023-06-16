@@ -118,7 +118,7 @@ router.beforeResolve((to, from, next) => {
   font-size: 18px;
   font-weight: 500;
   transition: all 0.24s;
-  color: var(--Real);
+  color: var(--Virtual);
 }
 .header a:nth-child(1) {
   margin-left: 4%;

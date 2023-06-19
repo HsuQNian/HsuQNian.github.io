@@ -45,7 +45,6 @@ const loadPicture = computed(() => async (pictureUrl) => {
           style="
             text-decoration: underline;
             color: var(--theme);
-
             cursor: pointer;
           "
           @click="
@@ -53,9 +52,27 @@ const loadPicture = computed(() => async (pictureUrl) => {
               path: '/project/Notice/help',
             })
           "
-          >{{ version }}</span
+        >
+          {{ version }}
+        </span>
+        <span
+          style="
+            color: var(--theme);
+            text-decoration: underline;
+            margin-left: 8px;
+            cursor: pointer;
+            font-style: 0.9rem;
+            font-weight: 200;
+          "
+          @click="
+            router.push({
+              path: '/project/Notice/feedback',
+            })
+          "
+          >反馈</span
         >
       </p>
+
       <div id="link" style="margin-top: 20px">
         <div class="Windows">
           <Button :text="'Windows'" :url="WinUrl" />

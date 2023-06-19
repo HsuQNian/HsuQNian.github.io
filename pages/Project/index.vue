@@ -61,12 +61,10 @@ const projectImg = computed(() => {
 .AppList {
   transition: all 0.64s cubic-bezier(0.18, 0.89, 0.32, 1.12);
   align-items: flex-start;
-  margin: auto;
-  height: 92vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 100px;
-  column-gap: 120px;
+  grid-gap: 40px;
+  column-gap: 80px;
   justify-items: center;
 }
 .block {
@@ -93,7 +91,7 @@ const projectImg = computed(() => {
 @media screen and (max-width: 800px) {
   .AppList {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 72px;
+    grid-gap: 20px;
     column-gap: 0;
     width: 100vw;
   }

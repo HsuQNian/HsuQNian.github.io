@@ -1,1 +1,1 @@
-export default defineEventHandler(() => `request error`);
+export default defineEventHandler(() => ({ code: 404, author: "HsuQNian" }));

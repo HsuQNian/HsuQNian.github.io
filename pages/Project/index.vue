@@ -41,16 +41,16 @@ const projectImg = computed(() => {
           align-items: center;
           flex-direction: column;
           justify-content: center;
-          padding: 0 40px;
+          padding: 0 24px;
         "
       >
         <img
           v-if="JSON.stringify(Imgs).includes(index)"
           :src="projectImg(index)"
-          style="width: 100px; border-radius: 20px"
+          style="width: 80px; border-radius: 20px"
           loading="lazy"
         />
-        <div style="font-size: 2rem; font-weight: 100; text-align: center">
+        <div style="font-size: 1.6rem; font-weight: 100; text-align: center">
           {{ index.replace("-", "\n") }}
         </div>
       </div>
@@ -69,11 +69,9 @@ const projectImg = computed(() => {
 }
 .block {
   border-radius: 8px;
-  height: 220px;
+  height: 160px;
   width: 100px;
-  line-height: 1.2;
   position: relative;
-  backdrop-filter: blur(8px);
   margin-top: 50px;
   position: relative;
   box-shadow: 0px 0px 0.4px rgba(0, 0, 0, 0.499),

@@ -1,5 +1,6 @@
 <script setup>
 const data = await queryContent(`/friends`).findOne();
+console.log(data);
 </script>
 <template>
   <div id="contentBox">
@@ -17,6 +18,16 @@ const data = await queryContent(`/friends`).findOne();
         :name="friends.name"
         :descr="friends.descr"
         :avatar="friends.avatar"
+      />
+    </div>
+    <div style="text-align: center; margin: 20px">已失联友链</div>
+    <div id="friends" style="min-height: 20px">
+      <FriendCard
+        id="FriendCard"
+        v-for="loss in data.loss"
+        key="loss.title"
+        :name="loss.name"
+        :descr="loss.descr"
       />
     </div>
     <Comment :width="'100%'" />
@@ -81,7 +92,7 @@ const data = await queryContent(`/friends`).findOne();
     width: 94vw;
   }
   #FriendCard {
-   margin: 20px 0;
+    margin: 20px 0;
   }
 }
 </style>

@@ -36,7 +36,7 @@ a {
   transition: all 0.24s ease-in-out;
   margin: 20px;
   overflow: hidden;
-  opacity: v-bind("link!=null ? 0.8 : 0");
+  opacity: .8;
 }
 h2 {
   margin: 0;

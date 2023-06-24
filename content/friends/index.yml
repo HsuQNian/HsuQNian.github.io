@@ -3,10 +3,6 @@ friends:
     link: https://blog.phbeats.cn/
     avatar: https://bu.dusays.com/2023/01/12/63c020b7e26af.jpg
     descr: 记录学习历程和生活感悟
-  - name: ikun-blog
-    link: http://101.42.20.119:8080/
-    avatar: ""
-    descr: 唱跳rap篮球
   - name: 醉里
     link: https://202271.xyz
     avatar: https://202271.xyz/images/uploads/android-chrome-192x192.png
@@ -20,10 +16,6 @@ friends:
     link: https://www.mxne.cn/
     avatar: https://bu.dusays.com/2023/02/05/63df7de56a470.webp
     descr: 学如逆水行舟，不进则退。
-  - name: 青衣墨客
-    link: https://www.qingyi1220.cn/
-    avatar: https://www.qingyi1220.cn/img/Tsingyi.jpg
-    descr: 世界既不黑也不白，而是一道精致的灰
   - name: Adil
     link: https://blog.adil.com.cn
     avatar: https://tucdn.wpon.cn/2023/04/06/15dbbb2004b44.jpg
@@ -56,3 +48,12 @@ friends:
     link: https://jihau.top/
     avatar: https://jihau.top/img/logo.png
     descr: JiHua的博客
+loss:
+  - name: 青衣墨客
+    link: https://www.qingyi1220.cn/
+    avatar: https://www.qingyi1220.cn/img/Tsingyi.jpg
+    descr: 世界既不黑也不白，而是一道精致的灰
+  - name: ikun-blog
+    link: http://101.42.20.119:8080/
+    avatar: ""
+    descr: 唱跳rap篮球

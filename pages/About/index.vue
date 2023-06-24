@@ -8,19 +8,12 @@ const contact = (param) => {
     <div class="introduction">
       软件工程专业应届毕业生<br /><br class="br" />
       使用vscode进行开发<br /><br class="br" />
-      熟练使用原生JavaScript 并使用 ES6<br /><br class="br" />
-      熟练使用 Electron.js 进行桌面应用开发<br /><br class="br" />
-      熟练使用Vue3(组合式) 及其全家桶进行搭建项目<br /><br class="br" />
-
-      了解嵌入式开发，使用过 Arduino、ESP32 等开发板<br /><br class="br" />
-      较熟悉使用photoshop、Adobe XD、illustrator、Premiere、After Effects
-      等软件<br /><br class="br" />
+      喜欢尝试新鲜事物<br /><br class="br" />
       本站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署。
     </div>
     <div class="main">
       <div class="picture"></div>
       <h1>徐乔年</h1>
-      <span>不惊、不惑、不扰</span>
       <div class="information">
         <div>
           <svg
@@ -166,6 +159,7 @@ const contact = (param) => {
     word-break: keep-all;
     padding: 40px;
     line-height: 2;
+    text-align: center;
   }
   .main {
     margin-top: 84px;

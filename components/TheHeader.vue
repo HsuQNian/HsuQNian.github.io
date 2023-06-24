@@ -18,7 +18,11 @@ router.beforeResolve((to, from, next) => {
   </div>
   <div class="toggle-menu" @click="mobileHeader = !mobileHeader" />
   <transition name="miscellaneous">
-    <div v-if="mobileHeader" class="mobileHeader">
+    <div
+      v-if="mobileHeader"
+      class="mobileHeader"
+      @click.self="mobileHeader = !mobileHeader"
+    >
       <nuxt-link to="/">主页</nuxt-link>
       <nuxt-link to="/blog">博客</nuxt-link>
       <nuxt-link to="/project">项目</nuxt-link>

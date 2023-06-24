@@ -66,13 +66,14 @@ const projectImg = computed(() => {
   grid-gap: 40px;
   column-gap: 80px;
   justify-items: center;
+  margin-top: 20px;
 }
 .block {
   border-radius: 8px;
   height: 160px;
   width: 100px;
   position: relative;
-  margin-top: 50px;
+  margin-top: 20px;
   position: relative;
   box-shadow: 0px 0px 0.4px rgba(0, 0, 0, 0.499),
     0px 0px 1.1px rgba(0, 0, 0, 0.602), 0px 0px 2.7px rgba(0, 0, 0, 0.608),
@@ -91,7 +92,7 @@ const projectImg = computed(() => {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     column-gap: 0;
-    width: 100vw;
+    width: 78vw;
   }
 }
 </style>

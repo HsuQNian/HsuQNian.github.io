@@ -49,6 +49,7 @@ const projectImg = computed(() => {
           :src="projectImg(index)"
           style="width: 80px; border-radius: 20px"
           loading="lazy"
+          referrerpolicy="no-referrer"
         />
         <div style="font-size: 1.6rem; font-weight: 100; text-align: center">
           {{ index.replace("-", "\n") }}

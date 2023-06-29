@@ -89,6 +89,7 @@ const loadPicture = computed(() => async (pictureUrl) => {
             loadPicture(`${global.assetLink}Notice/picture${index + 1}.png`)
           "
           :src="`${global.assetLink}Notice/picture${index + 1}.png`"
+          referrerpolicy="no-referrer"
           style="box-shadow: 0 0 2px rgba(0, 0, 0, 1); border-radius: 8px"
         />
         <div v-html="item"></div>

@@ -12,7 +12,7 @@ const contact = (param) => {
       本站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署。
     </div>
     <div class="main">
-      <div class="picture"></div>
+      <div class="picture" />
       <h1>徐乔年</h1>
       <div class="information">
         <div>

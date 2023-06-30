@@ -8,10 +8,16 @@ const app = defineProps({
 </script>
 <template>
   <a :href="app.link" target="_blank">
-    <div style="display: flex; flex-direction: row; align-items: center">
-      <img v-if="!!app.avatar" id="avatar" :src="avatar" referrerpolicy="no-referrer" loading="lazy" />
+    <div id="main">
+      <img
+        v-if="!!app.avatar"
+        id="avatar"
+        :src="avatar"
+        referrerpolicy="no-referrer"
+        loading="lazy"
+      />
       <div v-else id="avatar" class="noAvatar" />
-      <h5 style="margin: 0 0.8rem; letter-spacing: 1px">
+      <h5 id="name">
         {{ app.name }}
       </h5>
     </div>
@@ -36,7 +42,7 @@ a {
   transition: all 0.24s ease-in-out;
   margin: 20px;
   overflow: hidden;
-  opacity: .8;
+  opacity: 0.8;
 }
 h2 {
   margin: 0;
@@ -56,6 +62,11 @@ a:hover #arrow::before {
   border-top: 2px solid var(--theme);
   animation: float 2.4s 0.48s ease-in-out infinite alternate;
 }
+#main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 @keyframes float {
   50% {
     transform: translateY(-44%) translateX(44%);
@@ -72,7 +83,13 @@ a:hover #arrow::before {
   border: 0.1px solid var(--Virtual);
 }
 .noAvatar {
+  width: 48px;
+  height: 48px;
   border: 0.1px solid var(--Virtual);
+}
+#name {
+  margin: 0 0.8rem;
+  letter-spacing: 1px;
 }
 #arrow {
   position: absolute;
@@ -102,12 +119,20 @@ a:hover #arrow::before {
 }
 @media screen and (max-width: 700px) {
   a {
-    width: 168px;
+    width: 120px;
     padding: 0.8rem 0.8rem;
     height: auto;
   }
+  #main {
+    flex-direction: column;
+  }
+  #name {
+    margin: 0.4rem 0;
+    font-size: 0.7rem;
+  }
   .descr {
-    height: 88px;
+    /* height: 88px; */
+    font-size: 0.8rem;
   }
 }
 </style>

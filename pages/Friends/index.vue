@@ -5,7 +5,9 @@ console.log(data);
 <template>
   <div id="contentBox">
     <div style="padding-top: 64px; text-align: center">
-      加入友链请在下方留言(随机顺序不分先后)
+      加入友链请在下方留言
+      <br />
+      (随机顺序不分先后)
     </div>
     <div id="friends">
       <FriendCard
@@ -89,10 +91,10 @@ console.log(data);
 @media screen and (max-width: 700px) {
   #friends {
     align-items: center;
-    width: 94vw;
+    width: 100vw;
   }
   #FriendCard {
-    margin: 20px 0;
+    margin: 16px 0;
   }
 }
 </style>

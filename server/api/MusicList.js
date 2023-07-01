@@ -8,6 +8,7 @@ export default defineEventHandler(() => [
   "Kevin Penkin - Music",
   "Kevin Penkin - Erosion",
   "October - Time To Love",
+  "最眩民族風 - 星尘Infinity",
   "Kevin Penkin - Moving Out",
   "Kevin Penkin - First Dates",
   "ふぁがじー - いかないで piano.ver",

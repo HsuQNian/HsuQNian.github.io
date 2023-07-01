@@ -6,9 +6,9 @@ const contact = (param) => {
 <template>
   <div id="About">
     <div class="introduction">
-      软件工程专业应届毕业生<br /><br class="br" />
-      使用vscode进行开发<br /><br class="br" />
+      23届软件工程毕业生<br /><br class="br" />
       喜欢尝试新鲜事物<br /><br class="br" />
+      使用vscode进行开发<br /><br class="br" />
       本站基于Nuxt3搭建，使用GitHub pages，通过vercel托管部署。
     </div>
     <div class="main">

@@ -1,6 +1,5 @@
 <script setup>
 const data = await queryContent(`/friends`).findOne();
-console.log(data);
 </script>
 <template>
   <div id="contentBox">

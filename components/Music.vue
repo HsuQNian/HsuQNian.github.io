@@ -50,7 +50,7 @@ const FirstPlay = watch(
   }
 );
 
-store.Music.preload = "auto";
+store.Music.preload = "none";
 const schedule = () => {
   store.Music.currentTime = store.Music.duration * (event.offsetX / 300);
 };

@@ -333,7 +333,7 @@ watch(
   backdrop-filter: blur(8px);
   border-radius: 0.4rem;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
-  z-index: 1001;
+  z-index: 1004;
   color: var(--theme);
   display: flex;
   align-items: center;

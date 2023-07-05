@@ -19,6 +19,11 @@ useHead({
       href: "/favicon.ico",
     },
   ],
+  script: [
+    {
+      src: "./sakura.js",
+    },
+  ],
   meta: [
     {
       name: "baidu-site-verification",
@@ -32,7 +37,10 @@ useHead({
   ],
 });
 onMounted(() => {
-  document.readyState == "complete" ? (onReady.value = true) : "";
+  if (document.readyState == "complete") {
+    onReady.value = true;
+    startSakura();
+  }
 });
 </script>
 <template>
@@ -46,3 +54,14 @@ onMounted(() => {
     </div>
   </transition>
 </template>
+<style scoped>
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1002;
+}
+</style>

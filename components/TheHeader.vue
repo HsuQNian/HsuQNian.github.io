@@ -16,7 +16,11 @@ router.beforeResolve((to, from, next) => {
     <nuxt-link to="/friends">友链</nuxt-link>
     <nuxt-link to="/about">关于</nuxt-link>
   </div>
-  <div class="toggle-menu" @click="mobileHeader = !mobileHeader" />
+  <div
+    class="toggle-menu"
+    style="z-index: 1004"
+    @click="mobileHeader = !mobileHeader"
+  />
   <transition name="miscellaneous">
     <div
       v-if="mobileHeader"
@@ -136,8 +140,8 @@ router.beforeResolve((to, from, next) => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(8px);
-  z-index: 1000;
+  backdrop-filter: blur(4px);
+  z-index: 1003;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,7 +168,7 @@ a.router-link-exact-active {
   position: fixed;
   right: 20px;
   top: calc(1% + 18px);
-  z-index: 1001;
+  z-index: 1003;
 }
 #disc {
   animation: rotate 8s linear infinite;

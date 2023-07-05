@@ -21,7 +21,7 @@ useHead({
   ],
   script: [
     {
-      src: "./sakura.js",
+      src: "https://hsuqnian.top/sakura.js",
     },
   ],
   meta: [

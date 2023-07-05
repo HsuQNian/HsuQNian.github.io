@@ -32,7 +32,6 @@ Sakura.prototype.draw = function (cxt) {
   cxt.save();
   cxt.translate(this.x, this.y);
   cxt.rotate(this.r);
-  console.log(cxt);
   cxt.drawImage(SakuraImg, 0, 0, 18 * this.s, 18 * this.s);
   cxt.restore();
 };

@@ -1,6 +1,6 @@
 let stop, staticx;
 var SakuraImg = new Image();
-SakuraImg.src = "https://hsuqnia.top/sakura.png";
+SakuraImg.src = "https://hsuqnian.top/sakura.png";
 
 function IsPC() {
   var userAgentInfo = navigator.userAgent;

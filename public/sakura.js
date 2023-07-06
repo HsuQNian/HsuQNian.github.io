@@ -1,8 +1,7 @@
+//q:如何修改代码以达到飘落不同的花瓣？
 let stop, staticx;
-var SakuraImg1 = new Image();
-var SakuraImg2 = new Image();
-SakuraImg1.src = "https://hsuqnian.top/sakura1.png";
-SakuraImg2.src = "https://hsuqnian.top/sakura2.png";
+var SakuraImg = new Image();
+SakuraImg.src = "https://hsuqnian.top/sakura.png";
 function IsPC() {
   var userAgentInfo = navigator.userAgent;
   var Agents = [
@@ -33,13 +32,7 @@ Sakura.prototype.draw = function (cxt) {
   cxt.save();
   cxt.translate(this.x, this.y);
   cxt.rotate(this.r);
-  cxt.drawImage(
-    Math.round(Math.random()) ? SakuraImg1 : SakuraImg2,
-    0,
-    0,
-    18 * this.s,
-    18 * this.s
-  );
+  cxt.drawImage(SakuraImg, 0, 0, 18 * this.s, 18 * this.s);
   cxt.restore();
 };
 Sakura.prototype.update = function () {

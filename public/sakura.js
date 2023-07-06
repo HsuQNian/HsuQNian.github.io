@@ -1,7 +1,7 @@
 let stop, staticx;
 var SakuraImg = new Image();
-SakuraImg.src = "https://hsuqnian.top/sakura.png";
-
+SakuraImg1.src = "https://hsuqnian.top/sakura1.png";
+SakuraImg2.src = "https://hsuqnian.top/sakura2.png";
 function IsPC() {
   var userAgentInfo = navigator.userAgent;
   var Agents = [
@@ -32,7 +32,13 @@ Sakura.prototype.draw = function (cxt) {
   cxt.save();
   cxt.translate(this.x, this.y);
   cxt.rotate(this.r);
-  cxt.drawImage(SakuraImg, 0, 0, 18 * this.s, 18 * this.s);
+  cxt.drawImage(
+    Math.round(Math.random()) ? SakuraImg1 : SakuraImg2,
+    0,
+    0,
+    18 * this.s,
+    18 * this.s
+  );
   cxt.restore();
 };
 Sakura.prototype.update = function () {

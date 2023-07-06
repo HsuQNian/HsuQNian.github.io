@@ -1,5 +1,6 @@
 let stop, staticx;
-var SakuraImg = new Image();
+var SakuraImg1 = new Image();
+var SakuraImg2 = new Image();
 SakuraImg1.src = "https://hsuqnian.top/sakura1.png";
 SakuraImg2.src = "https://hsuqnian.top/sakura2.png";
 function IsPC() {

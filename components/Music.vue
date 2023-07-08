@@ -133,6 +133,7 @@ watch(
       transform: store.MusicDisplay
         ? 'translate(-50%, 10%) '
         : 'translate(-50%, -240%) ',
+      zIndex: store.mobileHeader ? '1004' : '1002',
     }"
   >
     <div class="Music-Title" style="flex: 1; margin-top: 6px">
@@ -263,6 +264,7 @@ watch(
     :style="{
       opacity: store.Music != '' && store.MusicPlaying ? 1 : 0,
       filter: store.Music != '' && store.MusicPlaying ? 'none' : 'blur(1rem)',
+      zIndex: store.mobileHeader ? '1004' : '1002',
     }"
   >
     <div
@@ -279,6 +281,7 @@ watch(
         ? 'translate(-50%,-64%)'
         : 'translate(-50%,-360%)',
       opacity: store.MusicListShow ? 1 : 0,
+      zIndex: store.mobileHeader ? '1004' : '1002',
     }"
   >
     <div
@@ -333,7 +336,7 @@ watch(
   backdrop-filter: blur(8px);
   border-radius: 0.4rem;
   transition: all 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.12);
-  z-index: 1004;
+  z-index: 1002;
   color: var(--theme);
   display: flex;
   align-items: center;
@@ -468,7 +471,7 @@ button {
   transform: translateX(50%);
   height: 24px;
   pointer-events: none;
-  z-index: 1001;
+  z-index: 1002;
 }
 #MusicList {
   position: fixed;

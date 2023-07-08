@@ -2,9 +2,8 @@
 import { Store } from "../store/index.js";
 const store = Store();
 const router = useRouter();
-const mobileHeader = ref(false);
 router.beforeResolve((to, from, next) => {
-  mobileHeader.value = false;
+  store.mobileHeader = false;
   next();
 });
 </script>
@@ -19,13 +18,13 @@ router.beforeResolve((to, from, next) => {
   <div
     class="toggle-menu"
     style="z-index: 1004"
-    @click="mobileHeader = !mobileHeader"
+    @click="store.mobileHeader = !store.mobileHeader"
   />
   <transition name="miscellaneous">
     <div
-      v-if="mobileHeader"
+      v-if="store.mobileHeader"
       class="mobileHeader"
-      @click.self="mobileHeader = !mobileHeader"
+      @click.self="store.mobileHeader = !store.mobileHeader"
     >
       <nuxt-link to="/">主页</nuxt-link>
       <nuxt-link to="/blog">博客</nuxt-link>
@@ -293,13 +292,13 @@ a.router-link-exact-active {
     background: var(--Virtual);
     border-radius: 2px;
     transition: all 0.24s;
-    transform: rotate(v-bind("mobileHeader?'45deg':'90deg'"));
+    transform: rotate(v-bind("store.mobileHeader?'45deg':'90deg'"));
     transform-origin: bottom;
   }
   .toggle-menu::after {
     right: 0;
-    transform: rotate(v-bind("mobileHeader?'-45deg':'90deg'"))
-      translate(v-bind("mobileHeader?'0,0':'-400%, 74%'"));
+    transform: rotate(v-bind("store.mobileHeader?'-45deg':'90deg'"))
+      translate(v-bind("store.mobileHeader?'0,0':'-400%, 74%'"));
   }
 }
 </style>

@@ -12,5 +12,6 @@ export const Store = defineStore("Main", {
     MusicListShow: false,
     MusicWantToPlay: false,
     log: "",
+    mobileHeader: false,
   }),
 });

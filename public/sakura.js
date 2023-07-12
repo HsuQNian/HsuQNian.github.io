@@ -34,7 +34,7 @@ Sakura.prototype.draw = function (cxt, img) {
   cxt.save();
   cxt.translate(this.x, this.y);
   cxt.rotate(this.r);
-  cxt.drawImage(img, 0, 0, 18 * this.s, 18 * this.s);
+  // cxt.drawImage(img, 0, 0, 18 * this.s, 18 * this.s);
   cxt.restore();
 };
 Sakura.prototype.update = function () {
@@ -74,7 +74,7 @@ SakuraList.prototype.update = function () {
 };
 SakuraList.prototype.draw = function (cxt) {
   for (let i = 0, len = this.list.length; i < len; i++) {
-    this.list[i].draw(cxt, i % 2 == 0 ? sakuraImg1 : sakuraImg2);
+    this.list[i].draw(cxt);
   }
 };
 SakuraList.prototype.get = function (i) {
@@ -162,8 +162,9 @@ function startSakura() {
       y: randomFny,
       r: randomFnR,
     });
-    sakura.draw(cxt);
-    sakuraList.push(sakura);
+    console.log(SakuraImg1, SakuraImg2);
+    // sakura.draw(cxt, i % 2 == 0 ? SakuraImg1 : SakuraImg2);
+    // sakuraList.push(sakura);
   }
   stop = requestAnimationFrame(function () {
     cxt.clearRect(0, 0, canvas.width, canvas.height);

@@ -21,7 +21,7 @@ useHead({
   ],
   script: [
     {
-      src: "https://hsuqnian.top/sakura.js",
+      src: `${location.origin}/sakura.js`,
     },
   ],
   meta: [
@@ -40,6 +40,7 @@ onMounted(() => {
   if (document.readyState == "complete") {
     onReady.value = true;
     startSakura();
+    console.log(location);
   }
 });
 </script>
